@@ -1,0 +1,1257 @@
+/* =====================
+=========Global=========
+===================== */
+
+:root {
+/* ==Palette== */
+  --n-hs: 0 0%;
+  --p-hs: var(--n-hs);
+
+  --p-hs-forest: 86 51%;
+  --p-hs-grass:  83 40%;
+  --p-hs-gold:   46 74%;
+  --p-hs-blood:   6 84%;
+  --p-hs-light:  42 68%;
+
+  --s-hs-water:     227 90%;
+  --s-hs-air:       111 90%;
+  --s-hs-fire:       14 90%;
+  --s-hs-stone:      44 90%;
+  --s-hs-plantlife: 304 90%;
+  --s-hs-tremor:     57 90%;
+  --s-hs-lightning: 195 90%;
+  --s-hs-gravity:   280 90%;
+  --s-hs-mind:      160 90%;
+
+  /* ==How to set varying colors:
+
+.exampleClass {
+  --p-hs: var(--p-hs-SPECIFIC);
+} */
+
+	--l-black:   0%;
+	--l-5:       5%;
+	--l-10:     10%;
+	--l-20:     20%;
+	--l-30:     30%;
+	--l-50:     50%;
+	--l-70:     70%;
+	--l-85:     85%;
+	--l-white: 100%;
+  
+  --primary-l:   var(--l-black);
+  --secondary-l: var(--l-50);
+  --tertiary-l: var(--l-30);
+  --background-l: var(--l-30);
+  
+/* ==Extras== */
+
+  --hp-percent: 100%;
+  --vp-ratio: calc(1vw / 1vh);
+  --header-height-MN: 457.584;
+  --header-height: calc(var(--vp-ratio) * var(--header-height-MN))%;
+
+  margin: 0;
+  inset: 0 0 0 0;
+}
+
+@media (color-scheme: dark) {
+	:root {
+  --primary-l: var(--l-white);
+	}
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: hsl( var(--p-hs) var(--l-70) );
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl( var(--p-hs) var(--l-30) );
+  border: 2px solid hsl( var(--p-hs) var(--l-30) );
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-button {
+  display:none;
+}
+
+/* =====================
+=======Typography=======
+===================== */
+
+:root {
+  --step--2: clamp(0.78rem, calc(0.68rem + 0.50vw), 1.04rem);
+  --step--1: clamp(0.94rem, calc(0.80rem + 0.71vw), 1.30rem);
+  --step-0: clamp(1.13rem, calc(0.93rem + 0.98vw), 1.63rem);
+  --step-1: clamp(1.35rem, calc(1.08rem + 1.33vw), 2.03rem);
+  --step-2: clamp(1.62rem, calc(1.26rem + 1.79vw), 2.54rem);
+  --step-3: clamp(1.94rem, calc(1.46rem + 2.40vw), 3.17rem);
+  --step-4: clamp(2.2rem, calc(1.8rem + 3vw), 3.6rem);
+}
+
+input {
+  all: unset;
+  text-align: center;
+  font-size: var(--step-4);
+  text-shadow: 0px 0px 2px hsl( var(--p-hs) var(--l-50) );
+  color: hsl( var(--p-hs) var(--l-black) );
+  margin: 0;
+}
+
+button {
+  all: unset;
+  font-size: var(--step-1);
+  text-shadow: 0px 0px 2px hsl( var(--p-hs) var(--l-50) );
+  color: hsl( var(--p-hs) var(--l-black) );
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--step-3);
+  text-shadow: 0px 0px 2px hsl( var(--p-hs) var(--l-50) );
+  color: hsl( var(--p-hs) var(--l-black) );
+  margin: 0;
+}
+
+h2 {
+  font-size: var(--step-2);
+  text-shadow: 0px 0px 2px hsl( var(--p-hs) var(--l-50) );
+  color: hsl( var(--p-hs) var(--l-10) );
+  margin: 0;
+}
+
+h3 {
+  font-size: var(--step-1);
+  text-shadow: 0px 0px 2px hsl( var(--p-hs) var(--l-50) );
+  color: hsl( var(--p-hs) var(--l-10) );
+  margin: 0;
+}
+
+h4 {
+  font-size: var(--step-0);
+  text-shadow: 0px 0px 2px hsl( var(--p-hs) var(--l-50) );
+  color: hsl( var(--p-hs) var(--l-5) );
+  margin: 0;
+}
+
+h5 {
+  font-size: var(--step--1);
+  text-shadow: 0px 0px 2px hsl( var(--p-hs) var(--l-50) );
+  color: hsl( var(--p-hs) var(--l-black) );
+  margin: 0;
+}
+
+h6 {
+  font-size: var(--step--2);
+  text-shadow: 0px 0px 2px hsl( var(--p-hs) var(--l-50) );
+  color: hsl( var(--p-hs) var(--l-black) );
+  margin: 0;
+}
+
+/* =====================
+=========Layout=========
+===================== */
+
+body {
+  margin: 0;
+}
+
+/* ==Header== */
+
+.wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: -1;
+}
+
+/* ====Dividers==== */
+
+.divider1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, calc(100% - 5px) calc(100% - 5px), 0% calc(100% - 6px));
+  inset: 30%;
+  aspect-ratio: 1/1;
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+  outline-offset: -6px;
+  background: linear-gradient(135deg, rgba(31,34,18,0.4) 0%, rgba(115,110,110,1) 60%);
+  transform: rotate(45deg) translate(50%,calc(50% - 1px));
+  z-index: -1;
+}
+
+.divider1 .divider {
+  width: 2px;
+  height: 150%;
+  outline: 2px solid hsl(var(--p-hs-gold) var(--l-70));
+  transform: rotate(-45deg);
+}
+
+.healthBoxLeft .divider,
+.healthBoxRight .divider,
+.jumpBox .divider,
+.runBox .divider {
+  width: 100%;
+  height: 0%;
+  outline: 1px solid hsl(var(--p-hs-gold) var(--l-70));
+  outline-offset: 0.5px;
+  transform: translate(0,-4px);
+}
+
+/* ====Sheet==== */
+
+.container {
+  display: grid;
+  grid-template-rows: 1fr 18fr 1fr;
+  grid-template-columns: 1fr 18fr 1fr;
+  width: 60vw;
+  aspect-ratio: 1/1;
+  margin-top: 40%;
+  margin-inline: auto;
+  background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+  outline-offset: -6px;
+  transform: rotate(-45deg);
+  box-shadow: -8px 1px 5px 3px rgba(115,115,115,0.7);
+  mix-blend-mode: overlay;
+}
+
+.corner1,
+.corner2,
+.corner3,
+.corner4 {
+  background: rgba(115,115,115,0.7);
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+  outline-offset: -6px;
+}
+
+.holder {
+  background: transparent;
+  z-index: 1;
+}
+
+.glass {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background: linear-gradient(110deg, rgba(31,34,18,0.3) 0%, rgba(115,115,115,0.3) 100%);
+  mix-blend-mode: multiply;
+  z-index: -1;
+}
+
+
+/* ==Portrait Box== */
+
+/* =Health Bar= */
+
+.healthBox {
+  content: "";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 1;
+}
+
+.healthBox:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, rgba(255,255,255,1) 5%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(255,255,255,1) 95%);
+}
+
+.healthBar {
+  width: 150%;
+  height: 80%;
+  background: rgba(144,33,16,1);
+  mix-blend-mode: multiply;
+  opacity: 60%;
+  transform: rotate(45deg) translate(0%,calc(115% - (1.2 * var(--hp-percent))));
+  transition: 5s 0.5s ease-in-out;
+}
+
+.healthBar svg {
+  margin-top: -50%;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
+}
+
+/* =Portrait= */
+
+.portraitHolder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 200%;
+  width: 146%;
+  overflow: hidden;
+  margin-inline: auto;
+  transform-origin: top left;
+  transform: rotate(45deg) translate(-6.5%,-50%);
+  z-index: 1;
+}
+
+.portrait {
+  width: 40%;
+  aspect-ratio: 1/1;
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+  outline-offset: -6px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(100, 100, 100, 0.7) 100%
+  );
+  z-index: 2;
+}
+
+/* =Magic Holder= */
+
+.magicHolder {
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 60%;
+  margin-block: -40%;
+  transform: scale(30%) rotate(0deg);
+  z-index: 3;
+  transition: transform 1s;
+}
+
+.magicHolder:hover {
+  transform: scale(100%) rotate(0deg);
+}
+
+.nonagram {
+  width: 120%;
+  height: 100%;
+  padding-top: 20%;
+  margin-inline: auto;
+  transform: translate(-18.25%,-8%);
+  transition: 1s;
+}
+
+.magicCorner {
+  width: inherit;
+  position: absolute;
+  display: flex;
+  background: purple;
+  justify-content: start;
+  align-items: center;
+  clip-path: polygon(25% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%);
+  mix-blend-mode: multiply;
+  opacity: 30%;
+  z-index: 1;
+  transition: 1s;
+}
+
+.nonagram:hover .magicCorner {
+  background: transparent;
+  clip-path: polygon(5% 50%, 20% 35%, 30% 41.5%, 30% 58.5%, 20% 65%);
+  opacity: 100%;
+/*   clip-path: polygon(0% 50%, 23.75% 26.25%, 29% 50%, 29% 50%, 23.75% 73.75%);
+  clip-path: polygon(0% 50%, 50% 0%, 80% 31%, 80% 69%, 50% 100%); */
+}
+
+.magicCorner:hover {
+  clip-path: polygon(0% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%) !important;
+}
+
+.magicCorner:hover {
+  z-index: 5 !important;
+  mix-blend-mode: normal;
+}
+
+.magicType {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 25%;
+  padding-top: 18%;
+  padding-bottom: 2%;
+  text-align: center;
+  outline: 2px solid hsl(var(--p-hs-gold) var(--l-70));
+  outline-offset: -4px;
+  transform: rotate(-90deg);
+  transition: 1s; 
+}
+
+.magicType h3 {
+  transform: scale(0%);
+  transition: 1s 0.25s;
+}
+
+.magicBox {
+  width: 45%;
+  padding-block: 5%;
+  padding-right: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.magicBoxTop {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate(6.6625%,0.0625%);
+  z-index: 5;
+}
+
+.manaCurrent,
+.manaMax,
+.magicPoints {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  width: 100%;
+  aspect-ratio: 1/1 !important;
+  overflow: hidden;
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+  border-radius: 50%;
+  outline-offset: -6px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0) 50%, white 100%);
+  transform: scale(0%);
+  transition: 1s .25s;
+}
+
+.magicCorner:hover .magicType h3 {
+  transform: scale(100%);
+  transition: 0.25s;
+}
+
+.magicBoxBot {
+  width: 50%;
+  aspect-ratio: 1/2 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-6.6625%,-0.0625%);
+}
+
+.magic1 {
+  transform: rotate(30deg) translate(6%,0);
+}
+
+.magic1:hover {
+  background: hsl( var(--s-hs-water) var(--l-50)) !important;
+}
+
+.magic1 .magicType {
+  background-color: hsl( var(--s-hs-water) var(--l-50));
+}
+
+.magic1:hover .magicPoints,
+.magic1:hover .manaCurrent,
+.magic1:hover .manaMax {
+  transform: rotateZ(330deg) scale(100%);
+}
+
+.magic2 {
+  transform: rotate(70deg) translate(6%,0);
+}
+
+.magic2:hover {
+  background: hsl( var(--s-hs-air) var(--l-50)) !important;
+}
+
+.magic2 .magicType {
+  background-color: hsl( var(--s-hs-air) var(--l-50));
+}
+
+.magic2:hover .magicPoints,
+.magic2:hover .manaCurrent,
+.magic2:hover .manaMax {
+  transform: rotateZ(290deg) scale(100%);
+}
+
+.magic3 {
+  transform: rotate(110deg) translate(6%,0);
+}
+
+.magic3:hover {
+  background: hsl( var(--s-hs-fire) var(--l-50)) !important;
+}
+
+.magic3 .magicType {
+  background-color: hsl( var(--s-hs-fire) var(--l-50));
+}
+
+.magic3:hover .magicPoints,
+.magic3:hover .manaCurrent,
+.magic3:hover .manaMax {
+  transform: rotateZ(250deg) scale(100%);
+}
+
+.magic4 {
+  transform: rotate(150deg) translate(6%,0);
+}
+
+.magic4:hover {
+  background: hsl( var(--s-hs-stone) var(--l-50)) !important;
+}
+
+.magic4 .magicType {
+  background-color: hsl( var(--s-hs-stone) var(--l-50));
+}
+
+.magic4:hover .magicPoints,
+.magic4:hover .manaCurrent,
+.magic4:hover .manaMax {
+  transform: rotateZ(210deg) scale(100%);
+}
+
+.magic5 {
+  transform: rotate(190deg) translate(6%,0);
+}
+
+.magic5:hover {
+  background: hsl( var(--s-hs-plantlife) var(--l-50)) !important;
+}
+
+.magic5 .magicType {
+  background-color: hsl( var(--s-hs-plantlife) var(--l-50));
+}
+
+.magic5:hover .magicPoints,
+.magic5:hover .manaCurrent,
+.magic5:hover .manaMax {
+  transform: rotateZ(170deg) scale(100%);
+}
+
+.magic6 {
+  transform: rotate(230deg) translate(6%,0);
+}
+
+.magic6:hover {
+  background: hsl( var(--s-hs-tremor) var(--l-50)) !important;
+}
+
+.magic6 .magicType {
+  background-color: hsl( var(--s-hs-tremor) var(--l-50));
+}
+
+.magic6:hover .magicPoints,
+.magic6:hover .manaCurrent,
+.magic6:hover .manaMax {
+  transform: rotateZ(130deg) scale(100%);
+}
+
+.magic7 {
+  transform: rotate(270deg) translate(6%,0);
+}
+
+.magic7:hover {
+  background: hsl( var(--s-hs-lightning) var(--l-50)) !important;
+}
+
+.magic7 .magicType {
+  background-color: hsl( var(--s-hs-lightning) var(--l-50));
+}
+
+.magic7:hover .magicPoints,
+.magic7:hover .manaCurrent,
+.magic7:hover .manaMax {
+  transform: rotateZ(90deg) scale(100%);
+}
+
+.magic8 {
+  transform: rotate(310deg) translate(6%,0);
+}
+
+.magic8:hover {
+  background: hsl( var(--s-hs-gravity) var(--l-50)) !important;
+}
+
+.magic8 .magicType {
+  background-color: hsl( var(--s-hs-gravity) var(--l-50));
+}
+
+.magic8:hover .magicPoints,
+.magic8:hover .manaCurrent,
+.magic8:hover .manaMax {
+  transform: rotateZ(50deg) scale(100%);
+}
+
+.magic9 {
+  transform: rotate(350deg) translate(6%,0);
+}
+
+.magic9:hover {
+  background: hsl( var(--s-hs-mind) var(--l-50)) !important;
+}
+
+.magic9 .magicType {
+  background-color: hsl( var(--s-hs-mind) var(--l-50));
+}
+
+.magic9:hover .magicPoints,
+.magic9:hover .manaCurrent,
+.magic9:hover .manaMax {
+  transform: rotateZ(10deg) scale(100%);
+}
+
+.magicCorePoints {
+  clip-path: unset !important;
+  mix-blend-mode: normal !important;
+  background: unset;
+  opacity: 100%;
+}
+
+.nonagram:hover .magicCorePoints {
+  z-index: 0 !important;
+}
+
+.magicCorePoints .magicPoints {
+  margin-block: 12.5%;
+  margin-inline: 35%;
+  background: hsl( var(--p-hs) var(--l-70) );
+  transform: scale(100%);
+}
+
+.magicCorePoints .magicPoints input {
+  transform: scale(300%) translateY(-10%);
+  transition: 1s;
+}
+
+.magicCorePoints .magicPoints h3 {
+  transform: scale(200%) translateY(50%);
+  transition: 1s;
+}
+
+.nonagram:hover .magicCorePoints .magicPoints input {
+  transform: scale(200%) translateY(-10%);
+}
+
+.nonagram:hover .magicCorePoints .magicPoints h3 {
+  transform: scale(150%) translateY(50%);
+}
+
+/* =Info Box= */
+
+.infoBox {
+  display: flex;
+  width: 80%;
+  aspect-ratio: 2/1;
+  margin-top: -6px;
+  z-index: 1;
+}
+
+.healthBoxLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  transform: translate(25%,-50%);
+}
+
+.healthCurrent {
+  height: 50%;
+  overflow: hidden;
+}
+
+.healthCurrent input {
+  width: 100%;
+  text-align: center;
+}
+
+.h1Desc {
+  height: 50%;
+  text-align: center;
+}
+
+.jumpBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  width: 50%;
+  height: 87%;
+  transform: translate(-10%,15%);
+  overflow: hidden;
+}
+
+.runBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 50%;
+  height: 87%;
+  transform: translate(10%,15%);
+  overflow: hidden;
+}
+
+.jumpHeightBox,
+.fallHeightBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  padding: 5%;
+  height: 25%;
+}
+
+.movementSpeedBox,
+.carryWeightBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding: 5%;
+  height: 25%;
+}
+
+.jumpHeight,
+.fallHeight,
+.movementSpeed,
+.carryWeight {
+  height: 50%;
+}
+
+.healthBoxRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  transform: translate(-25%,-50%);
+}
+
+.healthMax {
+  height: 50%;
+  overflow: hidden;
+}
+
+.healthMax h1 {
+  font-weight: normal;
+  font-size: var(--step-4);
+  width: 100%;
+  text-align: center;
+}
+
+
+/* ==Stats Box== */
+
+.containerInner {
+  display: grid;
+  grid-template-rows: 1fr 9fr 1fr;
+  grid-template-columns: 1fr 9fr 1fr;
+  height: 40%;
+  width: 40%;
+  margin-bottom: -5%;
+  transform: translateX(-30%) rotate(0deg);
+  aspect-ratio: 1/1 !important;
+  transition: 0.5s ease-in-out;
+}
+
+.containerInner:hover {
+  transform: translateX(-30%) rotate(720deg);
+}
+
+.corePoints {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 1/1 !important;
+  overflow: hidden;
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+  border-radius: 50%;
+  outline-offset: -6px;
+  background: radial-gradient(ellipse, hsl(var(--s-hs-mind) var(--l-50)) 25%, rgba(190,200,195,0.9) 75%);
+  transition: 0.5s ease-in-out;
+}
+
+.containerInner:hover .corePoints {
+  transform: rotate(-720deg);
+}
+
+.statsHolder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  position: absolute;
+  height: 150%;
+  width: 148%;
+  margin-inline: auto;
+  transform-origin: top left;
+  transform: rotate(45deg) translate(-7%,-50%);
+  transition: 1s;
+}
+
+.statsBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 7.5%;
+  width: 80%;
+  margin-block: 2%;
+  background: linear-gradient(110deg, rgba(31,34,18,0.8) 0%, rgba(115,115,115,0.8) 100%);
+  outline: 6px double gold;
+  box-shadow: -8px 1px 5px 3px rgba(115,115,115,0.7);
+  z-index: 0;
+  transition: 1s;
+}
+
+.statsBox:nth-child(3n-1) {
+  transform: translateX(-10%);
+}
+
+.statsBox:nth-child(3n+1) {
+  transform: translateX(10%);
+}
+
+.statsBox.open {
+  transform-origin: center top;
+  transform: rotate(90deg) translate(0,500%);
+  z-index: 4;
+}
+
+.statsBox.open .attrName {
+  transform: rotate(-90deg) translate(0,-175%);
+  outline: 6px double gold;
+}
+
+.statsBox.open .attrPoints {
+  transform: rotate(-90deg) translate(-40%,-325%);
+}
+
+.statsBox.open .skillBox {
+  width: 100%;
+  height: 100%;
+  margin-inline: -45%;
+  background: linear-gradient(110deg, rgba(31,34,18,0.8) 0%, rgba(115,115,115,0.8) 100%);
+  outline: 6px double gold;
+  box-shadow: -8px 1px 5px 3px rgba(115,115,115,0.7);
+  transform: rotate(-90deg) translate(46%,0);
+  z-index: 4;
+}
+
+.statsBox.open .skillBox:hover {
+  width: 100% !important;
+  height: 600% !important;
+  margin-inline: -20%;
+}
+
+.statsBox.open .skillHolder {
+  width: 30%;
+}
+
+.statsBox.open .skillBox:hover .skillDesc {
+  transform: scale(100%);
+}
+
+.statsBox.open .skillPoints {
+  width: 20%;
+}
+
+.statsBox.open .skillBox:hover .skillPoints {
+  width: 40%;
+}
+
+.statsBox.open .skillBonus {
+  width: 40%;
+  height: 100%;
+  padding: 5%;
+}
+
+.statsBox.open .attrHolder:nth-child(2n) .skillPoints {
+  transform: translateX(50%);
+}
+
+.statsBox.open .skillBox:hover .skillBonus {
+  width: 25%;
+  height: 18%;
+  transform: translateY(-20%);
+}
+
+.statsBox.open .skillMastery,
+.statsBox.open .skillFlat {
+  transform: scale(100%);
+  height: 100%;
+  margin-left: -30%;
+}
+
+.statsBox.open .skillBox:hover .skillMastery,
+.statsBox.open .skillBox:hover .skillFlat {
+  transform: scale(100%);
+  height: 15% !important;
+  margin-left: 0;
+}
+
+.statsBox.open .skillBox:hover .floatDesc {
+  height: 15%;
+  transform: scale(100%);
+}
+
+#strengthStatBox .attrPoints,
+#strengthStatBox .skillBonus {
+  background: radial-gradient(circle, rgba(200,200,120,0.9) 25%, rgba(200,200,200,0.9) 75%);
+}
+
+#strengthStatBox .skillMastery,
+#strengthStatBox .skillFlat {
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(200,200,120,0.9) 50%, rgba(0,0,0,0) 100%);
+}
+
+#dexterityStatBox .attrPoints,
+#dexterityStatBox .skillBonus {
+  background: radial-gradient(circle, rgba(120,200,120,0.9) 25%, rgba(200,200,200,0.9) 75%);
+}
+
+#dexterityStatBox .skillMastery,
+#dexterityStatBox .skillFlat {
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(120,200,120,0.9) 50%, rgba(0,0,0,0) 100%);
+}
+
+#intelligenceStatBox .attrPoints,
+#intelligenceStatBox .skillBonus {
+  background: radial-gradient(circle, rgba(120,160,200,0.9) 25%, rgba(200,200,200,0.9) 75%);
+}
+
+#intelligenceStatBox .skillMastery,
+#intelligenceStatBox .skillFlat {
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(120,160,200,0.9) 50%, rgba(0,0,0,0) 100%);
+}
+
+.infoButton {
+  display: flex;
+  justify-content: center;
+  width: 3em;
+  height: 3em;
+  aspect-ratio: 1/1 !important;
+  border: unset;
+  transform: translate(0.5em,1em);
+  background: transparent;
+  z-index: 7;
+}
+
+.triBlock1,
+.triBlock2,
+.triBlock3 {
+  position: absolute;
+  width: 0;
+  height: 0;
+  position: inherit;
+  inset: 2px;
+  border-style: solid;
+  border-width: 0 1em calc(1.732 * 1em) 1em;
+  border-color: transparent transparent hsl(10,100%,40%) transparent;
+  mix-blend-mode: multiply;
+  transition: 0.5s;
+}
+
+.triBlock1 {
+  transform: translate(calc(100% - 3px),0) rotate(0deg);
+}
+
+.infoButton:hover .triBlock1 {
+  transform: translate(calc(100% - 4px),0) rotate(300deg);
+  transition: 1s;
+}
+
+.triBlock2 {
+  transform: rotate(40deg);
+}
+
+.infoButton:hover .triBlock2 {
+  transform: translate(-1px,-2px) rotate(340deg);
+  transition: 1s;
+}
+
+.triBlock3 {
+  transform: translate(calc(-100% + 2px),3px) rotate(80deg);
+}
+
+.infoButton:hover .triBlock3 {
+  transform: translate(calc(-100% + 2px),-2px) rotate(380deg);
+  transition: 1s;
+}
+
+.attrName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  transform: translate(-25%,-75%);
+  z-index: 6;
+  transition: 1s;
+}
+
+.attrName:hover:after {
+  background: red;
+}
+
+.attrBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  z-index: 0;
+  transition: 1s;
+}
+
+.attrHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 125%;
+  height: 100%;
+  text-align: center;
+  margin-left: -25%;
+  padding-top: 0%;
+  z-index: 5;
+  transition: 1s;
+}
+
+.skillBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  transition: 1s;
+}
+
+.skillHolder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: 1s;
+}
+
+.skillBox:hover .skillHolder {
+  width: 60%;
+}
+
+.skillName {
+  height: 20%;
+  margin: 2.5%;
+  transition: 1s;
+}
+
+.skillName h2 {
+  color: hsl( var(--p-hs) var(--l-black));
+  margin-block: 0.3em;
+  font-size: 2em;
+}
+
+.skillDesc {
+  height: 80%;
+  width: 100%;
+  transform: scale(0%);
+  transition: 1s 0.1s;
+}
+
+.skillDesc h6 {
+  font-size: 1.6em;
+}
+
+.skillPoints {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.skillBonus {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  margin-inline: 30%;
+  padding: 5%;
+  aspect-ratio: 1/1;
+  outline: 6px double gold;
+  border-radius: 999px;
+}
+
+.skillBonus input {
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+}
+
+.skillMastery,
+.skillFlat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 20%;
+  transform: scale(0%);
+}
+
+.skillMastery input,
+.skillFlat input {
+  font-size: 1.5em;
+}
+
+.floatDesc {
+  width: 40%;
+  height: 10%;
+  transform: scale(0%);
+}
+
+.floatDesc h6 {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.attrPoints {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin-left: -30%;
+  aspect-ratio: 1/1 !important;
+  overflow: hidden;
+  outline: 6px double gold;
+  border-radius: 50%;
+  outline-offset: -6px;
+  transform: translate(0,-45%);
+  transition: 1s;
+  z-index: 6;
+}
+
+.statsBox:hover .attrPoints {
+  transform: translate(0,-70%);  
+}
+
+.statsBox.open:hover .attrPoints {
+  transform: rotate(-90deg) translate(-40%,-325%);
+}
+
+.statsBox:hover + .statsBox .attrPoints {
+  transform: translate(0,-15%) !important;  
+}
+
+.attrBonus {
+  margin-block: 15%;
+  text-align: center;
+  height: 20%;
+}
+
+.skillBonus {
+  text-align: center;
+  height: 60%;
+}
+
+.attrDice {
+  text-align: center;
+  padding-bottom: 10%;
+}
+
+.skillMastery,
+.skillFlat {
+  text-align: center;
+  width: 50%;
+}
+
+/* ==Combat Box== */
+
+.combatHolder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 200%;
+  width: 146%;
+  overflow: hidden;
+  margin-inline: auto;
+  transform-origin: top left;
+  transform: rotate(45deg) translate(-7%,-50%);
+  z-index: 1;
+  transition: 1s;
+}
