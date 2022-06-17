@@ -961,7 +961,7 @@ body {
 }
 
 .statsBox.open .skillBox:hover .floatDesc {
-  height: 15%;
+  height: 10%;
   transform: scale(100%);
 }
 
