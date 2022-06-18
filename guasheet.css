@@ -166,6 +166,7 @@ body {
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
+  -webkit-perspective: 10px;
   perspective: 10px;
 }
 
@@ -296,6 +297,7 @@ body {
   height: 80%;
   background: rgba(144,33,16,1);
   mix-blend-mode: multiply;
+  -webkit-opacity: 60%;
   opacity: 60%;
   -webkit-transform: rotate(45deg) translate(0%,calc(115% - (1.2 * var(--hp-percent))));
   transform: rotate(45deg) translate(0%,calc(115% - (1.2 * var(--hp-percent))));
@@ -427,6 +429,7 @@ body {
   -webkit-clip-path: polygon(25% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%);
   clip-path: polygon(25% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%);
   mix-blend-mode: multiply;
+  -webkit-opacity: 30%;
   opacity: 30%;
   z-index: 1;
   transition: 1s;
@@ -436,6 +439,7 @@ body {
   background: transparent;
   -webkit-clip-path: polygon(5% 50%, 20% 35%, 30% 41.5%, 30% 58.5%, 20% 65%);
   clip-path: polygon(5% 50%, 20% 35%, 30% 41.5%, 30% 58.5%, 20% 65%);
+  -webkit-opacity: 100%;
   opacity: 100%;
 }
 
@@ -711,6 +715,7 @@ body {
   clip-path: unset !important;
   mix-blend-mode: normal !important;
   background: unset;
+  -webkit-opacity: 100%;
   opacity: 100%;
 }
 
