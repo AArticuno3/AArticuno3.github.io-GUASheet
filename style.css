@@ -175,6 +175,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   z-index: -1;
 }
@@ -193,6 +194,7 @@ body {
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   background: linear-gradient(135deg, rgba(31,34,18,0.4) 0%, rgba(115,110,110,1) 60%);
+  -webkit-transform: rotate(45deg) translate(50%,calc(50% - 1px));
   transform: rotate(45deg) translate(50%,calc(50% - 1px));
   z-index: -1;
 }
@@ -201,6 +203,7 @@ body {
   width: 2px;
   height: 150%;
   outline: 2px solid hsl(var(--p-hs-gold) var(--l-70));
+  -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
@@ -212,6 +215,7 @@ body {
   height: 0%;
   outline: 1px solid hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: 0.5px;
+  -webkit-transform: translate(0,-4px);
   transform: translate(0,-4px);
 }
 
@@ -228,6 +232,7 @@ body {
   background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
+  -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
   box-shadow: -8px 1px 5px 3px rgba(115,115,115,0.7);
   mix-blend-mode: overlay;
@@ -289,6 +294,7 @@ body {
   background: rgba(144,33,16,1);
   mix-blend-mode: multiply;
   opacity: 60%;
+  -webkit-transform: rotate(45deg) translate(0%,calc(115% - (1.2 * var(--hp-percent))));
   transform: rotate(45deg) translate(0%,calc(115% - (1.2 * var(--hp-percent))));
   transition: 5s 0.5s ease-in-out;
 }
@@ -320,9 +326,11 @@ body {
 }
 @keyframes move-forever {
   0% {
+   -webkit-transform: translate3d(-90px,0,0);
    transform: translate3d(-90px,0,0);
   }
   100% { 
+    -webkit-transform: translate3d(85px,0,0);
     transform: translate3d(85px,0,0);
   }
 }
@@ -352,7 +360,9 @@ body {
   width: 146%;
   overflow: hidden;
   margin-inline: auto;
+  -webkit-transform-origin: top left;
   transform-origin: top left;
+  -webkit-transform: rotate(45deg) translate(-6.5%,-50%);
   transform: rotate(45deg) translate(-6.5%,-50%);
   z-index: 1;
 }
@@ -380,12 +390,15 @@ body {
   width: 80%;
   height: 60%;
   margin-block: -40%;
+  -webkit-transform: scale(30%) rotate(0deg);
   transform: scale(30%) rotate(0deg);
   z-index: 3;
+  transition: -webkit-transform 1s;
   transition: transform 1s;
 }
 
 .magicHolder:hover {
+  -webkit-transform: scale(100%) rotate(0deg);
   transform: scale(100%) rotate(0deg);
 }
 
@@ -394,6 +407,7 @@ body {
   height: 100%;
   padding-top: 20%;
   margin-inline: auto;
+  -webkit-transform: translate(-18.25%,-8%);
   transform: translate(-18.25%,-8%);
   transition: 1s;
 }
@@ -439,11 +453,13 @@ body {
   text-align: center;
   outline: 2px solid hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -4px;
+  -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
   transition: 1s; 
 }
 
 .magicType h3 {
+  -webkit-transform: scale(0%);
   transform: scale(0%);
   transition: 1s 0.25s;
 }
@@ -463,6 +479,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  -webkit-transform: translate(6.6625%,0.0625%);
   transform: translate(6.6625%,0.0625%);
   z-index: 5;
 }
@@ -482,11 +499,13 @@ body {
   border-radius: 50%;
   outline-offset: -6px;
   background: radial-gradient(ellipse, rgba(0,0,0,0) 50%, white 100%);
+  -webkit-transform: scale(0%);
   transform: scale(0%);
   transition: 1s .25s;
 }
 
 .magicCorner:hover .magicType h3 {
+  -webkit-transform: scale(100%);
   transform: scale(100%);
   transition: 0.25s;
 }
@@ -497,10 +516,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  -webkit-transform: translate(-6.6625%,-0.0625%);
   transform: translate(-6.6625%,-0.0625%);
 }
 
 .magic1 {
+  -webkit-transform: rotate(30deg) translate(6%,0);
   transform: rotate(30deg) translate(6%,0);
 }
 
@@ -515,10 +536,12 @@ body {
 .magic1:hover .magicPoints,
 .magic1:hover .manaCurrent,
 .magic1:hover .manaMax {
+  -webkit-transform: rotateZ(330deg) scale(100%);
   transform: rotateZ(330deg) scale(100%);
 }
 
 .magic2 {
+  -webkit-transform: rotate(70deg) translate(6%,0);
   transform: rotate(70deg) translate(6%,0);
 }
 
@@ -533,10 +556,12 @@ body {
 .magic2:hover .magicPoints,
 .magic2:hover .manaCurrent,
 .magic2:hover .manaMax {
+  -webkit-transform: rotateZ(290deg) scale(100%);
   transform: rotateZ(290deg) scale(100%);
 }
 
 .magic3 {
+  -webkit-transform: rotate(110deg) translate(6%,0);
   transform: rotate(110deg) translate(6%,0);
 }
 
@@ -551,10 +576,12 @@ body {
 .magic3:hover .magicPoints,
 .magic3:hover .manaCurrent,
 .magic3:hover .manaMax {
+  -webkit-transform: rotateZ(250deg) scale(100%);
   transform: rotateZ(250deg) scale(100%);
 }
 
 .magic4 {
+  -webkit-transform: rotate(150deg) translate(6%,0);
   transform: rotate(150deg) translate(6%,0);
 }
 
@@ -569,10 +596,12 @@ body {
 .magic4:hover .magicPoints,
 .magic4:hover .manaCurrent,
 .magic4:hover .manaMax {
+  -webkit-transform: rotateZ(210deg) scale(100%);
   transform: rotateZ(210deg) scale(100%);
 }
 
 .magic5 {
+  -webkit-transform: rotate(190deg) translate(6%,0);
   transform: rotate(190deg) translate(6%,0);
 }
 
@@ -587,10 +616,12 @@ body {
 .magic5:hover .magicPoints,
 .magic5:hover .manaCurrent,
 .magic5:hover .manaMax {
+  -webkit-transform: rotateZ(170deg) scale(100%);
   transform: rotateZ(170deg) scale(100%);
 }
 
 .magic6 {
+  -webkit-transform: rotate(230deg) translate(6%,0);
   transform: rotate(230deg) translate(6%,0);
 }
 
@@ -605,10 +636,12 @@ body {
 .magic6:hover .magicPoints,
 .magic6:hover .manaCurrent,
 .magic6:hover .manaMax {
+  -webkit-transform: rotateZ(130deg) scale(100%);
   transform: rotateZ(130deg) scale(100%);
 }
 
 .magic7 {
+  -webkit-transform: rotate(270deg) translate(6%,0);
   transform: rotate(270deg) translate(6%,0);
 }
 
@@ -623,10 +656,12 @@ body {
 .magic7:hover .magicPoints,
 .magic7:hover .manaCurrent,
 .magic7:hover .manaMax {
+  -webkit-transform: rotateZ(90deg) scale(100%);
   transform: rotateZ(90deg) scale(100%);
 }
 
 .magic8 {
+  -webkit-transform: rotate(310deg) translate(6%,0);
   transform: rotate(310deg) translate(6%,0);
 }
 
@@ -641,10 +676,12 @@ body {
 .magic8:hover .magicPoints,
 .magic8:hover .manaCurrent,
 .magic8:hover .manaMax {
+  -webkit-transform: rotateZ(50deg) scale(100%);
   transform: rotateZ(50deg) scale(100%);
 }
 
 .magic9 {
+  -webkit-transform: rotate(350deg) translate(6%,0);
   transform: rotate(350deg) translate(6%,0);
 }
 
@@ -659,6 +696,7 @@ body {
 .magic9:hover .magicPoints,
 .magic9:hover .manaCurrent,
 .magic9:hover .manaMax {
+  -webkit-transform: rotateZ(10deg) scale(100%);
   transform: rotateZ(10deg) scale(100%);
 }
 
@@ -677,24 +715,29 @@ body {
   margin-block: 12.5%;
   margin-inline: 35%;
   background: hsl( var(--p-hs) var(--l-70) );
+  -webkit-transform: scale(100%);
   transform: scale(100%);
 }
 
 .magicCorePoints .magicPoints input {
+  -webkit-transform: scale(300%) translateY(-10%);
   transform: scale(300%) translateY(-10%);
   transition: 1s;
 }
 
 .magicCorePoints .magicPoints h3 {
+  -webkit-transform: scale(200%) translateY(50%);
   transform: scale(200%) translateY(50%);
   transition: 1s;
 }
 
 .nonagram:hover .magicCorePoints .magicPoints input {
+  -webkit-transform: scale(200%) translateY(-10%);
   transform: scale(200%) translateY(-10%);
 }
 
 .nonagram:hover .magicCorePoints .magicPoints h3 {
+  -webkit-transform: scale(150%) translateY(50%);
   transform: scale(150%) translateY(50%);
 }
 
@@ -715,6 +758,7 @@ body {
   align-items: center;
   width: 50%;
   height: 50%;
+  -webkit-transform: translate(25%,-50%);
   transform: translate(25%,-50%);
 }
 
@@ -740,6 +784,7 @@ body {
   align-items: end;
   width: 50%;
   height: 87%;
+  -webkit-transform: translate(-10%,15%);
   transform: translate(-10%,15%);
   overflow: hidden;
 }
@@ -751,6 +796,7 @@ body {
   align-items: start;
   width: 50%;
   height: 87%;
+  -webkit-transform: translate(10%,15%);
   transform: translate(10%,15%);
   overflow: hidden;
 }
@@ -789,6 +835,7 @@ body {
   align-items: center;
   width: 50%;
   height: 50%;
+  -webkit-transform: translate(-25%,-50%);
   transform: translate(-25%,-50%);
 }
 
@@ -814,12 +861,14 @@ body {
   height: 40%;
   width: 40%;
   margin-bottom: -5%;
+  -webkit-transform: translateX(-30%) rotate(0deg);
   transform: translateX(-30%) rotate(0deg);
   aspect-ratio: 1/1 !important;
   transition: 0.5s ease-in-out;
 }
 
 .containerInner:hover {
+  -webkit-transform: translateX(-30%) rotate(720deg);
   transform: translateX(-30%) rotate(720deg);
 }
 
@@ -840,6 +889,7 @@ body {
 }
 
 .containerInner:hover .corePoints {
+  -webkit-transform: rotate(-720deg);
   transform: rotate(-720deg);
 }
 
@@ -853,7 +903,9 @@ body {
   height: 150%;
   width: 148%;
   margin-inline: auto;
+  -webkit-transform-origin: top left;
   transform-origin: top left;
+  -webkit-transform: rotate(45deg) translate(-7%,-50%);
   transform: rotate(45deg) translate(-7%,-50%);
   transition: 1s;
 }
@@ -875,25 +927,31 @@ body {
 }
 
 .statsBox:nth-child(3n-1) {
+  -webkit-transform: translateX(-10%);
   transform: translateX(-10%);
 }
 
 .statsBox:nth-child(3n+1) {
+  -webkit-transform: translateX(10%);
   transform: translateX(10%);
 }
 
 .statsBox.open {
+  -webkit-transform-origin: center top;
   transform-origin: center top;
+  -webkit-transform: rotate(90deg) translate(0,500%);
   transform: rotate(90deg) translate(0,500%);
   z-index: 4;
 }
 
 .statsBox.open .attrName {
+  -webkit-transform: rotate(-90deg) translate(0,-175%);
   transform: rotate(-90deg) translate(0,-175%);
   outline: 6px double gold;
 }
 
 .statsBox.open .attrPoints {
+  -webkit-transform: rotate(-90deg) translate(-40%,-325%);
   transform: rotate(-90deg) translate(-40%,-325%);
 }
 
@@ -904,6 +962,7 @@ body {
   background: linear-gradient(110deg, rgba(31,34,18,0.8) 0%, rgba(115,115,115,0.8) 100%);
   outline: 6px double gold;
   box-shadow: -8px 1px 5px 3px rgba(115,115,115,0.7);
+  -webkit-transform: rotate(-90deg) translate(46%,0);
   transform: rotate(-90deg) translate(46%,0);
   z-index: 4;
 }
@@ -919,6 +978,7 @@ body {
 }
 
 .statsBox.open .skillBox:hover .skillDesc {
+  -webkit-transform: scale(100%);
   transform: scale(100%);
 }
 
@@ -937,17 +997,20 @@ body {
 }
 
 .statsBox.open .attrHolder:nth-child(2n) .skillPoints {
+  -webkit-transform: translateX(50%);
   transform: translateX(50%);
 }
 
 .statsBox.open .skillBox:hover .skillBonus {
   width: 25%;
   height: 18%;
+  -webkit-transform: translateY(-20%);
   transform: translateY(-20%);
 }
 
 .statsBox.open .skillMastery,
 .statsBox.open .skillFlat {
+  -webkit-transform: scale(100%);
   transform: scale(100%);
   height: 100%;
   margin-left: -30%;
@@ -955,6 +1018,7 @@ body {
 
 .statsBox.open .skillBox:hover .skillMastery,
 .statsBox.open .skillBox:hover .skillFlat {
+  -webkit-transform: scale(100%);
   transform: scale(100%);
   height: 15% !important;
   margin-left: 0;
@@ -962,6 +1026,7 @@ body {
 
 .statsBox.open .skillBox:hover .floatDesc {
   height: 10%;
+  -webkit-transform: scale(100%);
   transform: scale(100%);
 }
 
@@ -1002,6 +1067,7 @@ body {
   height: 3em;
   aspect-ratio: 1/1 !important;
   border: unset;
+  -webkit-transform: translate(0.5em,1em);
   transform: translate(0.5em,1em);
   background: transparent;
   z-index: 7;
@@ -1023,28 +1089,34 @@ body {
 }
 
 .triBlock1 {
+  -webkit-transform: translate(calc(100% - 3px),0) rotate(0deg);
   transform: translate(calc(100% - 3px),0) rotate(0deg);
 }
 
 .infoButton:hover .triBlock1 {
+  -webkit-transform: translate(calc(100% - 4px),0) rotate(300deg);
   transform: translate(calc(100% - 4px),0) rotate(300deg);
   transition: 1s;
 }
 
 .triBlock2 {
+  -webkit-transform: rotate(40deg);
   transform: rotate(40deg);
 }
 
 .infoButton:hover .triBlock2 {
+  -webkit-transform: translate(-1px,-2px) rotate(340deg);
   transform: translate(-1px,-2px) rotate(340deg);
   transition: 1s;
 }
 
 .triBlock3 {
+  -webkit-transform: translate(calc(-100% + 2px),3px) rotate(80deg);
   transform: translate(calc(-100% + 2px),3px) rotate(80deg);
 }
 
 .infoButton:hover .triBlock3 {
+  -webkit-transform: translate(calc(-100% + 2px),-2px) rotate(380deg);
   transform: translate(calc(-100% + 2px),-2px) rotate(380deg);
   transition: 1s;
 }
@@ -1055,6 +1127,7 @@ body {
   align-items: center;
   width: 20%;
   height: 100%;
+  -webkit-transform: translate(-25%,-75%);
   transform: translate(-25%,-75%);
   z-index: 6;
   transition: 1s;
@@ -1126,6 +1199,7 @@ body {
 .skillDesc {
   height: 80%;
   width: 100%;
+  -webkit-transform: scale(0%);
   transform: scale(0%);
   transition: 1s 0.1s;
 }
@@ -1168,6 +1242,7 @@ body {
   align-items: center;
   width: 20%;
   height: 20%;
+  -webkit-transform: scale(0%);
   transform: scale(0%);
 }
 
@@ -1179,6 +1254,7 @@ body {
 .floatDesc {
   width: 40%;
   height: 10%;
+  -webkit-transform: scale(0%);
   transform: scale(0%);
 }
 
@@ -1199,20 +1275,24 @@ body {
   outline: 6px double gold;
   border-radius: 50%;
   outline-offset: -6px;
+  -webkit-transform: translate(0,-45%);
   transform: translate(0,-45%);
   transition: 1s;
   z-index: 6;
 }
 
 .statsBox:hover .attrPoints {
+  -webkit-transform: translate(0,-70%);  
   transform: translate(0,-70%);  
 }
 
 .statsBox.open:hover .attrPoints {
+  -webkit-transform: rotate(-90deg) translate(-40%,-325%);
   transform: rotate(-90deg) translate(-40%,-325%);
 }
 
 .statsBox:hover + .statsBox .attrPoints {
+  -webkit-transform: translate(0,-15%) !important;  
   transform: translate(0,-15%) !important;  
 }
 
@@ -1250,7 +1330,9 @@ body {
   width: 146%;
   overflow: hidden;
   margin-inline: auto;
+  -webkit-transform-origin: top left;
   transform-origin: top left;
+  -webkit-transform: rotate(45deg) translate(-7%,-50%);
   transform: rotate(45deg) translate(-7%,-50%);
   z-index: 1;
   transition: 1s;
