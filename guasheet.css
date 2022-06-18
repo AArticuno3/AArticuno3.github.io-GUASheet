@@ -188,7 +188,6 @@ body {
   grid-template-rows: 1fr 18fr 1fr;
   grid-template-columns: 1fr 18fr 1fr;
   width: 60vw;
-  -webkit-aspect-ratio: 1/1;
   aspect-ratio: 1/1;
   margin-top: 40%;
   margin-inline: auto;
@@ -334,7 +333,6 @@ body {
 
 .portrait {
   width: 40%;
-  -webkit-aspect-ratio: 1/1;
   aspect-ratio: 1/1;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
@@ -464,7 +462,6 @@ body {
   align-items: center;
   height: 50%;
   width: 100%;
-  -webkit-aspect-ratio: 1/1 !important;
   aspect-ratio: 1/1 !important;
   overflow: hidden;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
@@ -484,7 +481,6 @@ body {
 
 .magicBoxBot {
   width: 50%;
-  -webkit-aspect-ratio: 1/2 !important;
   aspect-ratio: 1/2 !important;
   display: flex;
   justify-content: center;
@@ -721,7 +717,6 @@ body {
 .infoBox {
   display: flex;
   width: 80%;
-  -webkit-aspect-ratio: 2/1;
   aspect-ratio: 2/1;
   margin-top: -6px;
   z-index: 1;
@@ -772,8 +767,8 @@ body {
   align-items: start;
   width: 50%;
   height: 87%;
-  -webkit-transform: translate(10%,15%);
-  transform: translate(10%,15%);
+  -webkit-transform: translate(15%,15%);
+  transform: translate(15%,15%);
   overflow: hidden;
 }
 
@@ -783,7 +778,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: end;
-  padding: 5%;
+  padding: 0%;
   height: 25%;
 }
 
@@ -793,7 +788,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  padding: 5%;
+  padding: 0%;
   height: 25%;
 }
 
@@ -835,7 +830,8 @@ body {
   align-items: center;
   position: absolute;
   inset: 30%;
-  -webkit-aspect-ratio: 1/1;
+  width: 41.25%;
+  height: 30%;
   aspect-ratio: 1/1;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
@@ -847,7 +843,7 @@ body {
 }
 
 .walletCorner .divider {
-  width: 2px;
+  width: 3px;
   height: 150%;
   outline: 2px solid hsl(var(--p-hs-gold) var(--l-70));
   -webkit-transform: rotate(-45deg);
@@ -878,7 +874,6 @@ body {
   margin-bottom: -5%;
   -webkit-transform: translateX(-30%) rotate(0deg);
   transform: translateX(-30%) rotate(0deg);
-  -webkit-aspect-ratio: 1/1 !important;
   aspect-ratio: 1/1 !important;
   transition: 0.5s ease-in-out;
 }
@@ -895,7 +890,6 @@ body {
   align-items: center;
   height: 100%;
   width: 100%;
-  -webkit-aspect-ratio: 1/1 !important;
   aspect-ratio: 1/1 !important;
   overflow: hidden;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
@@ -1091,7 +1085,6 @@ body {
   justify-content: center;
   width: 3em;
   height: 3em;
-  -webkit-aspect-ratio: 1/1 !important;
   aspect-ratio: 1/1 !important;
   border: unset;
   -webkit-transform: translate(0.5em,1em);
@@ -1255,7 +1248,6 @@ body {
   margin-top: -20%;
   margin-inline: 30%;
   padding: 5%;
-  -webkit-aspect-ratio: 1/1;
   aspect-ratio: 1/1;
   outline: 6px double gold;
   border-radius: 999px;
@@ -1301,7 +1293,6 @@ body {
   align-items: center;
   width: 30%;
   margin-left: -30%;
-  -webkit-aspect-ratio: 1/1 !important;
   aspect-ratio: 1/1 !important;
   outline: 6px double gold;
   border-radius: 50%;
