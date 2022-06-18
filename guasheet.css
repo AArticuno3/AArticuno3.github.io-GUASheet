@@ -181,47 +181,6 @@ body {
   z-index: -1;
 }
 
-/* ====Dividers==== */
-
-.walletCorner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  overflow: hidden;
-  -webkit-clip-path: polygon(0 0, calc(100% - 6px) 0, calc(100% - 5px) calc(100% - 5px), 0% calc(100% - 6px));
-  clip-path: polygon(0 0, calc(100% - 6px) 0, calc(100% - 5px) calc(100% - 5px), 0% calc(100% - 6px));
-  inset: 30%;
-  aspect-ratio: 1/1;
-  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
-  outline-offset: -6px;
-  overflow: hidden;
-  background: linear-gradient(135deg, rgba(31,34,18,0.4) 0%, rgba(115,110,110,1) 60%);
-  -webkit-transform: rotate(45deg) translate(50%,calc(50% - 1px));
-  transform: rotate(45deg) translate(50%,calc(50% - 1px));
-  z-index: -1;
-}
-
-.walletCorner .divider {
-  width: 2px;
-  height: 150%;
-  outline: 2px solid hsl(var(--p-hs-gold) var(--l-70));
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-
-.healthBoxLeft .divider,
-.healthBoxRight .divider,
-.jumpBox .divider,
-.runBox .divider {
-  width: 100%;
-  height: 0%;
-  outline: 1px solid hsl(var(--p-hs-gold) var(--l-70));
-  outline-offset: 0.5px;
-  -webkit-transform: translate(0,-4px);
-  transform: translate(0,-4px);
-}
-
 /* ====Sheet==== */
 
 .container {
@@ -229,6 +188,7 @@ body {
   grid-template-rows: 1fr 18fr 1fr;
   grid-template-columns: 1fr 18fr 1fr;
   width: 60vw;
+  -webkit-aspect-ratio: 1/1;
   aspect-ratio: 1/1;
   margin-top: 40%;
   margin-inline: auto;
@@ -237,7 +197,7 @@ body {
   outline-offset: -6px;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  box-shadow: -8px 1px 5px 3px rgba(115,115,115,0.7);
+  box-shadow: -8px 2px 5px 4px rgba(115,115,115,0.7);
   mix-blend-mode: overlay;
 }
 
@@ -374,6 +334,7 @@ body {
 
 .portrait {
   width: 40%;
+  -webkit-aspect-ratio: 1/1;
   aspect-ratio: 1/1;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
@@ -397,16 +358,16 @@ body {
   margin-block: -50%;
   padding: 10%;
   overflow: hidden;
-  -webkit-transform: scale(30%) rotate(0deg);
-  transform: scale(30%) rotate(0deg);
+  -webkit-transform: scale(30%);
+  transform: scale(30%);
   z-index: 3;
   transition: -webkit-transform 1s;
   transition: transform 1s;
 }
 
 .magicHolder:hover {
-  -webkit-transform: scale(100%) rotate(0deg);
-  transform: scale(100%) rotate(0deg);
+  -webkit-transform: scale(100%);
+  transform: scale(100%);
 }
 
 .nonagram {
@@ -503,6 +464,7 @@ body {
   align-items: center;
   height: 50%;
   width: 100%;
+  -webkit-aspect-ratio: 1/1 !important;
   aspect-ratio: 1/1 !important;
   overflow: hidden;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
@@ -522,6 +484,7 @@ body {
 
 .magicBoxBot {
   width: 50%;
+  -webkit-aspect-ratio: 1/2 !important;
   aspect-ratio: 1/2 !important;
   display: flex;
   justify-content: center;
@@ -758,6 +721,7 @@ body {
 .infoBox {
   display: flex;
   width: 80%;
+  -webkit-aspect-ratio: 2/1;
   aspect-ratio: 2/1;
   margin-top: -6px;
   z-index: 1;
@@ -863,6 +827,45 @@ body {
   text-align: center;
 }
 
+/* ====Dividers==== */
+
+.walletCorner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 30%;
+  -webkit-aspect-ratio: 1/1;
+  aspect-ratio: 1/1;
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+  outline-offset: -6px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(31,34,18,0.4) 0%, rgba(115,110,110,1) 60%);
+  -webkit-transform: rotate(45deg) translate(50%,calc(50% - 1px));
+  transform: rotate(45deg) translate(50%,calc(50% - 1px));
+  z-index: -1;
+}
+
+.walletCorner .divider {
+  width: 2px;
+  height: 150%;
+  outline: 2px solid hsl(var(--p-hs-gold) var(--l-70));
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.healthBoxLeft .divider,
+.healthBoxRight .divider,
+.jumpBox .divider,
+.runBox .divider {
+  width: 100%;
+  height: 0%;
+  outline: 1px solid hsl(var(--p-hs-gold) var(--l-70));
+  outline-offset: 0.5px;
+  -webkit-transform: translate(0,-4px);
+  transform: translate(0,-4px);
+}
+
 
 /* ==Stats Box== */
 
@@ -875,6 +878,7 @@ body {
   margin-bottom: -5%;
   -webkit-transform: translateX(-30%) rotate(0deg);
   transform: translateX(-30%) rotate(0deg);
+  -webkit-aspect-ratio: 1/1 !important;
   aspect-ratio: 1/1 !important;
   transition: 0.5s ease-in-out;
 }
@@ -891,6 +895,7 @@ body {
   align-items: center;
   height: 100%;
   width: 100%;
+  -webkit-aspect-ratio: 1/1 !important;
   aspect-ratio: 1/1 !important;
   overflow: hidden;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
@@ -949,17 +954,19 @@ body {
 }
 
 .statsBox.open {
+  background: transparent;
+  outline: 6px double transparent;
+  box-shadow: -8px 1px 5px 3px transparent;
   -webkit-transform-origin: center top;
   transform-origin: center top;
-  -webkit-transform: rotate(90deg) translate(0,500%);
-  transform: rotate(90deg) translate(0,500%);
+  -webkit-transform: rotate(90deg) translate(0,450%);
+  transform: rotate(90deg) translate(0,450%);
   z-index: 4;
 }
 
 .statsBox.open .attrName {
   -webkit-transform: rotate(-90deg) translate(0,-175%);
   transform: rotate(-90deg) translate(0,-175%);
-  outline: 6px double gold;
 }
 
 .statsBox.open .attrPoints {
@@ -983,16 +990,26 @@ body {
 .statsBox.open .skillBox:hover {
   width: 100% !important;
   height: 600% !important;
+  -webkit-transform: rotate(-90deg) translate(46%,0);
+  transform: rotate(-90deg) translate(46%,0);
   margin-inline: -20%;
+}
+
+.statsBox.open .skillBox:hover ~ .skillBox {
+  -webkit-transform: rotate(-90deg) translate(46%,0);
+  transform: rotate(-90deg) translate(46%,0);
 }
 
 .statsBox.open .skillHolder {
   width: 30%;
 }
 
+.statsBox.open .skillBox:hover .skillName {
+  height: 20%;
+}
+
 .statsBox.open .skillBox:hover .skillDesc {
-  -webkit-transform: scale(100%);
-  transform: scale(100%);
+  display: block;
 }
 
 .statsBox.open .skillPoints {
@@ -1006,6 +1023,7 @@ body {
 .statsBox.open .skillBonus {
   width: 40%;
   height: 100%;
+  margin-top: 0%;
   padding: 5%;
 }
 
@@ -1023,24 +1041,19 @@ body {
 
 .statsBox.open .skillMastery,
 .statsBox.open .skillFlat {
-  -webkit-transform: scale(100%);
-  transform: scale(100%);
+  display: flex;
   height: 100%;
-  margin-left: -30%;
 }
 
 .statsBox.open .skillBox:hover .skillMastery,
 .statsBox.open .skillBox:hover .skillFlat {
-  -webkit-transform: scale(100%);
-  transform: scale(100%);
   height: 15% !important;
   margin-left: 0;
 }
 
 .statsBox.open .skillBox:hover .floatDesc {
+  display: block;
   height: 10%;
-  -webkit-transform: scale(100%);
-  transform: scale(100%);
 }
 
 #strengthStatBox .attrPoints,
@@ -1050,7 +1063,7 @@ body {
 
 #strengthStatBox .skillMastery,
 #strengthStatBox .skillFlat {
-  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(200,200,120,0.9) 50%, rgba(0,0,0,0) 100%);
+  background: radial-gradient(ellipse, rgba(200,200,120,0.9) 0%, rgba(0,0,0,0) 75%);
 }
 
 #dexterityStatBox .attrPoints,
@@ -1060,7 +1073,7 @@ body {
 
 #dexterityStatBox .skillMastery,
 #dexterityStatBox .skillFlat {
-  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(120,200,120,0.9) 50%, rgba(0,0,0,0) 100%);
+  background: radial-gradient(ellipse, rgba(120,200,120,0.9) 0%, rgba(0,0,0,0) 75%);
 }
 
 #intelligenceStatBox .attrPoints,
@@ -1070,7 +1083,7 @@ body {
 
 #intelligenceStatBox .skillMastery,
 #intelligenceStatBox .skillFlat {
-  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(120,160,200,0.9) 50%, rgba(0,0,0,0) 100%);
+  background: radial-gradient(ellipse, rgba(120,160,200,0.9) 0%, rgba(0,0,0,0) 75%);
 }
 
 .infoButton {
@@ -1078,6 +1091,7 @@ body {
   justify-content: center;
   width: 3em;
   height: 3em;
+  -webkit-aspect-ratio: 1/1 !important;
   aspect-ratio: 1/1 !important;
   border: unset;
   -webkit-transform: translate(0.5em,1em);
@@ -1199,8 +1213,9 @@ body {
 }
 
 .skillName {
-  height: 20%;
-  margin: 2.5%;
+  height: 100%;
+  margin-inline: 0;
+  margin-block: 2.5%;
   transition: 1s;
   overflow: hidden;
 }
@@ -1212,11 +1227,10 @@ body {
 }
 
 .skillDesc {
+  display: none;
   height: 80%;
   width: 100%;
   overflow: hidden;
-  -webkit-transform: scale(0%);
-  transform: scale(0%);
   transition: 1s 0.1s;
 }
 
@@ -1236,10 +1250,12 @@ body {
 
 .skillBonus {
   display: flex;
-  align-items: center;
+  text-align: center;
   width: 30%;
+  margin-top: -20%;
   margin-inline: 30%;
   padding: 5%;
+  -webkit-aspect-ratio: 1/1;
   aspect-ratio: 1/1;
   outline: 6px double gold;
   border-radius: 999px;
@@ -1254,14 +1270,12 @@ body {
 
 .skillMastery,
 .skillFlat {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   width: 20%;
   height: 20%;
   overflow: hidden;
-  -webkit-transform: scale(0%);
-  transform: scale(0%);
 }
 
 .skillMastery input,
@@ -1270,11 +1284,10 @@ body {
 }
 
 .floatDesc {
+  display: none;
   width: 40%;
   height: 10%;
   overflow: hidden;
-  -webkit-transform: scale(0%);
-  transform: scale(0%);
 }
 
 .floatDesc h6 {
@@ -1289,6 +1302,7 @@ body {
   align-items: center;
   width: 30%;
   margin-left: -30%;
+  -webkit-aspect-ratio: 1/1 !important;
   aspect-ratio: 1/1 !important;
   outline: 6px double gold;
   border-radius: 50%;
@@ -1319,11 +1333,6 @@ body {
   margin-block: 15%;
   text-align: center;
   height: 20%;
-}
-
-.skillBonus {
-  text-align: center;
-  height: 60%;
 }
 
 .attrDice {
