@@ -182,24 +182,26 @@ body {
 
 /* ====Dividers==== */
 
-.divider1 {
+.walletCorner {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   overflow: hidden;
+  -webkit-clip-path: polygon(0 0, calc(100% - 6px) 0, calc(100% - 5px) calc(100% - 5px), 0% calc(100% - 6px));
   clip-path: polygon(0 0, calc(100% - 6px) 0, calc(100% - 5px) calc(100% - 5px), 0% calc(100% - 6px));
   inset: 30%;
   aspect-ratio: 1/1;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
+  overflow: hidden;
   background: linear-gradient(135deg, rgba(31,34,18,0.4) 0%, rgba(115,110,110,1) 60%);
   -webkit-transform: rotate(45deg) translate(50%,calc(50% - 1px));
   transform: rotate(45deg) translate(50%,calc(50% - 1px));
   z-index: -1;
 }
 
-.divider1 .divider {
+.walletCorner .divider {
   width: 2px;
   height: 150%;
   outline: 2px solid hsl(var(--p-hs-gold) var(--l-70));
@@ -276,6 +278,7 @@ body {
   position: absolute;
   width: 90%;
   height: 90%;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   z-index: 1;
 }
@@ -389,7 +392,9 @@ body {
   align-items: center;
   width: 80%;
   height: 60%;
-  margin-block: -40%;
+  margin-block: -50%;
+  padding: 10%;
+  overflow: hidden;
   -webkit-transform: scale(30%) rotate(0deg);
   transform: scale(30%) rotate(0deg);
   z-index: 3;
@@ -419,6 +424,7 @@ body {
   background: purple;
   justify-content: start;
   align-items: center;
+  -webkit-clip-path: polygon(25% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%);
   clip-path: polygon(25% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%);
   mix-blend-mode: multiply;
   opacity: 30%;
@@ -428,13 +434,13 @@ body {
 
 .nonagram:hover .magicCorner {
   background: transparent;
+  -webkit-clip-path: polygon(5% 50%, 20% 35%, 30% 41.5%, 30% 58.5%, 20% 65%);
   clip-path: polygon(5% 50%, 20% 35%, 30% 41.5%, 30% 58.5%, 20% 65%);
   opacity: 100%;
-/*   clip-path: polygon(0% 50%, 23.75% 26.25%, 29% 50%, 29% 50%, 23.75% 73.75%);
-  clip-path: polygon(0% 50%, 50% 0%, 80% 31%, 80% 69%, 50% 100%); */
 }
 
 .magicCorner:hover {
+  -webkit-clip-path: polygon(0% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%) !important;
   clip-path: polygon(0% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%) !important;
 }
 
@@ -701,6 +707,7 @@ body {
 }
 
 .magicCorePoints {
+  -webkit-clip-path: unset !important;
   clip-path: unset !important;
   mix-blend-mode: normal !important;
   background: unset;
