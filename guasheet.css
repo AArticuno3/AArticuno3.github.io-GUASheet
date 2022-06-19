@@ -366,7 +366,7 @@ body {
 
 .nonagram {
   width: 120%;
-  height: 100%;
+  height: inherit;
   padding-top: 20%;
   margin-inline: auto;
   -webkit-transform: translate(-18.25%,-8%);
