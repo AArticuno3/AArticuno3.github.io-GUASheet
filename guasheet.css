@@ -351,21 +351,20 @@ body {
 .magicHolder {
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 10%;
   height: 10%;
   padding: 10%;
   overflow: hidden;
   z-index: 3;
-  transition: -webkit-transform 1s;
-  transition: transform 1s;
+  transition: 1s;
 }
 
 .magicHolder:hover {
   height: 60%;
+  width: 100%;
 }
 
 .nonagram {
-  width: 120%;
   height: inherit;
   padding-top: 20%;
   margin-inline: auto;
