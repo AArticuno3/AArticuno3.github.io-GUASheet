@@ -718,7 +718,6 @@
     width: 80%;
     aspect-ratio: 2/1;
     margin-top: -6px;
-    z-index: 1;
   }
   
   .healthBoxLeft {
@@ -730,6 +729,7 @@
     height: 50%;
     -webkit-transform: translate(25%,-50%);
     transform: translate(25%,-50%);
+    z-index: 4;
   }
   
   .healthCurrent {
@@ -805,6 +805,7 @@
     height: 50%;
     -webkit-transform: translate(-25%,-50%);
     transform: translate(-25%,-50%);
+    z-index: 4;
   }
   
   .healthMax {
@@ -812,7 +813,8 @@
     overflow: hidden;
   }
   
-  .healthMax h1 {
+  .healthMax input {
+    
     font-weight: normal;
     font-size: var(--step-4);
     width: 100%;
