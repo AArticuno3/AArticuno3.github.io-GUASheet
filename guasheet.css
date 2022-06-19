@@ -363,8 +363,6 @@
     height: 20%;
     margin-top: -10%;
     margin-bottom: -16.5%;
-    -webkit-transform: translateX(6px);
-    transform: translateX(6px);
     z-index: 3;
     transition: 1s;
   }
@@ -375,7 +373,7 @@
     transition: 1s;
   }
   
-  .nonagram:hover {
+  .nonagram.open {
     width: 100%;
     margin-top: -40%;
   }
@@ -396,7 +394,7 @@
     transition: 1s;
   }
   
-  .nonagram:hover .magicCorner {
+  .nonagram.open .magicCorner {
     background: transparent;
     -webkit-clip-path: polygon(5% 50%, 20% 35%, 30% 41.5%, 30% 58.5%, 20% 65%);
     clip-path: polygon(5% 50%, 20% 35%, 30% 41.5%, 30% 58.5%, 20% 65%);
@@ -680,7 +678,7 @@
     opacity: 100%;
   }
   
-  .nonagram:hover .magicCorePoints {
+  .nonagram.open .magicCorePoints {
     z-index: 0 !important;
   }
   
@@ -703,12 +701,12 @@
     transition: 1s;
   }
   
-  .nonagram:hover .magicCorePoints .magicPoints input {
+  .nonagram.open .magicCorePoints .magicPoints input {
     font-size: 5em;
     margin-top: 0;
   }
   
-  .nonagram:hover .magicCorePoints .magicPoints h3 {
+  .nonagram.open .magicCorePoints .magicPoints h3 {
     font-size: 3em;
     margin-top: 0.5em;
   }
@@ -833,8 +831,8 @@
     align-items: center;
     position: absolute;
     inset: 30%;
-    width: 41.25%;
-    height: 30%;
+    width: 39.75%;
+    height: 29%;
     aspect-ratio: 1/1;
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     outline-offset: -6px;

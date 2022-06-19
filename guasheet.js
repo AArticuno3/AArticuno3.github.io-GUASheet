@@ -44,6 +44,16 @@ document.addEventListener("click", e => {
     }
     
   }
+
+  const unfoldForm = [...document.querySelectorAll("[unfold-form]")][0]
+  
+  if(clickTarget.matches("[data-unfold]") || clickTarget.matches("[unfold-form]")) {
+    console.log(unfoldForm.classList)
+    unfoldForm.classList.add("open")
+  } else {
+    console.log(unfoldForm)
+    unfoldForm.classList.remove("open")
+  }
 })
 
 
