@@ -1376,8 +1376,6 @@
     rgba(255, 255, 255, 0.7) 0%,
     rgba(100, 100, 100, 0) 70%
   );
-/*   outline: 6px double gold;
-  outline-offset: -6px; */
   border-radius: 2em;
 }
 
@@ -1387,7 +1385,7 @@
   height: 50%;
   justify-self: center;
   align-self: end;
-  outline: 6px double gold;
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   border-radius: 0.5em;
   background: white;
@@ -1407,11 +1405,12 @@
   all: unset;
   position: relative;
   text-align: center;
+  text--webkit-transform: uppercase;
   text-transform: uppercase;
   width: 30%;
   height: 80%;
   margin-inline: 35%;
-  outline: 2px solid gold;
+  outline: 2px solid hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -1px;
   border-radius: 0.5em;
   box-shadow: -10px -10px 15px rgba(255,255,255,0.5), 10px 10px 15px rgba(70,70,70,0.12);
@@ -1432,7 +1431,7 @@
   aspect-ratio: 1/1;
   justify-self: center;
   align-self: center;
-  outline: 6px double gold;
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   border-radius: 1em;
   background: radial-gradient(circle, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
@@ -1455,10 +1454,11 @@
   width: 100%;
   height: 80%;
   align-self: center;
-  outline: 6px double gold;
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(100,100,100,0.7) 90%);
+  -webkit-transform: skew(-30deg);
   transform: skew(-30deg);
   opacity: 50%;
 }
@@ -1479,6 +1479,7 @@
   font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
+  -webkit-transform: skew(30deg);
   transform: skew(30deg);
   opacity: 50%;
 }
@@ -1488,8 +1489,10 @@
   height: 50%;
   font-size: 3.5em;
   margin: 0;
+  background:red;
   text-align: center;
   margin-block: auto;
+  -webkit-transform: skew(30deg);
   transform: skew(30deg);
 }
 
@@ -1502,10 +1505,11 @@
   height: 120%;
   justify-self: center;
   align-self: center;
-  outline: 6px double gold;
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(100,100,100,0.7) 90%);
+  -webkit-transform: translateX(-1em);
   transform: translateX(-1em);
   opacity: 50%;
 }
@@ -1533,6 +1537,7 @@
 .masteryBounusDisplay h2 {
   width: 84%;
   height: 50%;
+  background:red;
   font-size: 3.5em;
   margin: 0;
   text-align: center;
@@ -1547,10 +1552,11 @@
   width: 100%;
   height: 80%;
   align-self: center;
-  outline: 6px double gold;
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(100,100,100,0.7) 90%);
+  -webkit-transform: skew(30deg);
   transform: skew(30deg);
   opacity: 50%;
 }
@@ -1571,6 +1577,7 @@
   font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
+  -webkit-transform: skew(-30deg);
   transform: skew(-30deg);
   opacity: 50%;
 }
@@ -1578,10 +1585,12 @@
 .racialBonusDisplay h2 {
   width: 80%;
   height: 50%;
+  background:red;
   font-size: 3.5em;
   margin: 0;
   text-align: center;
   margin-block: auto;
+  -webkit-transform: skew(-30deg);
   transform: skew(-30deg);
 }
 
@@ -1593,10 +1602,11 @@
   width: 100%;
   height: 80%;
   align-self: center;
-  outline: 6px double gold;
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
+  -webkit-transform: skew(30deg);
   transform: skew(30deg);
   opacity: 50%;
 }
@@ -1617,6 +1627,7 @@
   font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
+  -webkit-transform: skew(-30deg);
   transform: skew(-30deg);
   opacity: 50%;
 }
@@ -1627,7 +1638,9 @@
   font-size: 3.5em;
   margin: 0;
   text-align: center;
+  background:red;
   margin-block: auto;
+  -webkit-transform: skew(-30deg);
   transform: skew(-30deg);
 }
 
@@ -1640,10 +1653,11 @@
   height: 120%;
   justify-self: center;
   align-self: center;
-  outline: 6px double gold;
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
+  -webkit-transform: translateX(1em);
   transform: translateX(1em);
   opacity: 50%;
 }
@@ -1670,6 +1684,7 @@
 .weaponBonusDisplay h2 {
   width: 84%;
   height: 50%;
+  background:red;
   font-size: 3.5em;
   margin: 0;
   text-align: center;
@@ -1684,10 +1699,11 @@
   width: 100%;
   height: 80%;
   align-self: center;
-  outline: 6px double gold;
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
+  -webkit-transform: skew(-30deg);
   transform: skew(-30deg);
   opacity: 50%;
 }
@@ -1708,6 +1724,7 @@
   font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
+  -webkit-transform: skew(30deg);
   transform: skew(30deg);
   opacity: 50%;
 }
@@ -1717,8 +1734,10 @@
   height: 50%;
   font-size: 3.5em;
   margin: 0;
+  background:red;
   text-align: center;
   margin-block: auto;
+  -webkit-transform: skew(30deg);
   transform: skew(30deg);
 }
 
@@ -1728,7 +1747,7 @@
   height: 80%;
   justify-self: center;
   align-self: start;
-  outline: 6px double gold;
+  outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   border-radius: 0.5em;
   background: white;
