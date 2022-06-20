@@ -70,7 +70,7 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="waterBonus" placeholder="+0" data-unfold>
+                            <input type="text" id="waterBonus" placeholder="0" data-unfold>
                             </input>
                           </div>
                           <div class="magicDesc" data-unfold>
@@ -108,7 +108,7 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="airBonus" placeholder="+0" data-unfold>
+                            <input type="text" id="airBonus" placeholder="0" data-unfold>
                             </input>
                           </div>
                           <div class="magicDesc" data-unfold>
@@ -146,7 +146,7 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="fireBonus" placeholder="+0" data-unfold>
+                            <input type="text" id="fireBonus" placeholder="0" data-unfold>
                             </input>
                           </div>
                           <div class="magicDesc" data-unfold>
@@ -184,7 +184,7 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="stoneBonus" placeholder="+0" data-unfold>
+                            <input type="text" id="stoneBonus" placeholder="0" data-unfold>
                             </input>
                           </div>
                           <div class="magicDesc" data-unfold>
@@ -222,7 +222,7 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="plantlifeBonus" placeholder="+0" data-unfold>
+                            <input type="text" id="plantlifeBonus" placeholder="0" data-unfold>
                             </input>
                           </div>
                           <div class="magicDesc" data-unfold>
@@ -260,7 +260,7 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="tremorBonus" placeholder="+0" data-unfold>
+                            <input type="text" id="tremorBonus" placeholder="0" data-unfold>
                             </input>
                           </div>
                           <div class="magicDesc" data-unfold>
@@ -298,7 +298,7 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="lightningBonus" placeholder="+0" data-unfold>
+                            <input type="text" id="lightningBonus" placeholder="0" data-unfold>
                             </input>
                           </div>
                           <div class="magicDesc" data-unfold>
@@ -336,7 +336,7 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="gravityBonus" placeholder="+0" data-unfold>
+                            <input type="text" id="gravityBonus" placeholder="0" data-unfold>
                             </input>
                           </div>
                           <div class="magicDesc" data-unfold>
@@ -374,7 +374,7 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="mindBonus" placeholder="+0" data-unfold>
+                            <input type="text" id="mindBonus" placeholder="0" data-unfold>
                             </input>
                           </div>
                           <div class="magicDesc" data-unfold>
@@ -482,7 +482,7 @@
                 <div></div>
                 <div class="corePoints">
                   <div class="coreBonus">
-                    <input type="text" id="coreBonus" placeholder="4" data-Core>
+                    <input type="text" id="coreBonus" placeholder="4" onblur="logStats()" data-Core>
                     </input>
                   </div>
                   <div class="magicDesc">
@@ -561,7 +561,7 @@
                       </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="springBonus" placeholder="0">
+                          <input type="text" id="springBonus" placeholder="0" onblur="logStats()" data-Spring>
                           </input>
                         </div>
                         <div class="floatDesc">
@@ -600,7 +600,7 @@
                         </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="sprintBonus" placeholder="0">
+                          <input type="text" id="sprintBonus" placeholder="0" onblur="logStats()" data-Sprint>
                           </input>
                         </div>
                         <div class="floatDesc">
@@ -678,7 +678,7 @@
                     </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="staminaBonus" placeholder="0">
+                          <input type="text" id="staminaBonus" placeholder="0" onblur="logStats()" data-Stamina>
                           </input>
                         </div>
                         <div class="floatDesc">
@@ -703,7 +703,7 @@
                   </div>
                   <div class="attrPoints">
                     <div class="attrBonus">
-                      <input type="text" id="strengthBonus" placeholder="0" data-Str>
+                      <input type="text" id="strengthBonus" placeholder="0" onblur="logStats()" data-Str>
                       </input>
                     </div>
                     <div class="attrDice">
@@ -920,7 +920,7 @@
                   </div>
                   <div class="attrPoints">
                     <div class="attrBonus">
-                      <input type="text" id="dexterityBonus" placeholder="0">
+                      <input type="text" id="dexterityBonus" placeholder="0" onblur="logStats()" data-Dex>
                       </input>
                     </div>
                     <div class="attrDice">
