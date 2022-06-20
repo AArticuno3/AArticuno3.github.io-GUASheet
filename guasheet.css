@@ -256,7 +256,6 @@
     height: 80%;
     background: rgba(144,33,16,1);
     mix-blend-mode: multiply;
-    -webkit-opacity: 60%;
     opacity: 60%;
     -webkit-transform: rotate(45deg) translate(0%,calc(115% - (1.2 * var(--hp-percent))));
     transform: rotate(45deg) translate(0%,calc(115% - (1.2 * var(--hp-percent))));
@@ -388,7 +387,6 @@
     -webkit-clip-path: polygon(25% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%);
     clip-path: polygon(25% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%);
     mix-blend-mode: multiply;
-    -webkit-opacity: 30%;
     opacity: 30%;
     z-index: 1;
     transition: 1s;
@@ -398,16 +396,17 @@
     background: transparent;
     -webkit-clip-path: polygon(5% 50%, 20% 35%, 30% 41.5%, 30% 58.5%, 20% 65%);
     clip-path: polygon(5% 50%, 20% 35%, 30% 41.5%, 30% 58.5%, 20% 65%);
-    -webkit-opacity: 100%;
     opacity: 100%;
   }
   
   .magicCorner:hover {
+    cursor: pointer;
     -webkit-clip-path: polygon(0% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%) !important;
     clip-path: polygon(0% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%) !important;
   }
   
   .magicCorner:hover {
+    cursor: pointer;
     z-index: 5 !important;
     mix-blend-mode: normal;
   }
@@ -495,6 +494,7 @@
   }
   
   .magic1:hover {
+    cursor: pointer;
     background: hsl( var(--s-hs-water) var(--l-50)) !important;
   }
   
@@ -515,6 +515,7 @@
   }
   
   .magic2:hover {
+    cursor: pointer;
     background: hsl( var(--s-hs-air) var(--l-50)) !important;
   }
   
@@ -535,6 +536,7 @@
   }
   
   .magic3:hover {
+    cursor: pointer;
     background: hsl( var(--s-hs-fire) var(--l-50)) !important;
   }
   
@@ -555,6 +557,7 @@
   }
   
   .magic4:hover {
+    cursor: pointer;
     background: hsl( var(--s-hs-stone) var(--l-50)) !important;
   }
   
@@ -575,6 +578,7 @@
   }
   
   .magic5:hover {
+    cursor: pointer;
     background: hsl( var(--s-hs-plantlife) var(--l-50)) !important;
   }
   
@@ -595,6 +599,7 @@
   }
   
   .magic6:hover {
+    cursor: pointer;
     background: hsl( var(--s-hs-tremor) var(--l-50)) !important;
   }
   
@@ -615,6 +620,7 @@
   }
   
   .magic7:hover {
+    cursor: pointer;
     background: hsl( var(--s-hs-lightning) var(--l-50)) !important;
   }
   
@@ -635,6 +641,7 @@
   }
   
   .magic8:hover {
+    cursor: pointer;
     background: hsl( var(--s-hs-gravity) var(--l-50)) !important;
   }
   
@@ -655,6 +662,7 @@
   }
   
   .magic9:hover {
+    cursor: pointer;
     background: hsl( var(--s-hs-mind) var(--l-50)) !important;
   }
   
@@ -674,7 +682,6 @@
     clip-path: unset !important;
     mix-blend-mode: normal !important;
     background: unset;
-    -webkit-opacity: 100%;
     opacity: 100%;
   }
   
@@ -764,8 +771,8 @@
     justify-content: center;
     width: 50%;
     height: 87%;
-    -webkit-transform: translate(15%,15%);
-    transform: translate(15%,15%);
+    -webkit-transform: translate(10%,15%);
+    transform: translate(10%,15%);
     overflow: hidden;
   }
   
@@ -878,6 +885,7 @@
   }
   
   .containerInner:hover {
+    cursor: pointer;
     -webkit-transform: translateX(-30%) rotate(720deg);
     transform: translateX(-30%) rotate(720deg);
   }
@@ -981,6 +989,7 @@
   }
   
   .statsBox.open .skillBox:hover {
+    cursor: pointer;
     width: 100% !important;
     height: 600% !important;
     -webkit-transform: rotate(-90deg) translate(46%,0);
@@ -1332,21 +1341,400 @@
   }
   
   /* ==Combat Box== */
-  
-  .combatHolder {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    height: 200%;
-    width: 146%;
-    overflow: hidden;
-    margin-inline: auto;
-    -webkit-transform-origin: top left;
-    transform-origin: top left;
-    -webkit-transform: rotate(45deg) translate(-7%,-50%);
-    transform: rotate(45deg) translate(-7%,-50%);
-    z-index: 1;
-    transition: 1s;
-  }
+
+.combatHolder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 150%;
+  width: 146%;
+  margin-inline: auto;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transform: rotate(45deg) translate(-7%,-80%);
+  transform: rotate(45deg) translate(-7%,-80%);
+  z-index: 1;
+  transition: 1s;
+}
+
+.rollerBox {
+  display: grid;
+  grid-template-areas:
+    "chatMessageDisplay chatMessageDisplay chatMessageDisplay"
+    "armorBonusDisplay rollerDisplay shieldBonusDisplay"
+    "masteryBounusDisplay rollerDisplay weaponBonusDisplay"
+    "racialBonusDisplay rollerDisplay weaponMagicDisplay"
+    "extraInfoDisplay extraInfoDisplay extraInfoDisplay";
+  gap: 1.5em;
+  margin-inline: auto;
+  width: 100%;
+  height: 60%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(100, 100, 100, 0) 70%
+  );
+/*   outline: 6px double gold;
+  outline-offset: -6px; */
+  border-radius: 2em;
+}
+
+.chatMessageDisplay {
+  grid-area: chatMessageDisplay;
+  width: 80%;
+  height: 50%;
+  justify-self: center;
+  align-self: end;
+  outline: 6px double gold;
+  outline-offset: -6px;
+  border-radius: 0.5em;
+  background: white;
+}
+
+.chatMessageDisplay input {
+  all: unset;
+  font-size: 1.8em;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  margin-top: 6px;
+  margin-inline: 6px;
+  padding-inline: 0.5em;
+}
+
+.chatMessageDisplay button {
+  all: unset;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  width: 30%;
+  height: 80%;
+  margin-inline: 35%;
+  outline: 2px solid gold;
+  outline-offset: -1px;
+  border-radius: 0.5em;
+  box-shadow: -10px -10px 15px rgba(255,255,255,0.5), 10px 10px 15px rgba(70,70,70,0.12);
+  background: linear-gradient(110deg, rgba(31,34,18,0.8) 0%, rgba(115,115,115,0.8) 100%);
+  z-index: 1;
+}
+
+.chatMessageDisplay button:active {
+  box-shadow: -10px -10px 15px rgba(255,255,255,0.5), 10px 10px 15px rgba(70,70,70,0.12),
+ inset -10px -10px 15px rgba(255,255,255,0.5), inset 10px 10px 15px rgba(70,70,70,0.12);
+    ;
+}
+
+.rollerDisplay {
+  grid-area: rollerDisplay;
+  width: 80%;
+  min-height: 25%;
+  aspect-ratio: 1/1;
+  justify-self: center;
+  align-self: center;
+  outline: 6px double gold;
+  outline-offset: -6px;
+  border-radius: 1em;
+  background: radial-gradient(circle, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
+}
+
+.rollerDisplay h1 {
+  height: 80%;
+  width: 100%;
+  margin: 0;
+  font-size: 10em;
+  text-align: center;
+  padding-top: 12%;
+}
+
+.armorBonusDisplay {
+  grid-area: armorBonusDisplay;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  align-self: center;
+  outline: 6px double gold;
+  outline-offset: -6px;
+  border-radius: 0.5em;
+  background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(100,100,100,0.7) 90%);
+  transform: skew(-30deg);
+  opacity: 50%;
+}
+
+.armorBonusDisplay.hasBonus {
+  opacity: 100%;
+}
+
+.armorBonusDisplay:after {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  font-family: "Font Awesome 6 Free";
+  content: "\f553";
+  font-size: 3em;
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  transform: skew(30deg);
+  opacity: 50%;
+}
+
+.armorBonusDisplay h2 {
+  width: 80%;
+  height: 50%;
+  font-size: 3.5em;
+  margin: 0;
+  text-align: center;
+  margin-block: auto;
+  transform: skew(30deg);
+}
+
+.masteryBounusDisplay {
+  grid-area: masteryBounusDisplay;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  height: 120%;
+  justify-self: center;
+  align-self: center;
+  outline: 6px double gold;
+  outline-offset: -6px;
+  border-radius: 0.5em;
+  background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(100,100,100,0.7) 90%);
+  transform: translateX(-1em);
+  opacity: 50%;
+}
+
+.masteryBounusDisplay.hasBonus {
+  opacity: 100%;
+}
+
+.masteryBounusDisplay:after {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  padding-left: 0.25em;
+  font-family: "Font Awesome 6 Free";
+  content: "\f02d";
+  font-size: 3em;
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  opacity: 50%;
+}
+
+.masteryBounusDisplay h2 {
+  width: 84%;
+  height: 50%;
+  font-size: 3.5em;
+  margin: 0;
+  text-align: center;
+  margin-block: auto;
+}
+
+.racialBonusDisplay {
+  grid-area: racialBonusDisplay;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  align-self: center;
+  outline: 6px double gold;
+  outline-offset: -6px;
+  border-radius: 0.5em;
+  background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(100,100,100,0.7) 90%);
+  transform: skew(30deg);
+  opacity: 50%;
+}
+
+.racialBonusDisplay.hasBonus {
+  opacity: 100%;
+}
+
+.racialBonusDisplay:after {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  font-family: "Font Awesome 6 Free";
+  content: "\f1b0";
+  font-size: 3em;
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  transform: skew(-30deg);
+  opacity: 50%;
+}
+
+.racialBonusDisplay h2 {
+  width: 80%;
+  height: 50%;
+  font-size: 3.5em;
+  margin: 0;
+  text-align: center;
+  margin-block: auto;
+  transform: skew(-30deg);
+}
+
+.shieldBonusDisplay {
+  grid-area: shieldBonusDisplay;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  align-self: center;
+  outline: 6px double gold;
+  outline-offset: -6px;
+  border-radius: 0.5em;
+  background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
+  transform: skew(30deg);
+  opacity: 50%;
+}
+
+.shieldBonusDisplay.hasBonus {
+  opacity: 100%;
+}
+
+.shieldBonusDisplay:before {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  font-family: "Font Awesome 6 Free";
+  content: "\f3ed";
+  font-size: 3em;
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  transform: skew(-30deg);
+  opacity: 50%;
+}
+
+.shieldBonusDisplay h2 {
+  width: 80%;
+  height: 50%;
+  font-size: 3.5em;
+  margin: 0;
+  text-align: center;
+  margin-block: auto;
+  transform: skew(-30deg);
+}
+
+.weaponBonusDisplay {
+  grid-area: weaponBonusDisplay;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  height: 120%;
+  justify-self: center;
+  align-self: center;
+  outline: 6px double gold;
+  outline-offset: -6px;
+  border-radius: 0.5em;
+  background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
+  transform: translateX(1em);
+  opacity: 50%;
+}
+
+.weaponBonusDisplay.hasBonus {
+  opacity: 100%;
+}
+
+.weaponBonusDisplay:before {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  font-family: "Font Awesome 6 Free";
+  content: "\f6e3";
+  font-size: 3em;
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  opacity: 50%;
+}
+
+.weaponBonusDisplay h2 {
+  width: 84%;
+  height: 50%;
+  font-size: 3.5em;
+  margin: 0;
+  text-align: center;
+  margin-block: auto;
+}
+
+.weaponMagicDisplay {
+  grid-area: weaponMagicDisplay;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  align-self: center;
+  outline: 6px double gold;
+  outline-offset: -6px;
+  border-radius: 0.5em;
+  background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
+  transform: skew(-30deg);
+  opacity: 50%;
+}
+
+.weaponMagicDisplay.hasBonus {
+  opacity: 100%;
+}
+
+.weaponMagicDisplay:before {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  font-family: "Font Awesome 6 Free";
+  content: "\f72b";
+  font-size: 3em;
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  transform: skew(30deg);
+  opacity: 50%;
+}
+
+.weaponMagicDisplay h2 {
+  width: 80%;
+  height: 50%;
+  font-size: 3.5em;
+  margin: 0;
+  text-align: center;
+  margin-block: auto;
+  transform: skew(30deg);
+}
+
+.extraInfoDisplay {
+  grid-area: extraInfoDisplay;
+  width: 80%;
+  height: 80%;
+  justify-self: center;
+  align-self: start;
+  outline: 6px double gold;
+  outline-offset: -6px;
+  border-radius: 0.5em;
+  background: white;
+  opacity: 50%;
+}
+
+.extraInfoDisplay.hasBonus {
+  opacity: 100%;
+}

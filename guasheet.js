@@ -5,10 +5,8 @@ const expandForms = [...document.querySelectorAll("[expand-form]")]
 // Creating real time HP updating
 
 function logHealth() {
-  let currentCore = document.querySelectorAll("[data-Core]").value
-  let currentStr = document.querySelectorAll("[data-Str]").value
   let currentHealth = [...document.querySelectorAll("[data-HP]")][0].value
-  let maximumHealth = document.getElementById("HP_MAX").innerHTML
+  let maximumHealth = [...document.querySelectorAll("[data-HP-MAX]")][0].value
 
   let hpRatio = (100*(currentHealth/maximumHealth))
   if (hpRatio < 100) {
@@ -48,108 +46,31 @@ document.addEventListener("click", e => {
   const unfoldForm = [...document.querySelectorAll("[unfold-form]")][0]
   
   if(clickTarget.matches("[data-unfold]") || clickTarget.matches("[unfold-form]")) {
-    console.log(unfoldForm.classList)
     unfoldForm.classList.add("open")
   } else {
-    console.log(unfoldForm)
     unfoldForm.classList.remove("open")
   }
 })
 
+// Creating a send link directly to Discord
 
-itemForms[0].addEventListener("click", e => {
-    const clickTarget = e.target
-  
-  if (clickTarget.matches("[item-add]")) {
-    let thisStep = clickTarget
-    thisStep.classList.toggle("closed")
-    addListItem(thisStep)
-    thisStep.nextElementSibling.classList.add("active")
-    thisStep.parentElement.parentElement.lastChild.firstElementChild.classList.toggle("closed")
-  }
-  
-  if (clickTarget.matches("[item-del]")) {
-    let thisStep = clickTarget.parentElement.parentElement
-    delListItem(thisStep)
-  }
-  
-})
+const webhookURL = "https://discord.com/api/webhooks/760935288306139148/65rOm6Yns8SKFaFo7zHVTcJEV5mtmWSkAXl7UoLJ9eS8s1jaT79VFpY65HEGqMkZmqD_"
 
-itemForms[1].addEventListener("click", e => {
-    const clickTarget = e.target
+function sendMessage() {
+  let currentMessage = [...document.querySelectorAll("[data-message]")][0]
+  console.log(currentMessage.value)
+  const webhookMessage = { "content": currentMessage.value }
+  webhookMessage.username = " - "
   
-  if (clickTarget.matches("[item-add]")) {
-    let thisStep = clickTarget
-    thisStep.classList.toggle("closed")
-    addListItem(thisStep)
-    thisStep.nextElementSibling.classList.add("active")
-    thisStep.parentElement.parentElement.lastChild.firstElementChild.classList.toggle("closed")
-  }
-  
-  if (clickTarget.matches("[item-del]")) {
-    let thisStep = clickTarget.parentElement
-    delListItem(thisStep)
-  }
-  
-})
+  fetch(webhookURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
 
-function addListItem(itemStep) {
-  const thisWeaponContent = itemStep.parentElement.innerHTML
-  const newItem = document.createElement("li")
-  newItem.innerHTML = thisWeaponContent
-  itemStep.parentElement.parentElement.appendChild(newItem)
+  currentMessage.value = ""
 }
 
-async function delListItem(itemStep) {
-  itemStep.classList.toggle("disabled")
-  itemStep.parentElement.classList.toggle("disabled")
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  itemStep.parentElement.remove()
-}
 
-document.addEventListener("click", e => {
-  const clickTarget = e.target
-  if (clickTarget.matches("[data-expand]")) {
-    const currentItem = clickTarget.parentElement.parentElement.parentElement
-    const currentForm = currentItem.parentElement
-    const expandFormList = [...currentForm.parentElement.children]
-    
-    currentItem.classList.add("open")
-    
-    expandFormList.forEach(form => {
-      if (form !== currentForm) {
-        form.classList.remove("expand")
-        form.classList.remove("contract")
-        if (currentForm.classList.contains("expand") || currentForm.classList.contains("contract")) {
-        } else {
-          form.classList.add("contract")
-        }
-      }
-    })
-    
-    if (currentForm.classList.contains("expand")) {
-      currentForm.classList.remove("expand")      
-    } else if (currentForm.classList.contains("contract")) {
-      currentForm.classList.remove("contract")      
-    } else {
-      currentForm.classList.add("expand")
-    }
-    
-  }
-  
-  if (clickTarget.matches(".skillBox")) {
-    const thisForm = [...clickTarget.parentElement.children]
-    thisForm.forEach(step => {
-      if (step == clickTarget) {
-        if (clickTarget.classList.contains("open")) {
-          clickTarget.classList.remove("open")
-          thisForm[0].classList.add("open")
-        } else {
-          clickTarget.classList.add("open")          
-        }
-      } else {
-        step.classList.remove("open")
-      }      
-    })
-  }
-})
+
+
+
+
+
+

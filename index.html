@@ -3,6 +3,7 @@
   <head>
     <title>GUA Character Sheet</title>
     <link rel="stylesheet" href="guasheet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="guasheet.js" defer></script>
   </head>
 
@@ -36,7 +37,9 @@
               </div>
             </div>
             <div class="portraitHolder">
-              <div class="portrait"></div>
+              <div class="portrait">
+                <img src="http://placehold.it/">
+              </div>
               <div class="magicHolder">
                 <div class="nonagram" unfold-form>
                   <div class="magicCorner magic1" data-unfold>
@@ -384,7 +387,7 @@
                   <div class="magicCorner magicCorePoints" data-unfold>
                     <div class="magicPoints" data-unfold data-unfold>
                       <div class="magicBonus" data-unfold>
-                        <input type="text" id="magicCoreBonus" p data-unfoldlaceholder="+0" data-unfold>
+                        <input type="text" id="magicCoreBonus" placeholder="0" data-unfold>
                         </input>
                       </div>
                       <div class="magicDesc" data-unfold data-unfold>
@@ -408,7 +411,7 @@
                 <div class="jumpBox">
                   <div class="jumpHeightBox">
                     <div class="jumpHeight">
-                      <h2>5ft</h2>
+                      <h2 data-jumpHeight>0ft</h2>
                     </div>
                     <div class="h1Desc">
                       <h4>Jump Height</h4>
@@ -420,7 +423,7 @@
                       <h4>Fall Height</h4>
                     </div>
                     <div class="fallHeight">
-                      <h2>20ft</h2>
+                      <h2 data-fallHeight>0ft</h2>
                     </div>
                   </div>
                 </div>
@@ -430,7 +433,7 @@
                 <div class="runBox">
                   <div class="movementSpeedBox">
                     <div class="movementSpeed">
-                      <h2>20ft</h2>
+                      <h2 data-moveSpeed>0ft</h2>
                     </div>
                     <div class="h1Desc">
                       <h4>Move Speed</h4>
@@ -442,13 +445,13 @@
                       <h4>Carryweight</h4>
                     </div>
                     <div class="carryWeight">
-                      <h2>350Lb</h2>
+                      <h2 data-carryWeight>0Lb</h2>
                     </div>
                   </div>
                 </div>
                 <div class="healthBoxRight">
                   <div class="healthMax">
-                    <input type="text" id="HP_MAX" placeholder="16" onblur="logHealth()" data-MAX-HP>
+                    <input type="text" id="HP_MAX" placeholder="16" onblur="logHealth()" data-HP-MAX>
                     </input>
                   </div>
                   <div class="divider"></div>
@@ -1158,7 +1161,38 @@
           <div></div>
           <div class="holder">
             <div class="glass"></div>
-            <div class="combatHolder"></div>
+            <div class="combatHolder">
+              <div class="rollerBox">
+                <div class="chatMessageDisplay">
+                  <input type="text" class="chatMessage" data-message></input>
+                  <button class="chatSubmit" onclick="sendMessage()">Enter</button>
+                </div>
+                <div class="rollerDisplay">
+                  <h1></h1>
+                </div>
+                <div class="armorBonusDisplay">
+                  <h2></h2>
+                </div>
+                <div class="shieldBonusDisplay">
+                  <h2></h2>
+                </div>
+                <div class="masteryBounusDisplay">
+                  <h2></h2>
+                </div>
+                <div class="weaponBonusDisplay">
+                  <h2></h2>
+                </div>
+                <div class="racialBonusDisplay">
+                  <h2></h2>
+                </div>
+                <div class="weaponMagicDisplay">
+                  <h2></h2>
+                </div>
+                <div class="extraInfoDisplay">
+                  <h3></h3>
+                </div>
+              </div>
+            </div>
           </div>
           <div></div>
           <div class="corner3"></div>
