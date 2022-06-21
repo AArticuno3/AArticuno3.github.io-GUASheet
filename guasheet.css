@@ -744,9 +744,12 @@
     align-items: center;
     width: 50%;
     height: 50%;
-    -webkit-transform: translate(25%,-50%);
-    transform: translate(20%,-50%);
+    transform: translate(50%, -50%);
     z-index: 4;
+  }
+
+  .healthBoxLeft .h1Desc {
+    margin-top: 3em;
   }
   
   .healthCurrent {
@@ -755,6 +758,7 @@
   }
   
   .healthCurrent input {
+    margin-top: 2em;
     width: 100%;
     text-align: center;
   }
@@ -820,9 +824,12 @@
     align-items: center;
     width: 50%;
     height: 50%;
-    -webkit-transform: translate(-25%,-50%);
-    transform: translate(-20%,-50%);
+    transform: translate(-50%, -50%);
     z-index: 4;
+  }
+
+  .healthBoxRight .h1Desc {
+    margin-top: 3em;
   }
   
   .healthMax {
@@ -831,11 +838,8 @@
   }
   
   .healthMax input {
-    
-    font-weight: normal;
-    font-size: var(--step-4);
     width: 100%;
-    text-align: center;
+    margin-top: 2em;
   }
   
   /* ====Dividers==== */
@@ -888,8 +892,8 @@
     height: 40%;
     width: 40%;
     margin-bottom: -5%;
-    -webkit-transform: translateX(-30%) rotate(0deg);
-    transform: translateX(-30%) rotate(0deg);
+    -webkit-transform: translateX(-30%) rotate(45deg);
+    transform: translateX(-30%) rotate(45deg);
     aspect-ratio: 1/1 !important;
     transition: 0.5s ease-in-out;
   }
@@ -912,8 +916,10 @@
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     border-radius: 50%;
     outline-offset: -6px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
     background: radial-gradient(ellipse, hsl(var(--s-hs-mind) var(--l-50)) 25%, rgba(190,200,195,0.9) 75%);
-    transition: 0.5s ease-in-out;
+    transition: 1s ease-in-out;
   }
   
   .containerInner:hover .corePoints {
@@ -1012,6 +1018,9 @@
   
   .statsBox.open .skillBox:hover .skillDesc {
     display: block;
+    background: rgba(255, 255, 255, 0.5);
+    border: rgba(100, 100, 100, 0.8);
+    border-radius: 0.25em;
   }
   
   .statsBox.open .skillPoints {
