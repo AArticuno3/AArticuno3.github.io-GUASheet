@@ -262,6 +262,7 @@ function sendMessage() {
   currentMessage.value = ""
 }
 
+// Creating a rolling function
 
 function rollDice(num1,num2,num3,bonus) {
   let firstDiceRoll = 0
@@ -293,4 +294,11 @@ function rollDice(num1,num2,num3,bonus) {
   fetch(webhookLogURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
 
   return diceRollTotal
+}
+
+function resetMessage() {
+  const displayMessage = [...document.getElementsByClassName("extraInfoDisplay")][0]
+  console.log(displayMessage.children[0])
+  displayMessage.children[0].innerHTML = "   "
+  displayMessage.classList.remove("show")
 }
