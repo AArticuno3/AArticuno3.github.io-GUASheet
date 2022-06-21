@@ -1335,21 +1335,21 @@
     z-index: 6;
   }
   
-  .statsBox:hover .attrPoints {
-    -webkit-transform: translate(0,-70%);  
-    transform: translate(0,-70%);
+  /* .statsBox:hover .attrPoints {
+    -webkit-transform: translate(0,-70%) !important;  
+    transform: translate(0,-70%) !important;
     transition: 0.25s;
-  }
-  
-  .statsBox.open:hover .attrPoints {
-    -webkit-transform: rotate(-90deg) translate(-40%,-325%);
-    transform: rotate(-90deg) translate(-40%,-325%);
   }
   
   .statsBox:hover + .statsBox .attrPoints {
     -webkit-transform: translate(0,-15%) !important;  
     transform: translate(0,-15%) !important;  
-  }
+  } */
+
+  .statsBox.open:hover .attrPoints {
+    -webkit-transform: rotate(-90deg) translate(-40%,-325%);
+    transform: rotate(-90deg) translate(-40%,-325%);
+  }  
   
   .attrBonus {
     margin-block: 15%;
