@@ -182,15 +182,21 @@
   }
   
   /* ====Sheet==== */
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   
   .container {
     display: grid;
     grid-template-rows: 1fr 18fr 1fr;
     grid-template-columns: 1fr 18fr 1fr;
-    width: 120vw;
     aspect-ratio: 1/1;
+    width: 120%;
     margin-top: 60%;
-    margin-inline: -10%;
     background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     outline-offset: -6px;
@@ -198,6 +204,18 @@
     transform: rotate(-45deg);
     box-shadow: -8px 2px 5px 4px rgba(115,115,115,0.7);
     mix-blend-mode: overlay;
+  }
+
+  @media (max-width: 750px) {
+    .main {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .container {
+      width: 45%;
+      margin-inline: 2.5%;
+    }
   }
   
   .corner1,
@@ -825,7 +843,6 @@
     transform: translate(0,-4px);
   }
   
-  
   /* ==Stats Box== */
   
   .containerInner {
@@ -835,16 +852,17 @@
     height: 40%;
     width: 40%;
     margin-bottom: -5%;
-    -webkit-transform: translateX(-30%) rotate(45deg);
-    transform: translateX(-30%) rotate(45deg);
+    -webkit-transform: translate(-30%,0);
+    transform: translate(-30%,0);
     aspect-ratio: 1/1 !important;
     transition: 0.5s ease-in-out;
   }
   
   .containerInner:hover {
     cursor: pointer;
-    -webkit-transform: translateX(-30%) rotate(720deg);
-    transform: translateX(-30%) rotate(720deg);
+    -webkit-transform: translate(-30%,0) rotate(720deg);
+    transform: translate(-30%,0) rotate(720deg);
+    transition: 1s ease-in-out;
   }
   
   .corePoints {
@@ -859,15 +877,14 @@
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     border-radius: 50%;
     outline-offset: -6px;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
     background: radial-gradient(ellipse, hsl(var(--s-hs-mind) var(--l-50)) 25%, rgba(190,200,195,0.9) 75%);
-    transition: 1s ease-in-out;
+    transition: 0.5s ease-in-out;
   }
   
   .containerInner:hover .corePoints {
     -webkit-transform: rotate(-720deg);
     transform: rotate(-720deg);
+    transition: 1s ease-in-out;
   }
   
   .statsHolder {
@@ -879,7 +896,6 @@
     position: absolute;
     height: 150%;
     width: 148%;
-    margin-inline: auto;
     -webkit-transform-origin: top left;
     transform-origin: top left;
     -webkit-transform: rotate(45deg) translate(-7%,-50%);
@@ -895,7 +911,7 @@
     align-items: center;
     height: 5%;
     width: 55%;
-    margin-block: 2em;
+    margin-block: 2.5em;
     background: linear-gradient(110deg, rgba(31,34,18,0.8) 0%, rgba(115,115,115,0.8) 100%);
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     box-shadow: -8px 1px 5px 3px rgba(115,115,115,0.7);
@@ -982,8 +998,8 @@
   }
   
   .statsBox.open .attrHolder:nth-child(2n) .skillPoints {
-    -webkit-transform: translateX(50%);
-    transform: translateX(50%);
+    -webkit-transform: translate(50%,0);
+    transform: translate(50%,0);
   }
   
   .statsBox.open .skillBox:hover .skillBonus {
@@ -1054,8 +1070,8 @@
     margin-right: -20%;
     height: 100%;
     border-radius: 3em;
-    -webkit-transform: translate(-20%,-100%);
-    transform: translate(-20%,-100%);
+    -webkit-transform: translate(-10%,-100%);
+    transform: translate(-10%,-100%);
     z-index: 6;
     transition: 1s;
   }
@@ -1134,10 +1150,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 80%;
     height: 100%;
     text-align: center;
-    padding-top: 0%;
     z-index: 5;
     transition: 1s;
   }
@@ -1266,8 +1281,8 @@
     border-radius: 50%;
     outline-offset: -6px;
     overflow: hidden;
-    -webkit-transform: translate(0,-45%);
-    transform: translate(0,-45%);
+    -webkit-transform: translate(0,-30%);
+    transform: translate(0,-30%);
     /* -webkit-transform: translate(0,-70%);  
     transform: translate(0,-70%); */
     transition: 1s;
@@ -1338,11 +1353,6 @@
   margin-inline: auto;
   width: 100%;
   height: 100%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.7) 0%,
-    rgba(100, 100, 100, 0) 70%
-  );
   border-radius: 2em;
 }
 
@@ -1394,8 +1404,7 @@
 .rollerDisplay {
   grid-area: rollerDisplay;
   width: 30em;
-  height: 30em;
-  margin: -50%;
+  margin: -25%;
   aspect-ratio: 1/1;
   justify-self: center;
   align-self: center;
@@ -1408,7 +1417,7 @@
 .rollerDisplay h1 {
   height: 80%;
   width: 100%;
-  margin-top: 10%;
+  margin-top: 17%;
   text-align: center;
   font-size: 16em;
 }
@@ -1425,12 +1434,13 @@
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(100,100,100,0.7) 90%);
-  -webkit-transform: skew(-30deg) translateX(35%);
-  transform: skew(-30deg) translateX(35%);
+  -webkit-transform: skew(-30deg) translate(35%,0);
+  transform: skew(-30deg) translate(35%,0);
   opacity: 50%;
 }
 
-.armorBonusDisplay.show {
+.armorBonusDisplay.show,
+.armorBonusDisplay.show h2 { 
   opacity: 100% !important;
 }
 
@@ -1452,20 +1462,20 @@
 }
 
 .armorBonusDisplay h2 {
-  width: 80%;
-  height: 50%;
-  font-size: 3.5em;
-  margin: 0;
+  width: 40%;
+  font-size: 3em;
   text-align: center;
+  margin: 0;
   margin-block: auto;
   -webkit-transform: skew(30deg);
   transform: skew(30deg);
+  opacity: 0%;
 }
 
 .masteryBounusDisplay {
   grid-area: masteryBounusDisplay;
   display: flex;
-  justify-content: start;
+  justify-content: end;
   align-items: center;
   width: 100%;
   height: 120%;
@@ -1474,13 +1484,14 @@
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   border-radius: 0.5em;
-  background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(100,100,100,0.7) 90%);
-  -webkit-transform: translateX(35%);
-  transform: translateX(35%);
+  background: linear-gradient(90deg, rgba(255,255,255,0.9) 10%, rgba(100,100,100,0.7) 100%);
+  -webkit-transform: translate(35%,0);
+  transform: translate(35%,0);
   opacity: 50%;
 }
 
-.masteryBounusDisplay.show {
+.masteryBounusDisplay.show,
+.masteryBounusDisplay.show h2 {
   opacity: 100% !important;
 }
 
@@ -1488,7 +1499,6 @@
   display: inline-block;
   position: relative;
   width: auto;
-  padding-left: 0.25em;
   font-family: "Font Awesome 6 Free";
   content: "\f02d";
   font-size: 3em;
@@ -1501,12 +1511,11 @@
 }
 
 .masteryBounusDisplay h2 {
-  width: 84%;
-  height: 50%;
-  font-size: 3.5em;
-  margin: 0;
+  width: 40%;
+  font-size: 5em;
   text-align: center;
   margin-block: auto;
+  opacity: 0%;
 }
 
 .racialBonusDisplay {
@@ -1521,12 +1530,13 @@
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(100,100,100,0.7) 90%);
-  -webkit-transform: skew(30deg) translateX(35%);
-  transform: skew(30deg) translateX(35%);
+  -webkit-transform: skew(30deg) translate(35%,0);
+  transform: skew(30deg) translate(35%,0);
   opacity: 50%;
 }
 
-.racialBonusDisplay.show {
+.racialBonusDisplay.show,
+.racialBonusDisplay.show h2 {
   opacity: 100% !important;
 }
 
@@ -1548,14 +1558,14 @@
 }
 
 .racialBonusDisplay h2 {
-  width: 80%;
-  height: 50%;
-  font-size: 3.5em;
-  margin: 0;
+  width: 40%;
+  font-size: 3em;
   text-align: center;
+  margin: 0;
   margin-block: auto;
   -webkit-transform: skew(-30deg);
   transform: skew(-30deg);
+  opacity: 0%;
 }
 
 .shieldBonusDisplay {
@@ -1570,12 +1580,13 @@
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
-  -webkit-transform: skew(30deg) translateX(-35%);
-  transform: skew(30deg) translateX(-35%);
+  -webkit-transform: skew(30deg) translate(-35%,0);
+  transform: skew(30deg) translate(-35%,0);
   opacity: 50%;
 }
 
-.shieldBonusDisplay.show {
+.shieldBonusDisplay.show,
+.shieldBonusDisplay.show h2 {
   opacity: 100% !important;
 }
 
@@ -1597,14 +1608,14 @@
 }
 
 .shieldBonusDisplay h2 {
-  width: 80%;
-  height: 50%;
-  font-size: 3.5em;
-  margin: 0;
+  width: 40%;
+  font-size: 3em;
   text-align: center;
+  margin: 0;
   margin-block: auto;
   -webkit-transform: skew(-30deg);
   transform: skew(-30deg);
+  opacity: 0%;
 }
 
 .weaponBonusDisplay {
@@ -1620,12 +1631,13 @@
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
-  -webkit-transform: translateX(-35%);
-  transform: translateX(-35%);
+  -webkit-transform: translate(-35%,0);
+  transform: translate(-35%,0);
   opacity: 50%;
 }
 
-.weaponBonusDisplay.show {
+.weaponBonusDisplay.show,
+.weaponBonusDisplay.show h2 {
   opacity: 100% !important;
 }
 
@@ -1645,12 +1657,12 @@
 }
 
 .weaponBonusDisplay h2 {
-  width: 84%;
-  height: 50%;
-  font-size: 3.5em;
-  margin: 0;
+  width: 40%;
+  font-size: 3em;
   text-align: center;
+  margin: 0;
   margin-block: auto;
+  opacity: 0%;
 }
 
 .weaponMagicDisplay {
@@ -1665,14 +1677,16 @@
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
-  -webkit-transform: skew(-30deg) translateX(-35%);
-  transform: skew(-30deg) translateX(-35%);
+  -webkit-transform: skew(-30deg) translate(-35%,0);
+  transform: skew(-30deg) translate(-35%,0);
   opacity: 50%;
 }
 
-.weaponMagicDisplay.show {
+.weaponMagicDisplay.show,
+.weaponMagicDisplay.show h2 {
   opacity: 100% !important;
 }
+
 
 .weaponMagicDisplay:before {
   display: inline-block;
@@ -1692,29 +1706,28 @@
 }
 
 .weaponMagicDisplay h2 {
-  width: 80%;
-  height: 50%;
-  font-size: 3.5em;
-  margin: 0;
+  width: 40%;
+  font-size: 3em;
   text-align: center;
+  margin: 0;
   margin-block: auto;
   -webkit-transform: skew(30deg);
   transform: skew(30deg);
+  opacity: 0%;
 }
 
 .extraInfoDisplay {
   grid-area: extraInfoDisplay;
+  justify-self: center;
+  align-self: start;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
-  height: 50%;
-  justify-self: center;
-  align-self: start;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   border-radius: 0.5em;
-  background: white;
+  background: rgb(180,180,180);
   opacity: 50%;
   overflow-x: auto;
   overflow-y: hidden;
@@ -1727,8 +1740,6 @@
 .extraInfoDisplay h3 {
   all: unset;
   font-size: 2.8em;
-  width: calc(100% - 12px);
-  height: calc(100% - 12px);
   margin-top: 0;
   margin-bottom: -0.5e3;
   margin-inline: 6px;

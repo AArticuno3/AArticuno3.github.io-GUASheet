@@ -1,6 +1,7 @@
 let root = document.documentElement
 const itemForms = [...document.querySelectorAll("[item-form]")]
 const expandForms = [...document.querySelectorAll("[expand-form]")]
+const rollCL = 3
 
 // Creating real time HP updating
 
@@ -133,13 +134,14 @@ document.addEventListener("click", e => {
 
     displayMessage.children[0].innerHTML = generatedMessage
 
-    const diceRoll = rollDice(coreDice, magicDice, currentMagicDice, 0)
+    const totalDice = parseInt(coreDice) + parseInt(magicDice) + parseInt(currentMagicDice)
+
+    const diceRoll = rollDice(totalDice, rollCL, 0)
     displayRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "||/" + magicDifficulty.slice(5) + "||]" }
     fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
     webhookMessage.username = " - "
-
 
   }
 
@@ -174,7 +176,9 @@ document.addEventListener("click", e => {
 
     displayMessage.children[0].innerHTML = generatedMessage
 
-    const diceRoll = rollDice(coreDice, attrDice, 0, 0)
+    const totalDice = parseInt(coreDice) + parseInt(attrDice)
+
+    const diceRoll = rollDice(totalDice, rollCL, 0)
     displayRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
@@ -191,6 +195,7 @@ document.addEventListener("click", e => {
 
     const displayMessage = [...document.getElementsByClassName("extraInfoDisplay")][0]
     displayMessage.classList.add("show")
+
 
     let generatedMessage = ""
 
@@ -226,6 +231,13 @@ document.addEventListener("click", e => {
 
     let skillBonus = parseInt(skillFlat) + parseInt(skillMastery)
 
+    const displayBonus = [...document.getElementsByClassName("masteryBounusDisplay")][0]
+    if (skillBonus > 0) {
+      displayBonus.classList.add("show")
+      let localMessage = "+ " + skillBonus
+      displayBonus.children[0].innerHTML = localMessage
+    }
+
     if (clickTarget.classList.contains("skillName")) {
       generatedMessage = clickTarget.children[0].innerHTML + " Roll: "
     } else {
@@ -234,7 +246,9 @@ document.addEventListener("click", e => {
 
     displayMessage.children[0].innerHTML = generatedMessage
 
-    const diceRoll = rollDice(coreDice, attrDice, skillDice, skillBonus)
+    const totalDice = parseInt(coreDice) + parseInt(attrDice) + parseInt(skillDice)
+
+    const diceRoll = rollDice(totalDice, rollCL, skillBonus)
     displayRoll.children[0].innerHTML = diceRoll   
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
@@ -264,41 +278,79 @@ function sendMessage() {
 
 // Creating a rolling function
 
-function rollDice(num1,num2,num3,bonus) {
-  let firstDiceRoll = 0
-  let secondDiceRoll = 0
-  let thirdDiceRoll = 0  
+function rollDice(dice,rollCL,bonus) {
   let diceRollTotal = 0
+  let debugMessage = "Last Roll: ["
+  console.log(dice)
 
-  for (let i = 0; i < num1; i++) {
-    if (parseInt(Math.random()*(7)) > 3) {
-        firstDiceRoll++
+  for (let i = 0; i < dice; i++) {
+    let currentRoll = parseInt(Math.random()*(6) + 1)
+    
+    if (currentRoll > rollCL) {
+      debugMessage = debugMessage.concat("**" + currentRoll + "**")
+      diceRollTotal++      
+    } else {
+      debugMessage = debugMessage.concat(currentRoll)
     }
-  }
 
-  for (let i = 0; i < num2; i++) {
-    if (parseInt(Math.random()*(7)) > 3) {
-        secondDiceRoll++
+    if (i != (dice - 1)) {      
+      debugMessage = debugMessage.concat(",")
     }
-  }
 
-  for (let i = 0; i < num3; i++) {
-    if (parseInt(Math.random()*(7)) > 3) {
-        thirdDiceRoll++
-    }
   }
-
-  diceRollTotal = firstDiceRoll + secondDiceRoll + thirdDiceRoll + parseInt(bonus)
+  debugMessage = debugMessage.concat("]")
   
-  const webhookMessage = { "content": num1 + "d6 rolls: [" + firstDiceRoll + "]; " + num2 + "d6 rolls: [" + secondDiceRoll + "]; " + num3+ "d6 rolls: [" + thirdDiceRoll + "]; Bonus was: [" + bonus + "]; Total: [" + diceRollTotal + "]" }
+  if (bonus !== "") {
+    debugMessage = debugMessage.concat(" + " + bonus)
+  }
+
+  if (rollCL == 3) {
+    debugMessage = debugMessage.concat(" ||Normal||")    
+  } else if (rollCL == 2) {
+    debugMessage = debugMessage.concat(" ||1xAdvangtage||")    
+  } else if (rollCL == 1) {
+    debugMessage = debugMessage.concat(" ||2xAdvangtage||")    
+  } else if (rollCL == 0) {
+    debugMessage = debugMessage.concat(" ||3xAdvangtage||")    
+  } else if (rollCL == 4) {
+    debugMessage = debugMessage.concat(" ||1xDisadvantage||")    
+  } else if (rollCL == 5) {
+    debugMessage = debugMessage.concat(" ||2xDisadvantage||")    
+  } else if (rollCL == 6) {
+    debugMessage = debugMessage.concat(" ||3xDisadvantage||")    
+  }
+  
+  const webhookMessage = { "content": debugMessage }
   fetch(webhookLogURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
 
   return diceRollTotal
 }
 
+// Message Reset on click
+
 function resetMessage() {
+  const displayRoll = [...document.getElementsByClassName("rollerDisplay")][0]
+  displayRoll.children[0].innerHTML = "   "
+  displayRoll.classList.remove("show")
+  const displayArmor = [...document.getElementsByClassName("armorBonusDisplay")][0]
+  displayArmor.children[0].innerHTML = "   "
+  displayArmor.classList.remove("show")
+  const displayShield = [...document.getElementsByClassName("shieldBonusDisplay")][0]
+  displayShield.children[0].innerHTML = "   "
+  displayShield.classList.remove("show")
+  const displayBonus = [...document.getElementsByClassName("masteryBounusDisplay")][0]
+  displayBonus.children[0].innerHTML = "   "
+  displayBonus.classList.remove("show")
+  const displayWeapon = [...document.getElementsByClassName("weaponBonusDisplay")][0]
+  displayWeapon.children[0].innerHTML = "   "
+  displayWeapon.classList.remove("show")
+  const displayRacial = [...document.getElementsByClassName("racialBonusDisplay")][0]
+  displayRacial.children[0].innerHTML = "   "
+  displayRacial.classList.remove("show")
+  const displayWeapMag = [...document.getElementsByClassName("weaponMagicDisplay")][0]
+  displayWeapMag.children[0].innerHTML = "   "
+  displayWeapMag.classList.remove("show")
   const displayMessage = [...document.getElementsByClassName("extraInfoDisplay")][0]
-  console.log(displayMessage.children[0])
   displayMessage.children[0].innerHTML = "   "
   displayMessage.classList.remove("show")
 }
