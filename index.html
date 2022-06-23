@@ -8,7 +8,9 @@
   </head>
 
   <body>
-    <div class="wrapper">
+    <!-- <div class="wrapper"> -->
+
+      <!-- Background -->
 
       <div class="header">
         <div class="background"></div>
@@ -16,8 +18,23 @@
 
       <div class="main">
 
+        <!-- Character Name Box -->
+        
+        <div class="characterNameBox">
+          <input type="text" class="characterName" onblur="logName()" id="characterName">
+          </input>
+          <div class="raceTri">
+            <input type="text" class="characterRace">
+            </input>
+          </div>
+          <div class="backTri">
+            <input type="text" class="characterBack">
+            </input>
+          </div>
+        </div>
+        
         <!-- Portrait Box Holder -->
-
+        
         <div class="container">
           <div class="corner1"></div>
           <div></div>
@@ -1374,6 +1391,6 @@
 
       </div>
 
-    </div>
+    <!-- </div> -->
   </body>
 </html>

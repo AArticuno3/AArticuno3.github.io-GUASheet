@@ -2,6 +2,23 @@ let root = document.documentElement
 const itemForms = [...document.querySelectorAll("[item-form]")]
 const expandForms = [...document.querySelectorAll("[expand-form]")]
 const rollCL = 3
+let charName = ""
+
+// Creating real time Name uptading
+
+function logName() {
+  charName = document.getElementById("characterName").value
+
+  if (charName == "") {
+    charName = "Player"
+  }
+  console.log(charName)
+
+  const debugMessage = "name changed to " + charName
+  console.log(debugMessage)
+  const webhookMessage = { "content": debugMessage }
+  fetch(webhookLogURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
+}
 
 // Creating real time HP updating
 
@@ -140,8 +157,8 @@ document.addEventListener("click", e => {
     displayRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "||/" + magicDifficulty.slice(5) + "||]" }
+    webhookMessage.username = charName
     fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
-    webhookMessage.username = " - "
 
   }
 
@@ -182,8 +199,8 @@ document.addEventListener("click", e => {
     displayRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
+    webhookMessage.username = charName
     fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
-    webhookMessage.username = " - "
 
   }
 
@@ -252,8 +269,8 @@ document.addEventListener("click", e => {
     displayRoll.children[0].innerHTML = diceRoll   
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
+    webhookMessage.username = charName
     fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
-    webhookMessage.username = " - " 
 
   }
 
@@ -268,8 +285,8 @@ const webhookLogURL = "https://discord.com/api/webhooks/988323569924706334/LyH9Q
 function sendMessage() {
   let currentMessage = [...document.querySelectorAll("[data-message]")][0]
   console.log(currentMessage.value)
+  webhookMessage.username = charName
   const webhookMessage = { "content": currentMessage.value }
-  webhookMessage.username = " - "
   
   fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
 

@@ -104,6 +104,7 @@
   
   button {
     all: unset;
+    font-family:'Trebuchet MS';
     font-size: var(--step-1);
     text-shadow: 0px 0px 2px hsl( var(--p-hs) var(--l-50) );
     color: hsl( var(--p-hs) var(--l-black) );
@@ -111,6 +112,7 @@
   }
   
   h1 {
+    font-family:'Trebuchet MS';
     font-size: var(--step-3);
     text-shadow: 0px 0px 2px hsl( var(--p-hs) var(--l-50) );
     color: hsl( var(--p-hs) var(--l-black) );
@@ -118,6 +120,7 @@
   }
   
   h2 {
+    font-family:'Trebuchet MS';
     font-size: var(--step-2);
     text-shadow: 0px 0px 2px hsl( var(--p-hs) var(--l-50) );
     color: hsl( var(--p-hs) var(--l-10) );
@@ -125,6 +128,7 @@
   }
   
   h3 {
+    font-family:'Trebuchet MS';
     font-size: var(--step-1);
     text-shadow: 0px 0px 2px hsl( var(--p-hs) var(--l-50) );
     color: hsl( var(--p-hs) var(--l-10) );
@@ -132,6 +136,7 @@
   }
   
   h4 {
+    font-family:'Trebuchet MS';
     font-size: var(--step-0);
     text-shadow: 0px 0px 2px hsl( var(--p-hs) var(--l-50) );
     color: hsl( var(--p-hs) var(--l-5) );
@@ -139,6 +144,7 @@
   }
   
   h5 {
+    font-family:'Trebuchet MS';
     font-size: var(--step--1);
     text-shadow: 0px 0px 2px hsl( var(--p-hs) var(--l-50) );
     color: hsl( var(--p-hs) var(--l-black) );
@@ -162,23 +168,31 @@
   
   /* ==Header== */
   
-  .wrapper {
+  /* .wrapper {
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-perspective: 10px;
     perspective: 10px;
-  }
+  } */
   
   .header {
-    position: relative;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: 100%;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     z-index: -1;
+  }
+
+  .background {
+    width: 100%;
+    height: 100%;
+    background-image: url(/GUA_Background.jpg);
+    background-size: cover;
   }
   
   /* ====Sheet==== */
@@ -188,6 +202,77 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
+  }
+
+  .characterNameBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: 5em;
+    height: 8em;
+    background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
+    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    outline-offset: -6px;
+    box-shadow: -8px 2px 5px 4px rgba(115,115,115,0.7);
+  }
+
+  .characterName {
+    width: 100%;
+    font-size: 6.5em;
+    font-weight: bold;
+    font-family: 'Lucida Grande';
+    text-align: center;
+    border-radius: 1em;
+    margin-bottom: 2px;
+    z-index: 3;
+  }
+
+  .raceTri {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35%;
+    aspect-ratio: 1/1;
+    background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
+    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    outline-offset: -6px;
+    transform: translate(22%, calc(-50% + 2px)) rotate(225deg);
+    clip-path: polygon(-1% -1%, 101% -1%, -1% 101%);
+    z-index: 1;
+  }
+
+  .characterRace {
+    width: 100%;
+    height: 1.2em;
+    background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
+    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    outline-offset: -6px;
+    transform: rotate(-225deg) translate(0,50%);
+  }
+
+  .backTri {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35%;
+    aspect-ratio: 1/1;
+    background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
+    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    outline-offset: -6px;
+    transform: translate(-22%, calc(-50% + 2px)) rotate(-225deg);
+    clip-path: polygon(101% -1%, -1% -1%, 101% 101%);
+    z-index: 1;
+  }
+
+  .characterBack {
+    width: 100%;
+    height: 1.2em;
+    background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
+    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    outline-offset: -6px;
+    transform: rotate(225deg) translate(0,50%);
   }
   
   .container {
@@ -203,7 +288,6 @@
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
     box-shadow: -8px 2px 5px 4px rgba(115,115,115,0.7);
-    mix-blend-mode: overlay;
   }
 
   @media (max-width: 750px) {
