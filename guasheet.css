@@ -199,8 +199,6 @@
     box-shadow: -8px 2px 5px 4px rgba(115,115,115,0.7);
     mix-blend-mode: overlay;
   }
-
-
   
   .corner1,
   .corner2,
@@ -517,8 +515,8 @@
   .magic1:hover .magicPoints,
   .magic1:hover .manaCurrent,
   .magic1:hover .manaMax {
-    -webkit-transform: rotateZ(330deg) scale(100%);
-    transform: rotateZ(330deg) scale(100%);
+    -webkit-transform: rotate(330deg) scale(100%);
+    transform: rotate(330deg) scale(100%);
   }
   
   .magic2 {
@@ -538,8 +536,8 @@
   .magic2:hover .magicPoints,
   .magic2:hover .manaCurrent,
   .magic2:hover .manaMax {
-    -webkit-transform: rotateZ(290deg) scale(100%);
-    transform: rotateZ(290deg) scale(100%);
+    -webkit-transform: rotate(290deg) scale(100%);
+    transform: rotate(290deg) scale(100%);
   }
   
   .magic3 {
@@ -559,8 +557,8 @@
   .magic3:hover .magicPoints,
   .magic3:hover .manaCurrent,
   .magic3:hover .manaMax {
-    -webkit-transform: rotateZ(250deg) scale(100%);
-    transform: rotateZ(250deg) scale(100%);
+    -webkit-transform: rotate(250deg) scale(100%);
+    transform: rotate(250deg) scale(100%);
   }
   
   .magic4 {
@@ -580,8 +578,8 @@
   .magic4:hover .magicPoints,
   .magic4:hover .manaCurrent,
   .magic4:hover .manaMax {
-    -webkit-transform: rotateZ(210deg) scale(100%);
-    transform: rotateZ(210deg) scale(100%);
+    -webkit-transform: rotate(210deg) scale(100%);
+    transform: rotate(210deg) scale(100%);
   }
   
   .magic5 {
@@ -601,8 +599,8 @@
   .magic5:hover .magicPoints,
   .magic5:hover .manaCurrent,
   .magic5:hover .manaMax {
-    -webkit-transform: rotateZ(170deg) scale(100%);
-    transform: rotateZ(170deg) scale(100%);
+    -webkit-transform: rotate(170deg) scale(100%);
+    transform: rotate(170deg) scale(100%);
   }
   
   .magic6 {
@@ -622,8 +620,8 @@
   .magic6:hover .magicPoints,
   .magic6:hover .manaCurrent,
   .magic6:hover .manaMax {
-    -webkit-transform: rotateZ(130deg) scale(100%);
-    transform: rotateZ(130deg) scale(100%);
+    -webkit-transform: rotate(130deg) scale(100%);
+    transform: rotate(130deg) scale(100%);
   }
   
   .magic7 {
@@ -643,8 +641,8 @@
   .magic7:hover .magicPoints,
   .magic7:hover .manaCurrent,
   .magic7:hover .manaMax {
-    -webkit-transform: rotateZ(90deg) scale(100%);
-    transform: rotateZ(90deg) scale(100%);
+    -webkit-transform: rotate(90deg) scale(100%);
+    transform: rotate(90deg) scale(100%);
   }
   
   .magic8 {
@@ -664,8 +662,8 @@
   .magic8:hover .magicPoints,
   .magic8:hover .manaCurrent,
   .magic8:hover .manaMax {
-    -webkit-transform: rotateZ(50deg) scale(100%);
-    transform: rotateZ(50deg) scale(100%);
+    -webkit-transform: rotate(50deg) scale(100%);
+    transform: rotate(50deg) scale(100%);
   }
   
   .magic9 {
@@ -685,8 +683,8 @@
   .magic9:hover .magicPoints,
   .magic9:hover .manaCurrent,
   .magic9:hover .manaMax {
-    -webkit-transform: rotateZ(10deg) scale(100%);
-    transform: rotateZ(10deg) scale(100%);
+    -webkit-transform: rotate(10deg) scale(100%);
+    transform: rotate(10deg) scale(100%);
   }
   
   .magicCorePoints {
@@ -734,114 +732,57 @@
   
   .infoBox {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 80%;
     aspect-ratio: 2/1;
     margin-top: -6px;
   }
   
-  .healthBoxLeft {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 50%;
-    transform: translate(50%, -50%);
-    z-index: 4;
-  }
-
-  .healthBoxLeft .h1Desc {
-    margin-top: 3em;
-  }
-  
-  .healthCurrent {
-    height: 50%;
-    overflow: hidden;
-  }
-  
-  .healthCurrent input {
-    margin-top: 2em;
-    width: 100%;
-    text-align: center;
-  }
-  
-  .h1Desc {
-    height: 50%;
-    text-align: center;
-  }
-  
-  .jumpBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 50%;
-    height: 87%;
-    -webkit-transform: translate(-10%,15%);
-    transform: translate(-10%,15%);
-    overflow: hidden;
-  }
-  
-  .runBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 50%;
-    height: 87%;
-    -webkit-transform: translate(10%,15%);
-    transform: translate(10%,15%);
-    overflow: hidden;
-  }
-  
+  .healthBoxLeft,
+  .healthBoxRight,
   .jumpHeightBox,
-  .fallHeightBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: end;
-    margin-left: auto;
-    height: 25%;
-  }
-  
+  .fallHeightBox,
   .movementSpeedBox,
   .carryWeightBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    margin-right: auto;
-    height: 25%;
+    padding: 1em;
   }
-  
-  .jumpHeight,
-  .fallHeight,
-  .movementSpeed,
-  .carryWeight {
-    height: 50%;
-  }
-  
+
+  .healthBoxLeft,
   .healthBoxRight {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 50%;
-    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 20%;
+    height: calc(50% - 2em);
     z-index: 4;
   }
-
-  .healthBoxRight .h1Desc {
-    margin-top: 3em;
+  
+  .healthBoxLeft {
+    transform: translate(50%, -100%);
   }
   
-  .healthMax {
-    height: 50%;
-    overflow: hidden;
+  .healthBoxRight {
+    transform: translate(-50%, -100%);
   }
   
-  .healthMax input {
-    width: 100%;
-    margin-top: 2em;
+  .jumpBox,
+  .runBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+    height: calc(50% - 2em);
+  }
+  
+  .jumpBox {
+    text-align: right;
+  }
+  
+  .runBox {
+    text-align: left;
   }
   
   /* ====Dividers==== */
