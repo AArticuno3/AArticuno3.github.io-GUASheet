@@ -1010,6 +1010,7 @@
     height: 10%;
   }
   
+  #strengthStatBox .attrName,
   #strengthStatBox .attrPoints,
   #strengthStatBox .skillBonus {
     background: radial-gradient(circle, rgba(200,200,120,0.9) 25%, rgba(200,200,200,0.9) 75%);
@@ -1020,6 +1021,7 @@
     background: radial-gradient(ellipse, rgba(200,200,120,0.9) 0%, rgba(0,0,0,0) 75%);
   }
   
+  #dexterityStatBox .attrName,
   #dexterityStatBox .attrPoints,
   #dexterityStatBox .skillBonus {
     background: radial-gradient(circle, rgba(120,200,120,0.9) 25%, rgba(200,200,200,0.9) 75%);
@@ -1030,6 +1032,7 @@
     background: radial-gradient(ellipse, rgba(120,200,120,0.9) 0%, rgba(0,0,0,0) 75%);
   }
   
+  #intelligenceStatBox .attrName,
   #intelligenceStatBox .attrPoints,
   #intelligenceStatBox .skillBonus {
     background: radial-gradient(circle, rgba(120,160,200,0.9) 25%, rgba(200,200,200,0.9) 75%);
@@ -1040,16 +1043,32 @@
     background: radial-gradient(ellipse, rgba(120,160,200,0.9) 0%, rgba(0,0,0,0) 75%);
   }
   
-  .infoButton {
+  .attrName {
     display: flex;
     justify-content: center;
-    width: 3em;
-    height: 3em;
+    align-items: center;
+    background: rgba(255,255,255,0.01);
+    cursor: pointer;
+    width: 15%;
+    padding-right: 5%;
+    margin-right: -20%;
+    height: 100%;
+    border-radius: 3em;
+    -webkit-transform: translate(-20%,-100%);
+    transform: translate(-20%,-100%);
+    z-index: 6;
+    transition: 1s;
+  }
+
+  .attrName:hover {
+    background: rgba(255,255,255,0.25);
+  }
+  
+  .infoButton {
+    width: 50%;
+    display: flex;
+    justify-content: center;
     aspect-ratio: 1/1 !important;
-    border: unset;
-    -webkit-transform: translate(0.5em,1em);
-    transform: translate(0.5em,1em);
-    background: transparent;
     z-index: 7;
   }
   
@@ -1062,63 +1081,43 @@
     position: inherit;
     inset: 2px;
     border-style: solid;
-    border-width: 0 1em calc(1.732 * 1em) 1em;
+    border-width: 0 2.5em calc(1.732 * 2.5em) 2.5em;
     border-color: transparent transparent hsl(10,100%,40%) transparent;
     mix-blend-mode: multiply;
     transition: 0.5s;
   }
   
   .triBlock1 {
-    -webkit-transform: translate(calc(100% - 3px),0) rotate(0deg);
-    transform: translate(calc(100% - 3px),0) rotate(0deg);
+    -webkit-transform: translate(calc(90%),-15%) rotate(0deg);
+    transform: translate(calc(90%),-15%) rotate(0deg);
   }
   
   .infoButton:hover .triBlock1 {
-    -webkit-transform: translate(calc(100% - 4px),0) rotate(300deg);
-    transform: translate(calc(100% - 4px),0) rotate(300deg);
+    -webkit-transform: translate(calc(90%),-15%) rotate(200deg);
+    transform: translate(calc(90%),-15%) rotate(200deg);
     transition: 1s;
   }
   
   .triBlock2 {
-    -webkit-transform: rotate(40deg);
-    transform: rotate(40deg);
+    -webkit-transform: translate(0%,-10%) rotate(40deg);
+    transform: translate(0%,-10%) rotate(40deg);
   }
   
   .infoButton:hover .triBlock2 {
-    -webkit-transform: translate(-1px,-2px) rotate(340deg);
-    transform: translate(-1px,-2px) rotate(340deg);
+    -webkit-transform: translate(0%,-10%) rotate(240deg);
+    transform: translate(0%,-10%) rotate(240deg);
     transition: 1s;
   }
   
   .triBlock3 {
-    -webkit-transform: translate(calc(-100% + 2px),3px) rotate(80deg);
-    transform: translate(calc(-100% + 2px),3px) rotate(80deg);
+    -webkit-transform: translate(calc(-95%),0) rotate(80deg);
+    transform: translate(calc(-95%),0) rotate(80deg);
   }
   
   .infoButton:hover .triBlock3 {
-    -webkit-transform: translate(calc(-100% + 2px),-2px) rotate(380deg);
-    transform: translate(calc(-100% + 2px),-2px) rotate(380deg);
+    -webkit-transform: translate(calc(-95%),0) rotate(280deg);
+    transform: translate(calc(-95%),0) rotate(280deg);
     transition: 1s;
-  }
-  
-  .attrName {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(255,255,255,0.01);
-    cursor: pointer;
-    width: 15%;
-    height: 100%;
-    border-radius: 3em;
-    -webkit-transform: translate(-10%,-60%) scale(150%);
-    transform: translate(-10%,-75%) scale(150%);
-    z-index: 6;
-    overflow: hidden;
-    transition: 1s;
-  }
-
-  .attrName:hover {
-    background: rgba(255,255,255,0.25);
   }
   
   .attrBox {
@@ -1127,7 +1126,6 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    margin-left: -15%;
     z-index: 0;
     transition: 1s;
   }
