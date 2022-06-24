@@ -166,12 +166,15 @@
   
   body {
     margin: 0;
+    overflow: hidden;
   }
   
   /* ==Header== */
   
   .wrapper {
+    position: relative;
     height: 100vh;
+    width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-perspective: 10px;
@@ -1379,11 +1382,33 @@
   }
   
   .infoButton {
-    width: 50%;
     display: flex;
+    width: 50%;
+    position: relative;
     justify-content: center;
     aspect-ratio: 1/1 !important;
     z-index: 7;
+  }
+
+  .infoButton:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: calc(50% - 1.4em);
+    left: 46%;
+    border-top:   1em solid transparent;
+    border-left:  1.7em solid rgba(255,255,255,0.9);
+    border-bottom:1em solid transparent;
+    transform-origin: center left;
+    transform: rotate(90deg);
+    transition: 0.5s;
+  }
+  
+  .infoButton:hover:after {
+    border-left:  1.7em solid hsl( var(--s-hs-mind) var(--l-30) );
+    transform: translate(0, 50%) rotate(0deg);
+    transition: 1s;
   }
   
   .triBlock1,

@@ -334,22 +334,6 @@ function rollDice(dice,rollCL,bonus) {
   if (bonus !== "") {
     debugMessage = debugMessage.concat(" + " + bonus)
   }
-
-  if (rollCL == 3) {
-    debugMessage = debugMessage.concat(" ||Normal||")    
-  } else if (rollCL == 2) {
-    debugMessage = debugMessage.concat(" ||1xAdvangtage||")    
-  } else if (rollCL == 1) {
-    debugMessage = debugMessage.concat(" ||2xAdvangtage||")    
-  } else if (rollCL == 0) {
-    debugMessage = debugMessage.concat(" ||3xAdvangtage||")    
-  } else if (rollCL == 4) {
-    debugMessage = debugMessage.concat(" ||1xDisadvantage||")    
-  } else if (rollCL == 5) {
-    debugMessage = debugMessage.concat(" ||2xDisadvantage||")    
-  } else if (rollCL == 6) {
-    debugMessage = debugMessage.concat(" ||3xDisadvantage||")    
-  }
   
   const webhookMessage = { "content": debugMessage }
   fetch(webhookLogURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
