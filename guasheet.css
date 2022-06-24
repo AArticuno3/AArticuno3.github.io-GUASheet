@@ -168,21 +168,17 @@
   
   /* ==Header== */
   
-  /* .wrapper {
+  .wrapper {
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-perspective: 10px;
     perspective: 10px;
-  } */
+  }
   
   .header {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+    position: absolute;
+    inset: 0;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     z-index: -1;
@@ -192,6 +188,7 @@
     width: 100%;
     height: 100%;
     background-image: url(/GUA_Background.jpg);
+    background-position: center center;
     background-size: cover;
   }
   
@@ -202,7 +199,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
+    z-index: 1;
   }
 
   .characterNameBox {
@@ -215,7 +212,6 @@
     background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     outline-offset: -6px;
-    box-shadow: -8px 2px 5px 4px rgba(115,115,115,0.7);
   }
 
   .characterName {
@@ -229,7 +225,7 @@
     z-index: 3;
   }
 
-  .raceTri {
+  .rightTri {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -238,21 +234,13 @@
     background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     outline-offset: -6px;
-    transform: translate(22%, calc(-50% + 2px)) rotate(225deg);
-    clip-path: polygon(-1% -1%, 101% -1%, -1% 101%);
-    z-index: 1;
+    box-shadow: -8px 2px 5px 4px rgba(115,115,115,0.7);
+    -webkit-transform: translate(-5px, -72%) rotate(-45deg);
+    transform: translate(-5px, -72%) rotate(-45deg);
+    z-index: -1;
   }
 
-  .characterRace {
-    width: 100%;
-    height: 1.2em;
-    background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
-    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
-    outline-offset: -6px;
-    transform: rotate(-225deg) translate(0,50%);
-  }
-
-  .backTri {
+  .leftTri {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -261,18 +249,10 @@
     background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     outline-offset: -6px;
-    transform: translate(-22%, calc(-50% + 2px)) rotate(-225deg);
-    clip-path: polygon(101% -1%, -1% -1%, 101% 101%);
-    z-index: 1;
-  }
-
-  .characterBack {
-    width: 100%;
-    height: 1.2em;
-    background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
-    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
-    outline-offset: -6px;
-    transform: rotate(225deg) translate(0,50%);
+    box-shadow: -8px 2px 5px 4px rgba(115,115,115,0.7);
+    -webkit-transform: translate(5px, -72%) rotate(-45deg);
+    transform: translate(5px, -72%) rotate(-45deg);
+    z-index: -1;
   }
   
   .container {
@@ -943,10 +923,8 @@
   }
   
   .containerInner:hover {
-    cursor: pointer;
     -webkit-transform: translate(-30%,0) rotate(720deg);
     transform: translate(-30%,0) rotate(720deg);
-    transition: 1s ease-in-out;
   }
   
   .corePoints {
@@ -957,18 +935,34 @@
     height: 100%;
     width: 100%;
     aspect-ratio: 1/1 !important;
+    cursor: pointer;
     overflow: hidden;
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     border-radius: 50%;
     outline-offset: -6px;
     background: radial-gradient(ellipse, hsl(var(--s-hs-mind) var(--l-50)) 25%, rgba(190,200,195,0.9) 75%);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
     transition: 0.5s ease-in-out;
+  }
+
+  .corePoints input {
+    font-size: 10em;
+  }
+
+  .corePoints h3 {
+    font-size: 6em;
+  }
+
+  .corePoints .coreBonus,
+  .corePoints .magicDesc {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); 
   }
   
   .containerInner:hover .corePoints {
-    -webkit-transform: rotate(-720deg);
-    transform: rotate(-720deg);
-    transition: 1s ease-in-out;
+    -webkit-transform: rotate(-765deg);
+    transform: rotate(-765deg);
   }
   
   .statsHolder {
@@ -1365,8 +1359,8 @@
     border-radius: 50%;
     outline-offset: -6px;
     overflow: hidden;
-    -webkit-transform: translate(0,-30%);
-    transform: translate(0,-30%);
+    -webkit-transform: translate(0,-30%) rotate(-45deg);
+    transform: translate(0,-30%) rotate(-45deg);
     /* -webkit-transform: translate(0,-70%);  
     transform: translate(0,-70%); */
     transition: 1s;
@@ -1388,16 +1382,28 @@
     -webkit-transform: rotate(-90deg) translate(-40%,-325%);
     transform: rotate(-90deg) translate(-40%,-325%);
   }  
+
+  .attrPoints input {
+    font-size: 6em;
+  }
+
+  .attrPoints h3 {
+    font-size: 2.5em;
+  }
   
   .attrBonus {
     margin-block: 15%;
     text-align: center;
     height: 20%;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
   
   .attrDice {
     text-align: center;
     padding-bottom: 10%;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
   
   .skillMastery,
@@ -1415,7 +1421,7 @@
   align-items: center;
   position: absolute;
   height: 100%;
-  width: 146%;
+  width: 148%;
   margin-inline: auto;
   -webkit-transform-origin: top left;
   transform-origin: top left;
@@ -1433,9 +1439,13 @@
     "masteryBounusDisplay rollerDisplay weaponBonusDisplay"
     "racialBonusDisplay rollerDisplay weaponMagicDisplay"
     "extraInfoDisplay extraInfoDisplay extraInfoDisplay";
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 2fr 3fr 4fr 3fr 2fr;
+  justify-content: center;
+  align-items: center;
   gap: 1.5em;
   margin-inline: auto;
-  width: 100%;
+  width: 60%;
   height: 100%;
   border-radius: 2em;
 }
@@ -1488,7 +1498,6 @@
 .rollerDisplay {
   grid-area: rollerDisplay;
   width: 30em;
-  margin: -25%;
   aspect-ratio: 1/1;
   justify-self: center;
   align-self: center;
@@ -1517,9 +1526,9 @@
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   border-radius: 0.5em;
-  background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(100,100,100,0.7) 90%);
-  -webkit-transform: skew(-30deg) translate(35%,0);
-  transform: skew(-30deg) translate(35%,0);
+  background: linear-gradient(90deg, rgba(255,255,255,0.9) 10%, rgba(100,100,100,0.7) 100%);
+  -webkit-transform: skew(-30deg);
+  transform: skew(-30deg);
   opacity: 50%;
 }
 
@@ -1559,7 +1568,7 @@
 .masteryBounusDisplay {
   grid-area: masteryBounusDisplay;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   width: 100%;
   height: 120%;
@@ -1569,8 +1578,6 @@
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(255,255,255,0.9) 10%, rgba(100,100,100,0.7) 100%);
-  -webkit-transform: translate(35%,0);
-  transform: translate(35%,0);
   opacity: 50%;
 }
 
@@ -1605,7 +1612,7 @@
 .racialBonusDisplay {
   grid-area: racialBonusDisplay;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   width: 100%;
   height: 80%;
@@ -1613,9 +1620,9 @@
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   border-radius: 0.5em;
-  background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(100,100,100,0.7) 90%);
-  -webkit-transform: skew(30deg) translate(35%,0);
-  transform: skew(30deg) translate(35%,0);
+  background: linear-gradient(90deg, rgba(255,255,255,0.9) 10%, rgba(100,100,100,0.7) 100%);
+  -webkit-transform: skew(30deg);
+  transform: skew(30deg);
   opacity: 50%;
 }
 
@@ -1664,8 +1671,8 @@
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
-  -webkit-transform: skew(30deg) translate(-35%,0);
-  transform: skew(30deg) translate(-35%,0);
+  -webkit-transform: skew(30deg);
+  transform: skew(30deg);
   opacity: 50%;
 }
 
@@ -1715,8 +1722,6 @@
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
-  -webkit-transform: translate(-35%,0);
-  transform: translate(-35%,0);
   opacity: 50%;
 }
 
@@ -1761,8 +1766,8 @@
   outline-offset: -6px;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
-  -webkit-transform: skew(-30deg) translate(-35%,0);
-  transform: skew(-30deg) translate(-35%,0);
+  -webkit-transform: skew(-30deg);
+  transform: skew(-30deg);
   opacity: 50%;
 }
 
