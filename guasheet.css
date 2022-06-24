@@ -177,6 +177,13 @@
     -webkit-perspective: 10px;
     perspective: 10px;
   }
+
+  @media (min-width: 1200px) {
+    .wrapper {
+      display: flex;
+      justify-content: center;
+    }
+  }
   
   .header {
     z-index: -1;
@@ -199,7 +206,7 @@
     background-image: url(images/Hills.png);
     background-position: center center;
     background-size: cover;
-    -webkit-transform: translate(0,calc(10vh - calc(var(--scroll-depth) / 5.5)));
+    -webkit-transform: translate(0,calc(10vh - calc(var(--scroll-depth) / 22)));
     transform: translate(0,calc(10vh - calc(var(--scroll-depth) / 22)));
   }
   
@@ -208,7 +215,7 @@
     background-position: center center;
     background-size: cover;
     mix-blend-mode: multiply;
-    -webkit-transform: translate(0,calc(40vh - calc(var(--scroll-depth) / 5.5)));
+    -webkit-transform: translate(0,calc(18vh - calc(var(--scroll-depth) / 14)));
     transform: translate(0,calc(18vh - calc(var(--scroll-depth) / 14)));
   }
   
@@ -217,7 +224,7 @@
     background-position: center center;
     background-size: cover;
     mix-blend-mode: multiply;
-    -webkit-transform: translate(0,calc(40vh - calc(var(--scroll-depth) / 5.5)));
+    -webkit-transform: translate(0,calc(32vh - calc(var(--scroll-depth) / 8)));
     transform: translate(0,calc(32vh - calc(var(--scroll-depth) / 8)));
   }
   
@@ -225,18 +232,44 @@
     background-image: url(images/Path.png);
     background-position: center center;
     background-size: cover;
-    -webkit-transform: translate(0,calc(20vh - calc(var(--scroll-depth) / 14)));
+    -webkit-transform: translate(0,calc(87vh - calc(var(--scroll-depth) / 3)));
     transform: translate(0,calc(87vh - calc(var(--scroll-depth) / 3)));
+  }
+  
+  @media (min-width: 1000px) {
+    .background:nth-child(2) {
+      -webkit-transform: translate(0,calc(12vh - calc(var(--scroll-depth) / 22)));      
+      transform: translate(0,calc(12vh - calc(var(--scroll-depth) / 22)));      
+    }
+    .background:nth-child(3) {
+      -webkit-transform: translate(0,calc(28vh - calc(var(--scroll-depth) / 9)));      
+      transform: translate(0,calc(28vh - calc(var(--scroll-depth) / 9)));      
+    }
+    .background:nth-child(4) {
+      -webkit-transform: translate(0,calc(41vh - calc(var(--scroll-depth) / 6)));      
+      transform: translate(0,calc(41vh - calc(var(--scroll-depth) / 6)));      
+    }
+    .background:nth-child(5) {
+      -webkit-transform: translate(0,calc(50vh - calc(var(--scroll-depth) / 3)));      
+      transform: translate(0,calc(50vh - calc(var(--scroll-depth) / 3)));      
+    }
   }
 
   /* ====Sheet==== */
 
   .main {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     z-index: 1;
+  }
+
+  @media (min-width: 1000px) {
+    .main {
+      gap: 20%;
+      margin-bottom: -20%;
+    }
   }
 
   .characterNameBox {
@@ -246,9 +279,18 @@
     width: 80%;
     margin-top: 5em;
     height: 8em;
-    background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
+    background: linear-gradient(110deg, rgba(8, 155, 106, 0.7) 0%, rgba(115,115,115,0.7) 100%);
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    mix-blend-mode: multiply;
     outline-offset: -6px;
+  }
+
+  @media (min-width: 1000px) {
+    .characterNameBox {
+      width: 40%;
+      height: 5em;
+      margin-inline: 20%;
+    }
   }
 
   .characterName {
@@ -263,24 +305,43 @@
     z-index: 3;
   }
 
+  @media (min-width: 1000px) {
+    .characterName {
+      font-size: 4.5em;
+    }
+  }
+
   .rightTri {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 35%;
     aspect-ratio: 1/1;
-    background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
-    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
-    outline-offset: -6px;
-    box-shadow: -8px 2px 5px 4px rgba(115,115,115,0.7);
-    -webkit-transform: translate(-5px, -72%) rotate(-45deg);
-    transform: translate(-5px, -72%) rotate(-45deg);
+    background: inherit;
+    outline: inherit;
+    outline-offset: inherit;
+    box-shadow: inherit;
+    -webkit-transform: translate(-5px, -80%) rotate(-45deg);
+    transform: translate(-5px, -80%) rotate(-45deg);
     z-index: -1;
   }
 
   .rightTri h3 {
+    -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
     margin-top: 85%;
+  }
+
+  @media (min-width: 1000px) {
+    .rightTri h3 {
+      font-size: 1em;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .rightTri h3 {
+      font-size: 0.8em;
+    }
   }
 
   .leftTri {
@@ -289,12 +350,12 @@
     justify-content: center;
     width: 35%;
     aspect-ratio: 1/1;
-    background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
-    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
-    outline-offset: -6px;
-    box-shadow: -8px 2px 5px 4px rgba(115,115,115,0.7);
-    -webkit-transform: translate(5px, -72%) rotate(-45deg);
-    transform: translate(5px, -72%) rotate(-45deg);
+    background: inherit;
+    outline: inherit;
+    outline-offset: inherit;
+    box-shadow: inherit;
+    -webkit-transform: translate(5px, -80%) rotate(-45deg);
+    transform: translate(5px, -80%) rotate(-45deg);
     z-index: -1;
   }
   
@@ -305,23 +366,35 @@
     aspect-ratio: 1/1;
     width: 120%;
     margin-top: 60%;
-    background: linear-gradient(110deg, rgba(38, 62, 33, 0.7) 0%, rgba(115,115,115,0.7) 100%);
+    background: linear-gradient(110deg, rgba(8, 155, 106, 0.7) 0%, rgba(115,115,115,0.7) 100%);
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     outline-offset: -6px;
+    box-shadow: -8px 2px 5px 4px rgba(115,115,115,0.7);
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    box-shadow: -8px 2px 5px 4px rgba(115,115,115,0.7);
   }
 
-  @media (max-width: 750px) {
-    .main {
-      flex-direction: row;
-      flex-wrap: wrap;
+  @media (min-width: 1000px) {
+    .container {
+      width: 40%;
     }
 
-    .container {
-      width: 45%;
-      margin-inline: 2.5%;
+    .container:nth-child(2) {
+      -webkit-transform: translate(0,-150%) rotate(-45deg);
+      transform: translate(0,-150%) rotate(-45deg);
+      z-index: 2;
+    }
+
+    .container:nth-child(3) {
+      -webkit-transform: translate(0,-150%) rotate(-45deg);
+      transform: translate(0,-150%) rotate(-45deg);
+      z-index: 3;
+    }
+
+    .container:nth-child(4) {
+      -webkit-transform: translate(0,-300%) rotate(-45deg);
+      transform: translate(0,-300%) rotate(-45deg);
+      z-index: 1;
     }
   }
   
@@ -471,11 +544,6 @@
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
     z-index: 2;
-  }
-  
-  .portrait img {
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
   }
   
   /* =Magic Holder= */
@@ -835,11 +903,6 @@
     transform: scale(100%);
   }
   
-  .magicCorePoints .magicPoints input {
-    margin-top:  -0.1em;
-    transition: 1s;
-  }
-  
   .magicCorePoints .magicPoints h3 {
     font-size: 1.5em;
     margin-top: -0.5em;
@@ -854,6 +917,42 @@
   .nonagram.open .magicCorePoints .magicPoints h3 {
     font-size: 3em;
     margin-top: 0.5em;
+  }
+  
+  @media (min-width: 1000px) {
+    .magicBox input {
+      font-size: 2.5em;
+    }
+    .magicBox h3 {
+      font-size: 1.25em;
+    }
+    .magicCorePoints .magicPoints input {
+      font-size: 2em;
+    }
+    .nonagram.open .magicCorePoints .magicPoints input {
+      font-size: 3em;
+    }
+    .magicCorePoints .magicPoints h3 {
+      font-size: 1em;
+    }
+    .nonagram.open .magicCorePoints .magicPoints h3 {
+      font-size: 1.5em;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .magicCorePoints .magicPoints input {
+      font-size: 1.5em;
+    }
+    .nonagram.open .magicCorePoints .magicPoints input {
+      font-size: 3em;
+    }
+    .magicCorePoints .magicPoints h3 {
+      font-size: 0.75em;
+    }
+    .nonagram.open .magicCorePoints .magicPoints h3 {
+      font-size: 1.5em;
+    }
   }
   
   /* =Info Box= */
@@ -889,10 +988,12 @@
   }
   
   .healthBoxLeft {
+    -webkit-transform: translate(50%, -100%);
     transform: translate(50%, -100%);
   }
   
   .healthBoxRight {
+    -webkit-transform: translate(-50%, -100%);
     transform: translate(-50%, -100%);
   }
   
@@ -911,6 +1012,44 @@
   
   .runBox {
     text-align: left;
+  }
+
+  @media (min-width: 1000px) {
+    .infoBox input {
+      font-size: 2.5em;
+    }
+    .infoBox h2 {
+      font-size: 1.5em;
+    }
+    .infoBox h3 {
+      font-size: 1em;
+    }
+    .infoBox h4 {
+      font-size: 0.75em;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .infoBox input {
+      font-size: 1.8em;
+    }
+    .infoBox h2 {
+      font-size: 0.8em;
+    }
+    .infoBox h3 {
+      font-size: 0.8em;
+    }
+    .infoBox h4 {
+      font-size: 0.44em;
+    }
+    .healthBoxLeft {
+      -webkit-transform: translate(25%, -100%);
+      transform: translate(25%, -100%);
+    }    
+    .healthBoxRight {
+      -webkit-transform: translate(-25%, -100%);
+      transform: translate(-25%, -100%);
+    }
   }
   
   /* ====Dividers==== */
@@ -1003,13 +1142,31 @@
 
   .corePoints .coreBonus,
   .corePoints .magicDesc {
-    -webkit-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg); 
     transform: rotate(45deg); 
   }
   
   .containerInner:hover .corePoints {
     -webkit-transform: rotate(-765deg);
     transform: rotate(-765deg);
+  }
+
+  @media (min-width: 1000px) {
+    .corePoints input {
+      font-size: 5em;
+    }
+    .corePoints h3 {
+      font-size: 2em;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .corePoints input {
+      font-size: 3em;
+    }
+    .corePoints h3 {
+      font-size: 1.5em;
+    }
   }
   
   .statsHolder {
@@ -1103,7 +1260,7 @@
   .statsBox.open .skillBox:hover .skillDesc {
     display: block;
     background: rgba(255, 255, 255, 0.5);
-    border: rgba(100, 100, 100, 0.8);
+    border: 2px solid hsl(var(--p-hs-gold) var(--l-70));
     -webkit-border-radius: 0.25em;
     border-radius: 0.25em;
   }
@@ -1118,7 +1275,6 @@
   
   .statsBox.open .skillBonus {
     width: 40%;
-    height: 100%;
     margin-top: 0%;
     padding: 5%;
   }
@@ -1130,7 +1286,6 @@
   
   .statsBox.open .skillBox:hover .skillBonus {
     width: 25%;
-    height: 18%;
     -webkit-transform: translateY(-20%);
     transform: translateY(-20%);
   }
@@ -1150,6 +1305,22 @@
   .statsBox.open .skillBox:hover .floatDesc {
     display: block;
     height: 10%;
+  }
+
+  @media (min-width: 1000px) {
+    .statsBox {
+      width: 65%;
+      height: 6%;
+      margin-block: 1.2em;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .statsBox {
+      width: 90%;
+      height: 6.8%;
+      margin-block: 1.8em;
+    }
   }
   
   #strengthStatBox .attrName,
@@ -1261,6 +1432,24 @@
     -webkit-transform: translate(calc(-95%),0) rotate(280deg);
     transform: translate(calc(-95%),0) rotate(280deg);
     transition: 1s;
+  }
+
+  @media (min-width: 1000px) {
+    .attrName {
+      font-size: 0.5em;
+    }
+    .attrName h2 {
+      font-size: 3.25em;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .attrName {
+      font-size: 0.4em;
+    }
+    .attrName h2 {
+      font-size: 3em;
+    }
   }
   
   .attrBox {
@@ -1398,6 +1587,52 @@
     text-align: center;
     font-size: 1.2em;
   }
+
+  @media (min-width: 1000px) {
+    .skillName {
+      font-size: 0.4em;
+    }
+    .skillName:nth-child(2n) {
+      -webkit-transform: translate(0,-25%);
+      transform: translate(0,-25%);
+    }
+    .skillDesc {
+      font-size: 0.45em;
+    }
+    .floatDesc {
+      font-size: 0.4em;
+    }
+    .skillBonus input {
+      font-size: 1.5em;
+    }
+    .slillMastery input,
+    .skillFlat input {
+      font-size: 1em;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .skillName {
+      font-size: 0.4em;
+    }
+    .skillName:nth-child(2n) {
+      -webkit-transform: translate(0,-25%);
+      transform: translate(0,-25%);
+    }
+    .skillDesc {
+      font-size: 0.45em;
+    }
+    .floatDesc {
+      font-size: 0.4em;
+    }
+    .skillBonus input {
+      font-size: 1.5em;
+    }
+    .slillMastery input,
+    .skillFlat input {
+      font-size: 1em;
+    }
+  }
   
   .attrPoints {
     display: flex;
@@ -1413,14 +1648,13 @@
     overflow: hidden;
     -webkit-transform: translate(0,-30%) rotate(-45deg);
     transform: translate(0,-30%) rotate(-45deg);
-    /* -webkit-transform: translate(0,-70%);  
-    transform: translate(0,-70%); */
+    /* nsform: translate(0,-70%); */
     transition: 1s;
     z-index: 6;
   }
   
   /* .statsBox:hover .attrPoints {
-    -webkit-transform: translate(0,-70%) !important;  
+    -webkit-transform: translate(0,-70%) !important;
     transform: translate(0,-70%) !important;
     transition: 0.25s;
   }
@@ -1463,6 +1697,12 @@
     text-align: center;
     width: 50%;
   }
+
+  @media (min-width: 1000px) {
+    .attrPoints {
+      font-size: 0.5em;
+    }
+  }
   
   /* ==Combat Box== */
 
@@ -1491,7 +1731,7 @@
     "masteryBounusDisplay rollerDisplay weaponBonusDisplay"
     "racialBonusDisplay rollerDisplay weaponMagicDisplay"
     "extraInfoDisplay extraInfoDisplay extraInfoDisplay";
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: 2fr 3fr 4fr 3fr 2fr;
   justify-content: center;
   align-items: center;
@@ -1507,7 +1747,8 @@
   grid-area: chatMessageDisplay;
   width: 50%;
   height: 50%;
-  justify-self: center;
+  margin-inline: auto;
+  padding-block: 2.5px;
   align-self: end;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
@@ -1547,7 +1788,12 @@
 .chatMessageDisplay button:active {
   box-shadow: -10px -10px 15px rgba(255,255,255,0.5), 10px 10px 15px rgba(70,70,70,0.12),
  inset -10px -10px 15px rgba(255,255,255,0.5), inset 10px 10px 15px rgba(70,70,70,0.12);
-    ;
+}
+
+@media (min-width: 1000px) {
+  .chatMessageDisplay input {
+    font-size: 1.2em;
+  }
 }
 
 .rollerDisplay {
@@ -1571,14 +1817,23 @@
   font-size: 16em;
 }
 
+@media (min-width: 1000px) {
+  .rollerDisplay {
+    width: 12em;
+  }
+  .rollerDisplay h1 {
+    font-size: 6em;
+  }
+}
+
 .armorBonusDisplay {
   grid-area: armorBonusDisplay;
   display: flex;
   justify-content: end;
   align-items: center;
-  width: 100%;
-  height: 80%;
   align-self: center;
+  width: 100%;
+  height: 120%;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   -webkit-border-radius: 0.5em;
@@ -1625,12 +1880,12 @@
 .masteryBounusDisplay {
   grid-area: masteryBounusDisplay;
   display: flex;
-  justify-content: flex-end;
+  justify-content: end;
   align-items: center;
-  width: 100%;
-  height: 120%;
   justify-self: center;
   align-self: center;
+  width: 100%;
+  height: 120%;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   -webkit-border-radius: 0.5em;
@@ -1661,8 +1916,9 @@
 
 .masteryBounusDisplay h2 {
   width: 40%;
-  font-size: 5em;
+  font-size: 3em;
   text-align: center;
+  margin: 0;
   margin-block: auto;
   opacity: 0%;
 }
@@ -1672,9 +1928,9 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 100%;
-  height: 80%;
   align-self: center;
+  width: 100%;
+  height: 120%;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   -webkit-border-radius: 0.5em;
@@ -1723,9 +1979,9 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  width: 100%;
-  height: 80%;
   align-self: center;
+  width: 100%;
+  height: 120%;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   -webkit-border-radius: 0.5em;
@@ -1774,10 +2030,10 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  width: 100%;
-  height: 120%;
   justify-self: center;
   align-self: center;
+  width: 100%;
+  height: 120%;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   -webkit-border-radius: 0.5em;
@@ -1820,9 +2076,9 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  width: 100%;
-  height: 80%;
   align-self: center;
+  width: 100%;
+  height: 120%;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   -webkit-border-radius: 0.5em;
@@ -1875,14 +2131,13 @@
   justify-content: center;
   align-items: center;
   width: 50%;
+  padding-block: 0.5em;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
   -webkit-border-radius: 0.5em;
   border-radius: 0.5em;
   background: rgb(180,180,180);
   opacity: 50%;
-  overflow-x: auto;
-  overflow-y: hidden;
 }
 
 .extraInfoDisplay.show {
@@ -1896,4 +2151,10 @@
   margin-bottom: -0.5e3;
   margin-inline: 6px;
   padding-inline: 0.5em;
+}
+
+@media (min-width: 1000px) {
+  .extraInfoDisplay h3 {
+    font-size: 1em;
+  }
 }

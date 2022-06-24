@@ -3,6 +3,10 @@ const itemForms = [...document.querySelectorAll("[item-form]")]
 const expandForms = [...document.querySelectorAll("[expand-form]")]
 const wrapper = [...document.getElementsByClassName("wrapper")][0]
 const bgHolder = [...document.querySelectorAll("[data-bgHolder]")][0]
+
+const webhookMessageURL = "https://discord.com/api/webhooks/760935288306139148/65rOm6Yns8SKFaFo7zHVTcJEV5mtmWSkAXl7UoLJ9eS8s1jaT79VFpY65HEGqMkZmqD_"
+const webhookLogURL = "https://discord.com/api/webhooks/988323569924706334/LyH9QJ0BMjtl5zeguIDJiZR9i8XcdLi0bmc5H5IEiqJZPXojxvu2AV5n-HXn8XDvnsZx"
+
 const rollCL = 3
 
 let charName = ""
@@ -12,7 +16,7 @@ let charName = ""
 wrapper.onscroll = () => {
   let distance = wrapper.scrollTop
   
-  root.style.setProperty('--scroll-depth', parseInt(distance) + "px")
+  root.style.setProperty('--scroll-depth', distance + "px")
 
 }
 
@@ -23,8 +27,9 @@ function logName() {
 
   if (charName == "") {
     charName = "Player"
+  } else {
+    console.log(charName)
   }
-  console.log(charName)
 
   const debugMessage = "name changed to " + charName
   console.log(debugMessage)
@@ -291,14 +296,11 @@ document.addEventListener("click", e => {
 
 // Creating a button to send link directly to Discord
 
-const webhookMessageURL = "https://discord.com/api/webhooks/760935288306139148/65rOm6Yns8SKFaFo7zHVTcJEV5mtmWSkAXl7UoLJ9eS8s1jaT79VFpY65HEGqMkZmqD_"
-const webhookLogURL = "https://discord.com/api/webhooks/988323569924706334/LyH9QJ0BMjtl5zeguIDJiZR9i8XcdLi0bmc5H5IEiqJZPXojxvu2AV5n-HXn8XDvnsZx"
-
 function sendMessage() {
   let currentMessage = [...document.querySelectorAll("[data-message]")][0]
   console.log(currentMessage.value)
-  webhookMessage.username = charName
   const webhookMessage = { "content": currentMessage.value }
+  webhookMessage.username = charName
   
   fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
 
