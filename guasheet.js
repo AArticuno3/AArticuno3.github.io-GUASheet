@@ -1,8 +1,18 @@
-let root = document.documentElement
+const root = document.documentElement
 const itemForms = [...document.querySelectorAll("[item-form]")]
 const expandForms = [...document.querySelectorAll("[expand-form]")]
+const wrapper = [document.getElementsByClassName("wrapper")][0]
+const bgHolder = document.querySelectorAll("[data-bgHolder]")
 const rollCL = 3
+
 let charName = ""
+
+// Creating a parallax Background
+
+wrapper.onscroll = () => {
+  console.log(rollCL)
+  // ???
+}
 
 // Creating real time Name uptading
 
