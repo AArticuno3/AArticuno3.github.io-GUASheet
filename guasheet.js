@@ -311,7 +311,7 @@ function sendMessage() {
 
 function rollDice(dice,rollCL,bonus) {
   let diceRollTotal = 0
-  let debugMessage = "Last Roll: ["
+  let debugMessage = "Last Roll by " + charName + ": ["
   console.log(dice)
 
   for (let i = 0; i < dice; i++) {
