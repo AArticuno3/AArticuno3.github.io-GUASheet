@@ -173,10 +173,6 @@
   
   .wrapper {
     position: relative;
-    height: 100vh;
-    width: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
     -webkit-perspective: 10px;
     perspective: 10px;
   }
@@ -265,13 +261,18 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    width: 100%;
+    scroll-snap-type: y proximity;
+    overflow-y: auto;
+    overflow-x: hidden;
     z-index: 1;
   }
 
   @media (min-width: 1000px) {
     .main {
       gap: 20%;
-      margin-bottom: -20%;
+      padding-inline: 20%;
     }
   }
 
@@ -324,8 +325,8 @@
     outline: inherit;
     outline-offset: inherit;
     box-shadow: inherit;
-    -webkit-transform: translate(-5px, -80%) rotate(-45deg);
-    transform: translate(-5px, -80%) rotate(-45deg);
+    -webkit-transform: translate(-5px, -70%) rotate(-45deg);
+    transform: translate(-5px, -70%) rotate(-45deg);
     z-index: -1;
   }
 
@@ -357,8 +358,8 @@
     outline: inherit;
     outline-offset: inherit;
     box-shadow: inherit;
-    -webkit-transform: translate(5px, -80%) rotate(-45deg);
-    transform: translate(5px, -80%) rotate(-45deg);
+    -webkit-transform: translate(5px, -70%) rotate(-45deg);
+    transform: translate(5px, -70%) rotate(-45deg);
     z-index: -1;
   }
   
@@ -367,6 +368,7 @@
     grid-template-rows: 1fr 18fr 1fr;
     grid-template-columns: 1fr 18fr 1fr;
     aspect-ratio: 1/1;
+    scroll-snap-align: center;
     width: 120%;
     margin-top: 60%;
     background: linear-gradient(110deg, rgba(8, 155, 106, 0.7) 0%, rgba(115,115,115,0.7) 100%);

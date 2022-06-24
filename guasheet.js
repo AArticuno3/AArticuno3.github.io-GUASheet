@@ -1,7 +1,7 @@
 const root = document.documentElement
 const itemForms = [...document.querySelectorAll("[item-form]")]
 const expandForms = [...document.querySelectorAll("[expand-form]")]
-const wrapper = [...document.getElementsByClassName("wrapper")][0]
+const wrapper = [...document.getElementsByClassName("main")][0]
 const bgHolder = [...document.querySelectorAll("[data-bgHolder]")][0]
 
 const webhookMessageURL = "https://discord.com/api/webhooks/760935288306139148/65rOm6Yns8SKFaFo7zHVTcJEV5mtmWSkAXl7UoLJ9eS8s1jaT79VFpY65HEGqMkZmqD_"
