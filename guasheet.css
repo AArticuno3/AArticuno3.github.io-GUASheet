@@ -205,8 +205,8 @@
     background-image: url(images/Hills.png);
     background-position: center center;
     background-size: cover;
-    -webkit-transform: translate(0,calc(10vh - calc(var(--scroll-depth) / 22)));
-    transform: translate(0,calc(10vh - calc(var(--scroll-depth) / 22)));
+    -webkit-transform: translate(0,calc(10vh - calc( 100 - calc( 100 / var(--scroll-depth)))));
+    transform: translate(0,calc(10vh - calc( 100 - calc( 100 / var(--scroll-depth)))));
   }
   
   .background:nth-child(3) {
@@ -214,8 +214,8 @@
     background-position: center center;
     background-size: cover;
     mix-blend-mode: multiply;
-    -webkit-transform: translate(0,calc(18vh - calc(var(--scroll-depth) / 14)));
-    transform: translate(0,calc(18vh - calc(var(--scroll-depth) / 14)));
+    -webkit-transform: translate(0,calc(18vh - calc( 100 - calc( 100 / var(--scroll-depth)))));
+    transform: translate(0,calc(18vh - calc( 100 - calc( 100 / var(--scroll-depth)))));
   }
   
   .background:nth-child(4) {
@@ -223,8 +223,8 @@
     background-position: center center;
     background-size: cover;
     mix-blend-mode: multiply;
-    -webkit-transform: translate(0,calc(32vh - calc(var(--scroll-depth) / 8)));
-    transform: translate(0,calc(32vh - calc(var(--scroll-depth) / 8)));
+    -webkit-transform: translate(0,calc(32vh - calc( 100 - calc( 100 / var(--scroll-depth)))));
+    transform: translate(0,calc(32vh - calc( 100 - calc( 100 / var(--scroll-depth)))));
   }
   
   .background:nth-child(5) {
@@ -268,11 +268,12 @@
     overflow-x: hidden;
     z-index: 1;
   }
-
+  
   @media (min-width: 1000px) {
     .main {
       gap: 20%;
       padding-inline: 20%;
+      scroll-snap-type: unset;
     }
   }
 
@@ -280,9 +281,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    scroll-snap-align: top !important;
     width: 80%;
-    margin-top: 5em;
     height: 8em;
+    margin-top: 5em;
+    margin-bottom: -45%;
     background: linear-gradient(110deg, rgba(8, 155, 106, 0.7) 0%, rgba(115,115,115,0.7) 100%);
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     mix-blend-mode: multiply;
@@ -294,6 +297,7 @@
       width: 40%;
       height: 5em;
       margin-inline: 20%;
+      margin-bottom: -5%;
     }
   }
 
@@ -329,23 +333,11 @@
     transform: translate(-5px, -70%) rotate(-45deg);
     z-index: -1;
   }
-
+  
   .rightTri h3 {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
     margin-top: 85%;
-  }
-
-  @media (min-width: 1000px) {
-    .rightTri h3 {
-      font-size: 1em;
-    }
-  }
-
-  @media (min-width: 1200px) {
-    .rightTri h3 {
-      font-size: 0.8em;
-    }
   }
 
   .leftTri {
@@ -361,6 +353,26 @@
     -webkit-transform: translate(5px, -70%) rotate(-45deg);
     transform: translate(5px, -70%) rotate(-45deg);
     z-index: -1;
+  }
+  
+  @media (min-width: 1000px) {
+    .rightTri {
+      -webkit-transform: translate(-5px, -75%) rotate(-45deg);
+      transform: translate(-5px, -75%) rotate(-45deg);
+    }
+    .rightTri h3 {
+      font-size: 1em;
+    }
+    .leftTri {
+      -webkit-transform: translate(5px, -75%) rotate(-45deg);
+      transform: translate(5px, -75%) rotate(-45deg);      
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .rightTri h3 {
+      font-size: 0.8em;
+    }
   }
   
   .container {
@@ -1397,7 +1409,7 @@
     width: 0;
     height: 0;
     position: absolute;
-    top: calc(50% - 1.4em);
+    top: 18%;
     left: 46%;
     border-top:   1em solid transparent;
     border-left:  1.7em solid rgba(255,255,255,0.9);
