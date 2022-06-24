@@ -14,12 +14,12 @@ let charName = ""
 // Creating a parallax Background--scroll-depth
 
 wrapper.onscroll = () => {
-  let scrollMax = wrapper.style.getproperty("height")
-  console.log(scrollMax)
+  let scrollMax = wrapper.scrollHeight
   let scrollDistance = wrapper.scrollTop
+
+  let bgScrollRatio = parseInt(100 * scrollDistance / scrollMax) / 100
   
-  root.style.setProperty('--scroll-max',  + "px")
-  root.style.setProperty('--scroll-depth', scrollDistance + "px")
+  root.style.setProperty('--scroll-depth', bgScrollRatio )
 
 }
 
