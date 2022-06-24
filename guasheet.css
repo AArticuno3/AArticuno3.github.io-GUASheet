@@ -50,6 +50,7 @@
     --vp-ratio: calc(1vw / 1vh);
     --header-height-MN: 457.584;
     --header-height: calc(var(--vp-ratio) * var(--header-height-MN))%;
+    --scroll-depth: 0;
   
     margin: 0;
     inset: 0 0 0 0;
@@ -184,7 +185,6 @@
   
   .background {
     position: absolute;
-    inset: 0;
     width: 100%;
     height: 100vh;
   }
@@ -193,21 +193,40 @@
     background-image: url(images/Mountain.png);
     background-position: center center;
     background-size: cover;
-    -webkit-transform-origin: center center;
-    transform-origin: center center;
   }
   
   .background:nth-child(2) {
+    background-image: url(images/Hills.png);
+    background-position: center center;
+    background-size: cover;
+    -webkit-transform: translate(0,calc(10vh - calc(var(--scroll-depth) / 5.5)));
+    transform: translate(0,calc(10vh - calc(var(--scroll-depth) / 22)));
+  }
+  
+  .background:nth-child(3) {
     background-image: url(images/Forest.png);
     background-position: center center;
     background-size: cover;
     mix-blend-mode: multiply;
+    -webkit-transform: translate(0,calc(40vh - calc(var(--scroll-depth) / 5.5)));
+    transform: translate(0,calc(18vh - calc(var(--scroll-depth) / 14)));
   }
   
-  .background:nth-child(3) {
+  .background:nth-child(4) {
+    background-image: url(images/Brook.png);
+    background-position: center center;
+    background-size: cover;
+    mix-blend-mode: multiply;
+    -webkit-transform: translate(0,calc(40vh - calc(var(--scroll-depth) / 5.5)));
+    transform: translate(0,calc(32vh - calc(var(--scroll-depth) / 8)));
+  }
+  
+  .background:nth-child(5) {
     background-image: url(images/Path.png);
     background-position: center center;
     background-size: cover;
+    -webkit-transform: translate(0,calc(20vh - calc(var(--scroll-depth) / 14)));
+    transform: translate(0,calc(87vh - calc(var(--scroll-depth) / 3)));
   }
 
   /* ====Sheet==== */
@@ -257,6 +276,11 @@
     -webkit-transform: translate(-5px, -72%) rotate(-45deg);
     transform: translate(-5px, -72%) rotate(-45deg);
     z-index: -1;
+  }
+
+  .rightTri h3 {
+    transform: rotate(45deg);
+    margin-top: 85%;
   }
 
   .leftTri {
