@@ -72,6 +72,7 @@
   ::-webkit-scrollbar-thumb {
     background-color: hsl( var(--p-hs) var(--l-30) );
     border: 2px solid hsl( var(--p-hs) var(--l-30) );
+    -webkit-border-radius: 20px;
     border-radius: 20px;
   }
   
@@ -209,7 +210,6 @@
     background-size: cover;
   }
 
-  
   /* ====Sheet==== */
 
   .main {
@@ -238,6 +238,7 @@
     font-weight: bold;
     font-family: 'Lucida Grande';
     text-align: center;
+    -webkit-border-radius: 1em;
     border-radius: 1em;
     margin-bottom: 2px;
     z-index: 3;
@@ -435,6 +436,7 @@
     aspect-ratio: 1/1;
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     outline-offset: -6px;
+    -webkit-border-radius: 50%;
     border-radius: 50%;
     overflow: hidden;
     background: radial-gradient(
@@ -568,6 +570,7 @@
     aspect-ratio: 1/1 !important;
     overflow: hidden;
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    -webkit-border-radius: 50%;
     border-radius: 50%;
     outline-offset: -6px;
     background: radial-gradient(ellipse, rgba(0,0,0,0) 50%, white 100%);
@@ -577,6 +580,7 @@
   }
 
   .magicPoints .magicDesc:hover {
+    -webkit-border-radius: 1em;
     border-radius: 1em;
     background: rgba(255,255,255,0.25);
     transition: 0.25s
@@ -956,6 +960,7 @@
     cursor: pointer;
     overflow: hidden;
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    -webkit-border-radius: 50%;
     border-radius: 50%;
     outline-offset: -6px;
     background: radial-gradient(ellipse, hsl(var(--s-hs-mind) var(--l-50)) 25%, rgba(190,200,195,0.9) 75%);
@@ -1075,6 +1080,7 @@
     display: block;
     background: rgba(255, 255, 255, 0.5);
     border: rgba(100, 100, 100, 0.8);
+    -webkit-border-radius: 0.25em;
     border-radius: 0.25em;
   }
   
@@ -1165,6 +1171,7 @@
     padding-right: 5%;
     margin-right: -20%;
     height: 100%;
+    -webkit-border-radius: 3em;
     border-radius: 3em;
     -webkit-transform: translate(-10%,-100%);
     transform: translate(-10%,-100%);
@@ -1283,6 +1290,7 @@
     margin-block: 2.5%;
     transition: 1s;
     background: rgba(255,255,255,0.01);
+    -webkit-border-radius: 2em;
     border-radius: 2em;
     cursor: pointer;
     overflow: hidden;
@@ -1330,6 +1338,7 @@
     padding: 5%;
     aspect-ratio: 1/1;
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    -webkit-border-radius: 999px;
     border-radius: 999px;
     overflow: hidden;
   }
@@ -1374,6 +1383,7 @@
     width: 30%;
     aspect-ratio: 1/1 !important;
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    -webkit-border-radius: 50%;
     border-radius: 50%;
     outline-offset: -6px;
     overflow: hidden;
@@ -1465,6 +1475,7 @@
   margin-inline: auto;
   width: 60%;
   height: 100%;
+  -webkit-border-radius: 2em;
   border-radius: 2em;
 }
 
@@ -1476,6 +1487,7 @@
   align-self: end;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
+  -webkit-border-radius: 0.5em;
   border-radius: 0.5em;
   background: white;
 }
@@ -1501,6 +1513,7 @@
   margin-inline: 35%;
   outline: 2px solid hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -1px;
+  -webkit-border-radius: 0.5em;
   border-radius: 0.5em;
   box-shadow: -10px -10px 15px rgba(255,255,255,0.5), 10px 10px 15px rgba(70,70,70,0.12);
   background: linear-gradient(110deg, rgba(31,34,18,0.8) 0%, rgba(115,115,115,0.8) 100%);
@@ -1521,6 +1534,7 @@
   align-self: center;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
+  -webkit-border-radius: 1em;
   border-radius: 1em;
   background: radial-gradient(circle, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
 }
@@ -1543,6 +1557,7 @@
   align-self: center;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
+  -webkit-border-radius: 0.5em;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(255,255,255,0.9) 10%, rgba(100,100,100,0.7) 100%);
   -webkit-transform: skew(-30deg);
@@ -1594,6 +1609,7 @@
   align-self: center;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
+  -webkit-border-radius: 0.5em;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(255,255,255,0.9) 10%, rgba(100,100,100,0.7) 100%);
   opacity: 50%;
@@ -1637,6 +1653,7 @@
   align-self: center;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
+  -webkit-border-radius: 0.5em;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(255,255,255,0.9) 10%, rgba(100,100,100,0.7) 100%);
   -webkit-transform: skew(30deg);
@@ -1687,6 +1704,7 @@
   align-self: center;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
+  -webkit-border-radius: 0.5em;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
   -webkit-transform: skew(30deg);
@@ -1738,6 +1756,7 @@
   align-self: center;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
+  -webkit-border-radius: 0.5em;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
   opacity: 50%;
@@ -1782,6 +1801,7 @@
   align-self: center;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
+  -webkit-border-radius: 0.5em;
   border-radius: 0.5em;
   background: linear-gradient(90deg, rgba(100,100,100,0.7) 10%, rgba(255,255,255,0.9) 100%);
   -webkit-transform: skew(-30deg);
@@ -1833,6 +1853,7 @@
   width: 50%;
   outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
   outline-offset: -6px;
+  -webkit-border-radius: 0.5em;
   border-radius: 0.5em;
   background: rgb(180,180,180);
   opacity: 50%;
