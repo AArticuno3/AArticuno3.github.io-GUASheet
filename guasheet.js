@@ -177,8 +177,10 @@ document.addEventListener("click", e => {
     displayRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "||/" + magicDifficulty.slice(5) + "||]" }
-    webhookMessage.username = charName
-    fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
+    if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Alex" || charName == "Ari") {
+      webhookMessage.username = charName
+      fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
+    }
 
   }
 
@@ -219,8 +221,10 @@ document.addEventListener("click", e => {
     displayRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
-    webhookMessage.username = charName
-    fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
+    if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Alex" || charName == "Ari") {
+      webhookMessage.username = charName
+      fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
+    }
 
   }
 
@@ -289,8 +293,10 @@ document.addEventListener("click", e => {
     displayRoll.children[0].innerHTML = diceRoll   
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
-    webhookMessage.username = charName
-    fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
+    if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Alex" || charName == "Ari") {
+      webhookMessage.username = charName
+      fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
+    }
 
   }
 
@@ -303,9 +309,10 @@ function sendMessage() {
   let currentMessage = [...document.querySelectorAll("[data-message]")][0]
   console.log(currentMessage.value)
   const webhookMessage = { "content": currentMessage.value }
-  webhookMessage.username = charName
-  
-  fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
+  if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Alex" || charName == "Ari") {
+    webhookMessage.username = charName  
+    fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
+  }
 
   currentMessage.value = ""
 }
