@@ -235,7 +235,7 @@
     transform: translate(0,calc(87vh - calc(var(--scroll-depth) / 3)));
   }
   
-  @media (min-width: 1000px) {
+  @media (min-width: 800px) {
     .background:nth-child(2) {
       -webkit-transform: translate(0,calc(12vh - calc(var(--scroll-depth) / 22)));      
       transform: translate(0,calc(12vh - calc(var(--scroll-depth) / 22)));      
@@ -269,7 +269,14 @@
     z-index: 1;
   }
   
-  @media (min-width: 1000px) {
+  @media (min-width: 800px) {
+    .main {
+      gap: 5%;
+      justify-content: space-around;
+    }
+  }
+
+  @media (min-width: 1200px) {
     .main {
       gap: 20%;
       padding-inline: 20%;
@@ -292,7 +299,7 @@
     outline-offset: -6px;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 800px) {
     .characterNameBox {
       width: 40%;
       height: 5em;
@@ -313,7 +320,7 @@
     z-index: 3;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 800px) {
     .characterName {
       font-size: 4.5em;
     }
@@ -355,7 +362,7 @@
     z-index: -1;
   }
   
-  @media (min-width: 1000px) {
+  @media (min-width: 800px) {
     .rightTri {
       -webkit-transform: translate(-5px, -75%) rotate(-45deg);
       transform: translate(-5px, -75%) rotate(-45deg);
@@ -391,9 +398,9 @@
     transform: rotate(-45deg);
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 800px) {
     .container {
-      width: 40%;
+      width: 35%;
     }
 
     .container:nth-child(2) {
@@ -414,7 +421,13 @@
       z-index: 1;
     }
   }
-  
+
+  @media (min-width: 1200px) {
+    .container {
+      width: 40%;
+    }
+  }
+
   .corner1,
   .corner2,
   .corner3,
@@ -936,7 +949,7 @@
     margin-top: 0.5em;
   }
   
-  @media (min-width: 1000px) {
+  @media (min-width: 800px) {
     .magicBox input {
       font-size: 2.5em;
     }
@@ -1031,7 +1044,7 @@
     text-align: left;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 800px) {
     .infoBox input {
       font-size: 2.5em;
     }
@@ -1168,7 +1181,7 @@
     transform: rotate(-765deg);
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 800px) {
     .corePoints input {
       font-size: 5em;
     }
@@ -1324,7 +1337,7 @@
     height: 10%;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 800px) {
     .statsBox {
       width: 65%;
       height: 6%;
@@ -1473,7 +1486,7 @@
     transition: 1s;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 800px) {
     .attrName {
       font-size: 0.5em;
     }
@@ -1627,7 +1640,7 @@
     font-size: 1.2em;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 800px) {
     .skillName {
       font-size: 0.4em;
     }
@@ -1737,7 +1750,7 @@
     width: 50%;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 800px) {
     .attrPoints {
       font-size: 0.5em;
     }
@@ -1829,7 +1842,7 @@
  inset -10px -10px 15px rgba(255,255,255,0.5), inset 10px 10px 15px rgba(70,70,70,0.12);
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 800px) {
   .chatMessageDisplay input {
     font-size: 1.2em;
   }
@@ -1856,7 +1869,7 @@
   font-size: 16em;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 800px) {
   .rollerDisplay {
     width: 12em;
   }
@@ -2192,7 +2205,7 @@
   padding-inline: 0.5em;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 800px) {
   .extraInfoDisplay h3 {
     font-size: 1em;
   }
