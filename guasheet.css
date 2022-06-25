@@ -1236,8 +1236,11 @@
   }
   
   .statsBox.open {
-    background: transparent;
+    background: linear-gradient(0deg, rgba(31,34,18,0.8) 0%, rgba(115,115,115,0) 100%);
     outline: 6px double transparent;
+    border-bottom: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    border-right: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    border-radius: 0 0 30px 0;
     box-shadow: -8px 1px 5px 3px transparent;
     -webkit-transform-origin: center top;
     transform-origin: center top;
@@ -1246,14 +1249,25 @@
     z-index: 4;
   }
   
+  .statsBox:nth-child(3).open {
+    -webkit-transform: rotate(90deg) translate(-20%,450%);
+    transform: rotate(90deg) translate(-25.5%,450%);
+  }
+  
+  .statsBox:nth-child(4).open {
+    -webkit-transform: rotate(90deg) translate(-40%,450%);
+    transform: rotate(90deg) translate(-51%,450%);
+  }
+  
   .statsBox.open .attrName {
-    -webkit-transform: rotate(-90deg) translate(0,-175%);
-    transform: rotate(-90deg) translate(0,-175%);
+    -webkit-transform: rotate(-90deg) translate(0,-140%);
+    transform: rotate(-90deg) translate(0,-140%);
   }
   
   .statsBox.open .attrPoints {
-    -webkit-transform: rotate(-90deg) translate(-40%,-325%);
-    transform: rotate(-90deg) translate(-40%,-325%);
+    -webkit-transform: translate(-420%,0) rotate(-135deg);
+    transform: translate(-420%,0) rotate(-135deg);
+    z-index: 1;
   }
   
   .statsBox.open .skillBox {
@@ -1263,9 +1277,10 @@
     margin-inline: -45%;
     background: linear-gradient(110deg, rgba(31,34,18,0.8) 0%, rgba(115,115,115,0.8) 100%);
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    border-radius: 16px;
     box-shadow: -8px 1px 5px 3px rgba(115,115,115,0.7);
-    -webkit-transform: rotate(-90deg) translate(46%,0);
-    transform: rotate(-90deg) translate(46%,0);
+    -webkit-transform: rotate(-90deg) translate(449%,0);
+    transform: rotate(-90deg) translate(49%,0);
     z-index: 4;
   }
   
@@ -1273,14 +1288,14 @@
     cursor: pointer;
     width: 100% !important;
     height: 600% !important;
-    -webkit-transform: rotate(-90deg) translate(46%,0);
-    transform: rotate(-90deg) translate(46%,0);
+    -webkit-transform: rotate(-90deg) translate(49%,0);
+    transform: rotate(-90deg) translate(49%,0);
     margin-inline: -20%;
   }
   
   .statsBox.open .skillBox:hover ~ .skillBox {
-    -webkit-transform: rotate(-90deg) translate(46%,0);
-    transform: rotate(-90deg) translate(46%,0);
+    -webkit-transform: rotate(-90deg) translate(49%,0);
+    transform: rotate(-90deg) translate(49%,0);
   }
   
   .statsBox.open .skillHolder {
@@ -1311,6 +1326,11 @@
     width: 40%;
     margin-top: 0%;
     padding: 5%;
+  }
+  
+  .statsBox.open .attrHolder {
+    -webkit-transform: translate(20%,0);
+    transform: translate(20%,0);
   }
   
   .statsBox.open .attrHolder:nth-child(2n) .skillPoints {
@@ -1720,11 +1740,6 @@
     -webkit-transform: translate(0,-15%) !important;  
     transform: translate(0,-15%) !important;  
   } */
-
-  .statsBox.open:hover .attrPoints {
-    -webkit-transform: rotate(-90deg) translate(-40%,-325%);
-    transform: rotate(-90deg) translate(-40%,-325%);
-  }  
 
   .attrPoints input {
     font-size: 6em;
