@@ -134,6 +134,8 @@ document.addEventListener("click", e => {
 
   if (clickTarget.parentElement.classList.contains("magicPoints") || clickTarget.parentElement.classList.contains("magicDesc")) {
 
+    
+    const floatRoll = [...document.querySelectorAll("[rollerDisplay]")][0]
     const displayRoll = [...document.getElementsByClassName("rollerDisplay")][0]
 
     const displayMessage = [...document.getElementsByClassName("extraInfoDisplay")][0]
@@ -175,6 +177,7 @@ document.addEventListener("click", e => {
 
     const diceRoll = rollDice(totalDice, rollCL, 0)
     displayRoll.children[0].innerHTML = diceRoll
+    floatRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "||/" + magicDifficulty.slice(5) + "||]" }
     if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Alex" || charName == "Ari") {
@@ -188,6 +191,8 @@ document.addEventListener("click", e => {
 
   if (clickTarget.classList.contains("attrName") || clickTarget.parentElement.classList.contains("attrName")) {
 
+    
+    const floatRoll = [...document.querySelectorAll("[rollerDisplay]")][0]
     const displayRoll = [...document.getElementsByClassName("rollerDisplay")][0]
 
     const displayMessage = [...document.getElementsByClassName("extraInfoDisplay")][0]
@@ -219,6 +224,7 @@ document.addEventListener("click", e => {
 
     const diceRoll = rollDice(totalDice, rollCL, 0)
     displayRoll.children[0].innerHTML = diceRoll
+    floatRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
     if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Alex" || charName == "Ari") {
@@ -232,6 +238,8 @@ document.addEventListener("click", e => {
   
   if (clickTarget.classList.contains("skillName") || clickTarget.parentElement.classList.contains("skillName")) {
 
+    
+    const floatRoll = [...document.querySelectorAll("[rollerDisplay]")][0]
     const displayRoll = [...document.getElementsByClassName("rollerDisplay")][0]
 
     const displayMessage = [...document.getElementsByClassName("extraInfoDisplay")][0]
@@ -290,7 +298,11 @@ document.addEventListener("click", e => {
     const totalDice = parseInt(coreDice) + parseInt(attrDice) + parseInt(skillDice)
 
     const diceRoll = rollDice(totalDice, rollCL, skillBonus)
-    displayRoll.children[0].innerHTML = diceRoll   
+    displayRoll.children[0].innerHTML = diceRoll
+    if (skillBonus > 0) {
+      diceRoll = diceRoll + skillBonus
+    }
+    floatRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
     if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Alex" || charName == "Ari") {
@@ -354,6 +366,7 @@ function rollDice(dice,rollCL,bonus) {
 // Message Reset on click
 
 function resetMessage() {
+  const floatRoll = [...document.querySelectorAll("[rollerDisplay]")][0]
   const displayRoll = [...document.getElementsByClassName("rollerDisplay")][0]
   displayRoll.children[0].innerHTML = "   "
   displayRoll.classList.remove("show")

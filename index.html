@@ -3,14 +3,19 @@
   <head>
     <title>GUA Character Sheet</title>
     <link rel="stylesheet" href="guasheet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script src="guasheet.js" defer></script>
   </head>
 
   <body>
-    
     <!-- Background -->
-    
+
     <div class="header" data-bgHolder>
       <div class="background"></div>
       <div class="background"></div>
@@ -18,25 +23,40 @@
       <div class="background"></div>
       <div class="background"></div>
     </div>
-    
+
     <div class="wrapper">
       <div class="main">
-      
-      <!-- Character Name Box -->
-      
-        <div class="characterNameBox">
-          <input type="text" class="characterName" onblur="logName()" id="characterName">
-          </input>
-          <div class="rightTri">
+        <!-- Character Name Box -->
+
+        <div class="characterNameBox diamond">
+          <input
+            type="text"
+            class="characterName"
+            onblur="logName()"
+            id="characterName"
+            required
+          />
+
+          <div class="rightTri diamond">
             <h3>Name</h3>
           </div>
-          <div class="leftTri">
-          </div>
+          <div class="leftTri diamond"></div>
         </div>
-        
+
+        <!-- Menu Box -->
+
+        <div class="menuBox">
+          <div class="diamond menu"></div>
+          <div class="diamond menu"></div>
+          <div class="diamond menu" rollerDisplay>
+            <h1></h1>
+          </div>
+          <div class="diamond menu"></div>
+        </div>
+
         <!-- Portrait Box Holder -->
-        
-        <div class="container">
+
+        <div class="container diamond">
           <div class="corner1"></div>
           <div></div>
           <div class="corner2"></div>
@@ -48,16 +68,45 @@
 
             <div class="healthBox">
               <div class="healthBar">
-                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                     viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <svg
+                  class="waves"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 24 150 28"
+                  preserveAspectRatio="none"
+                  shape-rendering="auto"
+                >
                   <defs>
-                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    <path
+                      id="gentle-wave"
+                      d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+                    />
                   </defs>
                   <g class="parallax">
-                    <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(144, 33, 16,1)" />
-                    <use xlink:href="#gentle-wave" x="0" y="3" fill="rgba(144, 33, 16,0.8)" />
-                    <use xlink:href="#gentle-wave" x="0" y="5" fill="rgba(144, 33, 16,0.6)" />
-                    <use xlink:href="#gentle-wave" x="0" y="7" fill="rgba(144, 33, 16,0.4)" />
+                    <use
+                      xlink:href="#gentle-wave"
+                      x="0"
+                      y="0"
+                      fill="rgba(144, 33, 16,1)"
+                    />
+                    <use
+                      xlink:href="#gentle-wave"
+                      x="0"
+                      y="3"
+                      fill="rgba(144, 33, 16,0.8)"
+                    />
+                    <use
+                      xlink:href="#gentle-wave"
+                      x="0"
+                      y="5"
+                      fill="rgba(144, 33, 16,0.6)"
+                    />
+                    <use
+                      xlink:href="#gentle-wave"
+                      x="0"
+                      y="7"
+                      fill="rgba(144, 33, 16,0.4)"
+                    />
                   </g>
                 </svg>
               </div>
@@ -66,7 +115,6 @@
             <!-- Portrait Box -->
 
             <div class="portraitHolder">
-
               <!-- Portrait -->
 
               <div class="portrait"></div>
@@ -75,7 +123,6 @@
 
               <div class="magicHolder">
                 <div class="nonagram" unfold-form>
-
                   <!-- Magic Points -->
 
                   <div class="magicCorner magic1" data-unfold>
@@ -86,8 +133,12 @@
                       <div class="magicBoxTop" data-unfold>
                         <div class="manaCurrent" data-unfold>
                           <div class="manaCurrentNum" data-unfold>
-                            <input type="text" id="waterMana" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="waterMana"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Current</h3>
@@ -95,8 +146,12 @@
                         </div>
                         <div class="manaMax" data-unfold>
                           <div class="manaMaxNum" data-unfold>
-                            <input type="text" id="waterCapacity" placeholder="2" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="waterCapacity"
+                              placeholder="2"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Max</h3>
@@ -106,8 +161,12 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="waterBonus" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="waterBonus"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>To Roll</h3>
@@ -124,8 +183,12 @@
                       <div class="magicBoxTop" data-unfold>
                         <div class="manaCurrent" data-unfold>
                           <div class="manaCurrentNum" data-unfold>
-                            <input type="text" id="airMana" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="airMana"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Current</h3>
@@ -133,8 +196,12 @@
                         </div>
                         <div class="manaMax" data-unfold>
                           <div class="manaMaxNum" data-unfold>
-                            <input type="text" id="airCapacity" placeholder="2" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="airCapacity"
+                              placeholder="2"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Max</h3>
@@ -144,8 +211,12 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="airBonus" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="airBonus"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>To Roll</h3>
@@ -162,8 +233,12 @@
                       <div class="magicBoxTop" data-unfold>
                         <div class="manaCurrent" data-unfold>
                           <div class="manaCurrentNum" data-unfold>
-                            <input type="text" id="fireMana" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="fireMana"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Current</h3>
@@ -171,8 +246,12 @@
                         </div>
                         <div class="manaMax" data-unfold>
                           <div class="manaMaxNum" data-unfold>
-                            <input type="text" id="fireCapacity" placeholder="2" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="fireCapacity"
+                              placeholder="2"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Max</h3>
@@ -182,8 +261,12 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="fireBonus" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="fireBonus"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>To Roll</h3>
@@ -200,8 +283,12 @@
                       <div class="magicBoxTop" data-unfold>
                         <div class="manaCurrent" data-unfold>
                           <div class="manaCurrentNum" data-unfold>
-                            <input type="text" id="stoneMana" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="stoneMana"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Current</h3>
@@ -209,8 +296,12 @@
                         </div>
                         <div class="manaMax" data-unfold>
                           <div class="manaMaxNum" data-unfold>
-                            <input type="text" id="stoneCapacity" placeholder="2" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="stoneCapacity"
+                              placeholder="2"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Max</h3>
@@ -220,8 +311,12 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="stoneBonus" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="stoneBonus"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>To Roll</h3>
@@ -238,8 +333,12 @@
                       <div class="magicBoxTop" data-unfold>
                         <div class="manaCurrent" data-unfold>
                           <div class="manaCurrentNum" data-unfold>
-                            <input type="text" id="plantlifeMana" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="plantlifeMana"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Current</h3>
@@ -247,8 +346,12 @@
                         </div>
                         <div class="manaMax" data-unfold>
                           <div class="manaMaxNum" data-unfold>
-                            <input type="text" id="plantlifeCapacity" placeholder="2" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="plantlifeCapacity"
+                              placeholder="2"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Max</h3>
@@ -258,8 +361,12 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="plantlifeBonus" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="plantlifeBonus"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>To Roll</h3>
@@ -276,8 +383,12 @@
                       <div class="magicBoxTop" data-unfold>
                         <div class="manaCurrent" data-unfold>
                           <div class="manaCurrentNum" data-unfold>
-                            <input type="text" id="tremorMana" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="tremorMana"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Current</h3>
@@ -285,8 +396,12 @@
                         </div>
                         <div class="manaMax" data-unfold>
                           <div class="manaMaxNum" data-unfold>
-                            <input type="text" id="tremorCapacity" placeholder="2" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="tremorCapacity"
+                              placeholder="2"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Max</h3>
@@ -296,8 +411,12 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="tremorBonus" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="tremorBonus"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>To Roll</h3>
@@ -314,8 +433,12 @@
                       <div class="magicBoxTop" data-unfold>
                         <div class="manaCurrent" data-unfold>
                           <div class="manaCurrentNum" data-unfold>
-                            <input type="text" id="lightningMana" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="lightningMana"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Current</h3>
@@ -323,8 +446,12 @@
                         </div>
                         <div class="manaMax" data-unfold>
                           <div class="manaMaxNum" data-unfold>
-                            <input type="text" id="lightningCapacity" placeholder="2" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="lightningCapacity"
+                              placeholder="2"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Max</h3>
@@ -334,8 +461,12 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="lightningBonus" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="lightningBonus"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>To Roll</h3>
@@ -352,8 +483,12 @@
                       <div class="magicBoxTop" data-unfold>
                         <div class="manaCurrent" data-unfold>
                           <div class="manaCurrentNum" data-unfold>
-                            <input type="text" id="gravityMana" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="gravityMana"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Current</h3>
@@ -361,8 +496,12 @@
                         </div>
                         <div class="manaMax" data-unfold>
                           <div class="manaMaxNum" data-unfold>
-                            <input type="text" id="gravityCapacity" placeholder="2" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="gravityCapacity"
+                              placeholder="2"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Max</h3>
@@ -372,8 +511,12 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="gravityBonus" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="gravityBonus"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>To Roll</h3>
@@ -390,8 +533,12 @@
                       <div class="magicBoxTop" data-unfold>
                         <div class="manaCurrent" data-unfold>
                           <div class="manaCurrentNum" data-unfold>
-                            <input type="text" id="mindMana" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="mindMana"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Current</h3>
@@ -399,8 +546,12 @@
                         </div>
                         <div class="manaMax" data-unfold>
                           <div class="manaMaxNum" data-unfold>
-                            <input type="text" id="mindCapacity" placeholder="2" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="mindCapacity"
+                              placeholder="2"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>Max</h3>
@@ -410,8 +561,12 @@
                       <div class="magicBoxBot" data-unfold>
                         <div class="magicPoints" data-unfold>
                           <div class="magicBonus" data-unfold>
-                            <input type="text" id="mindBonus" placeholder="0" data-unfold>
-                            </input>
+                            <input
+                              type="text"
+                              id="mindBonus"
+                              placeholder="0"
+                              data-unfold
+                            />
                           </div>
                           <div class="magicDesc" data-unfold>
                             <h3>To Roll</h3>
@@ -426,8 +581,12 @@
                   <div class="magicCorner magicCorePoints" data-unfold>
                     <div class="magicPoints" data-unfold data-unfold>
                       <div class="magicBonus" data-unfold>
-                        <input type="text" id="magicCoreBonus" placeholder="0" data-unfold>
-                        </input>
+                        <input
+                          type="text"
+                          id="magicCoreBonus"
+                          placeholder="0"
+                          data-unfold
+                        />
                       </div>
                       <div class="magicDesc" data-unfold data-unfold>
                         <h3>Magic</h3>
@@ -442,8 +601,13 @@
               <div class="infoBox">
                 <div class="healthBoxLeft">
                   <div class="healthCurrent">
-                    <input type="text" id="HP" placeholder="16" onblur="logHealth()" data-HP>
-                    </input>
+                    <input
+                      type="text"
+                      id="HP"
+                      placeholder="16"
+                      onblur="logHealth()"
+                      data-HP
+                    />
                   </div>
                   <div class="divider"></div>
                   <div class="h1Desc">
@@ -493,8 +657,13 @@
                 </div>
                 <div class="healthBoxRight">
                   <div class="healthMax">
-                    <input type="text" id="HP_MAX" placeholder="16" onblur="logHealth()" data-HP-MAX>
-                    </input>
+                    <input
+                      type="text"
+                      id="HP_MAX"
+                      placeholder="16"
+                      onblur="logHealth()"
+                      data-HP-MAX
+                    />
                   </div>
                   <div class="divider"></div>
                   <div class="h1Desc">
@@ -502,9 +671,7 @@
                   </div>
                 </div>
               </div>
-
             </div>
-
           </div>
           <div></div>
           <div class="corner3"></div>
@@ -514,20 +681,18 @@
 
         <!-- Stats Box Holder -->
 
-        <div class="container">
+        <div class="container diamond">
           <div class="corner1"></div>
           <div></div>
           <div class="corner2"></div>
           <div></div>
           <div class="holder">
-
             <!-- Stats Box Holder -->
-    
+
             <div class="glass"></div>
             <div class="statsHolder">
-
               <!-- Core Points -->
-      
+
               <div class="containerInner">
                 <div class="corner1"></div>
                 <div></div>
@@ -535,8 +700,13 @@
                 <div></div>
                 <div class="corePoints">
                   <div class="coreBonus">
-                    <input type="text" id="coreBonus" placeholder="4" onblur="logStats()" data-Core>
-                    </input>
+                    <input
+                      type="text"
+                      id="coreBonus"
+                      placeholder="4"
+                      onblur="logStats()"
+                      data-Core
+                    />
                   </div>
                   <div class="magicDesc">
                     <h3>CORE</h3>
@@ -549,11 +719,10 @@
               </div>
 
               <!-- Strength Attribute & SKills -->
-      
-              <div class="statsBox" id="strengthStatBox">
 
+              <div class="statsBox" id="strengthStatBox">
                 <!-- Attribute Name -->
-        
+
                 <div class="attrName">
                   <div class="infoButton">
                     <div class="triBlock1" data-expand></div>
@@ -564,9 +733,8 @@
                 </div>
                 <div class="attrBox" id="strengthBox">
                   <div class="attrHolder" expand-form>
-
                     <!-- Swing Box -->
-            
+
                     <div class="skillBox" id="swingBox">
                       <div class="skillHolder">
                         <div class="skillName">
@@ -574,18 +742,17 @@
                         </div>
                         <div class="skillDesc">
                           <h6>
-                            Swing is the skill used for Unarmed Combat and Throwing
-                            various objects. The Impact Damage of punches and thrown
-                            objects is equal to the average of theuser's Strenght and
-                            Swing. Other usages of Swing have to do with directing
-                            momentum outwards.
+                            Swing is the skill used for Unarmed Combat and
+                            Throwing various objects. The Impact Damage of
+                            punches and thrown objects is equal to the average
+                            of theuser's Strenght and Swing. Other usages of
+                            Swing have to do with directing momentum outwards.
                           </h6>
                         </div>
                       </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="swingBonus" placeholder="0">
-                          </input>
+                          <input type="text" id="swingBonus" placeholder="0" />
                         </div>
                         <div class="floatDesc">
                           <h6>⇧ Extra Dice Rolled</h6>
@@ -594,21 +761,23 @@
                           <h6>Mastery Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillMastery">
-                          <input type="text" id="swingMastery" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="swingMastery"
+                            placeholder="+0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>Other Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillFlat">
-                          <input type="text" id="swingFlat" placeholder="+0">
-                          </input>
+                          <input type="text" id="swingFlat" placeholder="+0" />
                         </div>
                       </div>
                     </div>
 
                     <!-- Spring Box -->
-            
+
                     <div class="skillBox" id="springBox">
                       <div class="skillHolder">
                         <div class="skillName">
@@ -616,18 +785,23 @@
                         </div>
                         <div class="skillDesc">
                           <h6>
-                            Spring is the skill used to determine the user's Jump
-                            Height (Strength+2xSpring) and the Fall Height in feet
-                            (5+5xStrength+5xSpring) using the outcome of a Spring
-                            roll. Other usages of Spring have to do with directing
-                            momentum downwards.
+                            Spring is the skill used to determine the user's
+                            Jump Height (Strength+2xSpring) and the Fall Height
+                            in feet (5+5xStrength+5xSpring) using the outcome of
+                            a Spring roll. Other usages of Spring have to do
+                            with directing momentum downwards.
                           </h6>
                         </div>
                       </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="springBonus" placeholder="0" onblur="logStats()" data-Spring>
-                          </input>
+                          <input
+                            type="text"
+                            id="springBonus"
+                            placeholder="0"
+                            onblur="logStats()"
+                            data-Spring
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>⇧ Extra Dice Rolled</h6>
@@ -636,40 +810,48 @@
                           <h6>Mastery Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillMastery">
-                          <input type="text" id="springMastery" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="springMastery"
+                            placeholder="+0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>Other Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillFlat">
-                          <input type="text" id="springFlat" placeholder="+0">
-                          </input>
+                          <input type="text" id="springFlat" placeholder="+0" />
                         </div>
                       </div>
                     </div>
 
                     <!-- Sprint Box -->
-            
+
                     <div class="skillBox" id="sprintBox">
                       <div class="skillHolder">
-                          <div class="skillName">
-                            <h2>Sprint</h2>
-                          </div>
-                          <div class="skillDesc">
-                            <h6>
-                              Sprint is used for the calculation of the user's Movement
-                              Speed, using the equation: 5xCore+2xDexterity+Sprint.
-                              Charging can add Sprint dice to one's attack roll, while
-                              giving the Defender Advantage on Dodging. Sprint is also
-                              used for contested rolls during pursuit.
-                            </h6>
-                          </div>
+                        <div class="skillName">
+                          <h2>Sprint</h2>
                         </div>
+                        <div class="skillDesc">
+                          <h6>
+                            Sprint is used for the calculation of the user's
+                            Movement Speed, using the equation:
+                            5xCore+2xDexterity+Sprint. Charging can add Sprint
+                            dice to one's attack roll, while giving the Defender
+                            Advantage on Dodging. Sprint is also used for
+                            contested rolls during pursuit.
+                          </h6>
+                        </div>
+                      </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="sprintBonus" placeholder="0" onblur="logStats()" data-Sprint>
-                          </input>
+                          <input
+                            type="text"
+                            id="sprintBonus"
+                            placeholder="0"
+                            onblur="logStats()"
+                            data-Sprint
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>⇧ Extra Dice Rolled</h6>
@@ -678,21 +860,23 @@
                           <h6>Mastery Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillMastery">
-                          <input type="text" id="sprintMastery" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="sprintMastery"
+                            placeholder="+0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>Other Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillFlat">
-                          <input type="text" id="sprintFlat" placeholder="+0">
-                          </input>
+                          <input type="text" id="sprintFlat" placeholder="+0" />
                         </div>
                       </div>
                     </div>
 
                     <!-- Grasp Box -->
-            
+
                     <div class="skillBox" id="graspBox">
                       <div class="skillHolder">
                         <div class="skillName">
@@ -700,18 +884,18 @@
                         </div>
                         <div class="skillDesc">
                           <h6>
-                            Grasp is the skill used for Climbing surfaces and Holding
-                            onto opponents or objects. When being disarmed, a
-                            Character can use one of their reactions to use Grasp to
-                            resist the effect. In combat, Grappling an opponent calls
-                            for a contestant Grasp roll.
+                            Grasp is the skill used for Climbing surfaces and
+                            Holding onto opponents or objects. When being
+                            disarmed, a Character can use one of their reactions
+                            to use Grasp to resist the effect. In combat,
+                            Grappling an opponent calls for a contestant Grasp
+                            roll.
                           </h6>
                         </div>
                       </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="graspBonus" placeholder="0">
-                          </input>
+                          <input type="text" id="graspBonus" placeholder="0" />
                         </div>
                         <div class="floatDesc">
                           <h6>⇧ Extra Dice Rolled</h6>
@@ -720,40 +904,47 @@
                           <h6>Mastery Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillMastery">
-                          <input type="text" id="graspMastery" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="graspMastery"
+                            placeholder="+0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>Other Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillFlat">
-                          <input type="text" id="graspFlat" placeholder="+0">
-                          </input>
+                          <input type="text" id="graspFlat" placeholder="+0" />
                         </div>
                       </div>
                     </div>
 
                     <!-- Stamina Box -->
-            
+
                     <div class="skillBox" id="staminaBox">
                       <div class="skillHolder">
-                      <div class="skillName">
-                        <h2>Stamina</h2>
+                        <div class="skillName">
+                          <h2>Stamina</h2>
+                        </div>
+                        <div class="skillDesc">
+                          <h6>
+                            Stamina is the skill used to mitigate Impact Damage
+                            and Status Effects. Every two points in Endurance
+                            drop the Impact damage taken by 1. Character's
+                            Carryweight is equal to their weight in pounds plus
+                            25xStrength+25xEndurance in pounds (10xEach in Kg).
+                          </h6>
+                        </div>
                       </div>
-                      <div class="skillDesc">
-                        <h6>
-                          Stamina is the skill used to mitigate Impact Damage and
-                          Status Effects. Every two points in Endurance drop the
-                          Impact damage taken by 1. Character's Carryweight is equal
-                          to their weight in pounds plus 25xStrength+25xEndurance in
-                          pounds (10xEach in Kg).
-                        </h6>
-                      </div>
-                    </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="staminaBonus" placeholder="0" onblur="logStats()" data-Stamina>
-                          </input>
+                          <input
+                            type="text"
+                            id="staminaBonus"
+                            placeholder="0"
+                            onblur="logStats()"
+                            data-Stamina
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>⇧ Extra Dice Rolled</h6>
@@ -762,50 +953,55 @@
                           <h6>Mastery Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillMastery">
-                          <input type="text" id="staminaMastery" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="staminaMastery"
+                            placeholder="+0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>Other Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillFlat">
-                          <input type="text" id="staminaFlat" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="staminaFlat"
+                            placeholder="+0"
+                          />
                         </div>
                       </div>
                     </div>
-
                   </div>
 
                   <!-- Attribute Points -->
-          
-                  <div class="attrPoints">
 
+                  <div class="attrPoints">
                     <!-- Attribute Bonus -->
-            
+
                     <div class="attrBonus">
-                      <input type="text" id="strengthBonus" placeholder="0" onblur="logStats()" data-Str>
-                      </input>
+                      <input
+                        type="text"
+                        id="strengthBonus"
+                        placeholder="0"
+                        onblur="logStats()"
+                        data-Str
+                      />
                     </div>
 
                     <!-- Attribute Dice -->
-            
+
                     <div class="attrDice">
                       <h3>d6</h3>
                     </div>
-
                   </div>
-
                 </div>
-
               </div>
 
               <!-- Dexterity Attribute & SKills -->
-      
-              <div class="statsBox" id="dexterityStatBox">
 
+              <div class="statsBox" id="dexterityStatBox">
                 <!-- Attribute Name -->
-        
+
                 <div class="attrName">
                   <div class="infoButton">
                     <div class="triBlock1" data-expand></div>
@@ -816,9 +1012,8 @@
                 </div>
                 <div class="attrBox" id="dexterityBox">
                   <div class="attrHolder" expand-form>
-
                     <!-- Agility Box -->
-            
+
                     <div class="skillBox" id="agilityBox">
                       <div class="skillHolder">
                         <div class="skillName">
@@ -826,41 +1021,50 @@
                         </div>
                         <div class="skillDesc">
                           <h6>
-                            Agility is the skill used for the user's Dodging ability,
-                            and Acrobatic skill. Each point in Agility grants 3 extra
-                            feet of movement during a Dodge. Agility refers to the
-                            nimbleness of one's Body.
+                            Agility is the skill used for the user's Dodging
+                            ability, and Acrobatic skill. Each point in Agility
+                            grants 3 extra feet of movement during a Dodge.
+                            Agility refers to the nimbleness of one's Body.
                           </h6>
                         </div>
                       </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="agilityBonus" placeholder="0">
-                          </input>
+                          <input
+                            type="text"
+                            id="agilityBonus"
+                            placeholder="0"
+                          />
                         </div>
-                      <div class="floatDesc">
-                        <h6>⇧ Extra Dice Rolled</h6>
-                      </div>
-                      <div class="divider"></div>
-                      <div class="floatDesc">
-                        <h6>Mastery Flat Bonus ⇩</h6>
-                      </div>
+                        <div class="floatDesc">
+                          <h6>⇧ Extra Dice Rolled</h6>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="floatDesc">
+                          <h6>Mastery Flat Bonus ⇩</h6>
+                        </div>
                         <div class="skillMastery">
-                          <input type="text" id="agilityMastery" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="agilityMastery"
+                            placeholder="+0"
+                          />
                         </div>
-                      <div class="floatDesc">
-                        <h6>Other Flat Bonus ⇩</h6>
-                      </div>
+                        <div class="floatDesc">
+                          <h6>Other Flat Bonus ⇩</h6>
+                        </div>
                         <div class="skillFlat">
-                          <input type="text" id="agilityFlat" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="agilityFlat"
+                            placeholder="+0"
+                          />
                         </div>
                       </div>
                     </div>
 
                     <!-- Reaction Box -->
-            
+
                     <div class="skillBox" id="reactionBox">
                       <div class="skillHolder">
                         <div class="skillName">
@@ -868,18 +1072,22 @@
                         </div>
                         <div class="skillDesc">
                           <h6>
-                            Reaction is the skill responsible for Sleight of Hand,
-                            Pickpocketing and Lockpicking. Every 1 point in Reaction
-                            increase the amount of times a Character can change their
-                            action by 1, this amount resets every 10AP. Reaction
-                            refers to the nimbleness of one's Limbs.
+                            Reaction is the skill responsible for Sleight of
+                            Hand, Pickpocketing and Lockpicking. Every 1 point
+                            in Reaction increase the amount of times a Character
+                            can change their action by 1, this amount resets
+                            every 10AP. Reaction refers to the nimbleness of
+                            one's Limbs.
                           </h6>
                         </div>
                       </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="reactionBonus" placeholder="0">
-                          </input>
+                          <input
+                            type="text"
+                            id="reactionBonus"
+                            placeholder="0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>⇧ Extra Dice Rolled</h6>
@@ -888,21 +1096,27 @@
                           <h6>Mastery Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillMastery">
-                          <input type="text" id="reactionMastery" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="reactionMastery"
+                            placeholder="+0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>Other Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillFlat">
-                          <input type="text" id="reactionFlat" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="reactionFlat"
+                            placeholder="+0"
+                          />
                         </div>
                       </div>
                     </div>
 
                     <!-- Stealth Box -->
-            
+
                     <div class="skillBox" id="stealthBox">
                       <div class="skillHolder">
                         <div class="skillName">
@@ -910,18 +1124,21 @@
                         </div>
                         <div class="skillDesc">
                           <h6>
-                            Stealth is used for Hiding from sight, Sneaking and any
-                            other whole body movements meant to be Inconspicuous.
-                            Every 2 points in Stealth mitigate the Stealth
-                            Disadvantage given by each subsequent type of armor. (6
-                            for Plate)
+                            Stealth is used for Hiding from sight, Sneaking and
+                            any other whole body movements meant to be
+                            Inconspicuous. Every 2 points in Stealth mitigate
+                            the Stealth Disadvantage given by each subsequent
+                            type of armor. (6 for Plate)
                           </h6>
                         </div>
                       </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="stealthBonus" placeholder="0">
-                          </input>
+                          <input
+                            type="text"
+                            id="stealthBonus"
+                            placeholder="0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>⇧ Extra Dice Rolled</h6>
@@ -930,21 +1147,27 @@
                           <h6>Mastery Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillMastery">
-                          <input type="text" id="stealthMastery" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="stealthMastery"
+                            placeholder="+0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>Other Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillFlat">
-                          <input type="text" id="stealthFlat" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="stealthFlat"
+                            placeholder="+0"
+                          />
                         </div>
                       </div>
                     </div>
 
                     <!-- Trickery Box -->
-            
+
                     <div class="skillBox" id="trickeryBox">
                       <div class="skillHolder">
                         <div class="skillName">
@@ -952,18 +1175,22 @@
                         </div>
                         <div class="skillDesc">
                           <h6>
-                            Trickery is used for Deception, Sleight of Hand, Chicanery
-                            and Feinting. Feinting can be used in Combat for 1AP, and
-                            is contested by the defender's Insight. Any Victory Levels
-                            gained in this way can be added to any subsequent Attack
-                            or Defense roll against the target.
+                            Trickery is used for Deception, Sleight of Hand,
+                            Chicanery and Feinting. Feinting can be used in
+                            Combat for 1AP, and is contested by the defender's
+                            Insight. Any Victory Levels gained in this way can
+                            be added to any subsequent Attack or Defense roll
+                            against the target.
                           </h6>
                         </div>
                       </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="trickeryBonus" placeholder="0">
-                          </input>
+                          <input
+                            type="text"
+                            id="trickeryBonus"
+                            placeholder="0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>⇧ Extra Dice Rolled</h6>
@@ -972,21 +1199,27 @@
                           <h6>Mastery Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillMastery">
-                          <input type="text" id="trickeryMastery" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="trickeryMastery"
+                            placeholder="+0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>Other Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillFlat">
-                          <input type="text" id="trickeryFlat" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="trickeryFlat"
+                            placeholder="+0"
+                          />
                         </div>
                       </div>
                     </div>
 
                     <!-- Perception Box -->
-            
+
                     <div class="skillBox" id="perceptionBox">
                       <div class="skillHolder">
                         <div class="skillName">
@@ -995,101 +1228,20 @@
                         <div class="skillDesc">
                           <h6>
                             Perception is the most versatile skill in the game.
-                            Perception is used to See, Hear, Smell or otherwise Sense
-                            one's surroundings, Investigate and Locate clues. One's
-                            Vision Range* is defined by 10xCore+10xPerception in feet.
+                            Perception is used to See, Hear, Smell or otherwise
+                            Sense one's surroundings, Investigate and Locate
+                            clues. One's Vision Range* is defined by
+                            10xCore+10xPerception in feet.
                           </h6>
                         </div>
                       </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="perceptionBonus" placeholder="0">
-                          </input>
-                        </div>
-                          <div class="floatDesc">
-                            <h6>⇧ Extra Dice Rolled</h6>
-                          </div>
-                          <div class="floatDesc">
-                            <h6>Mastery Flat Bonus ⇩</h6>
-                          </div>
-                        <div class="skillMastery">
-                          <input type="text" id="perceptionMastery" placeholder="+0">
-                          </input>
-                        </div>
-                          <div class="floatDesc">
-                            <h6>Other Flat Bonus ⇩</h6>
-                          </div>
-                        <div class="skillFlat">
-                          <input type="text" id="perceptionFlat" placeholder="+0">
-                          </input>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <!-- Attribute Points -->
-          
-                  <div class="attrPoints">
-
-                    <!-- Attribute Bonus -->
-            
-                    <div class="attrBonus">
-                      <input type="text" id="dexterityBonus" placeholder="0" onblur="logStats()" data-Dex>
-                      </input>
-                    </div>
-
-                    <!-- Attribute Dice -->
-            
-                    <div class="attrDice">
-                      <h3>d6</h3>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              <!-- Intelligence Attribute & SKills -->
-      
-              <div class="statsBox" id="intelligenceStatBox">
-
-                <!-- Attribute Name -->
-        
-                <div class="attrName">
-                  <div class="infoButton">
-                    <div class="triBlock1" data-expand></div>
-                    <div class="triBlock2" data-expand></div>
-                    <div class="triBlock3" data-expand></div>
-                  </div>
-                  <h2>INT</h2>
-                </div>
-        
-                <div class="attrBox" id="intelligenceBox">
-                  <div class="attrHolder" expand-form>
-
-                    <!-- Insight Box -->
-            
-                    <div class="skillBox" id="insightBox">
-                      <div class="skillHolder">
-                        <div class="skillName">
-                          <h2>Insight</h2>
-                        </div>
-                        <div class="skillDesc">
-                          <h6>
-                            Insight is the skill responsible for Cold Reading,
-                            understanding of Intentions and whether or not the user is
-                            being Lied to. Insight can also be used to discern
-                            Illusions and used as an Investigation skill. Every 1
-                            points in Insight reduce Mind Damage taken by 1.
-                          </h6>
-                        </div>
-                      </div>
-                      <div class="skillPoints">
-                        <div class="skillBonus">
-                          <input type="text" id="insightBonus" placeholder="0">
-                          </input>
+                          <input
+                            type="text"
+                            id="perceptionBonus"
+                            placeholder="0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>⇧ Extra Dice Rolled</h6>
@@ -1098,21 +1250,120 @@
                           <h6>Mastery Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillMastery">
-                          <input type="text" id="insightMastery" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="perceptionMastery"
+                            placeholder="+0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>Other Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillFlat">
-                          <input type="text" id="insightFlat" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="perceptionFlat"
+                            placeholder="+0"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Attribute Points -->
+
+                  <div class="attrPoints">
+                    <!-- Attribute Bonus -->
+
+                    <div class="attrBonus">
+                      <input
+                        type="text"
+                        id="dexterityBonus"
+                        placeholder="0"
+                        onblur="logStats()"
+                        data-Dex
+                      />
+                    </div>
+
+                    <!-- Attribute Dice -->
+
+                    <div class="attrDice">
+                      <h3>d6</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Intelligence Attribute & SKills -->
+
+              <div class="statsBox" id="intelligenceStatBox">
+                <!-- Attribute Name -->
+
+                <div class="attrName">
+                  <div class="infoButton">
+                    <div class="triBlock1" data-expand></div>
+                    <div class="triBlock2" data-expand></div>
+                    <div class="triBlock3" data-expand></div>
+                  </div>
+                  <h2>INT</h2>
+                </div>
+
+                <div class="attrBox" id="intelligenceBox">
+                  <div class="attrHolder" expand-form>
+                    <!-- Insight Box -->
+
+                    <div class="skillBox" id="insightBox">
+                      <div class="skillHolder">
+                        <div class="skillName">
+                          <h2>Insight</h2>
+                        </div>
+                        <div class="skillDesc">
+                          <h6>
+                            Insight is the skill responsible for Cold Reading,
+                            understanding of Intentions and whether or not the
+                            user is being Lied to. Insight can also be used to
+                            discern Illusions and used as an Investigation
+                            skill. Every 1 points in Insight reduce Mind Damage
+                            taken by 1.
+                          </h6>
+                        </div>
+                      </div>
+                      <div class="skillPoints">
+                        <div class="skillBonus">
+                          <input
+                            type="text"
+                            id="insightBonus"
+                            placeholder="0"
+                          />
+                        </div>
+                        <div class="floatDesc">
+                          <h6>⇧ Extra Dice Rolled</h6>
+                        </div>
+                        <div class="floatDesc">
+                          <h6>Mastery Flat Bonus ⇩</h6>
+                        </div>
+                        <div class="skillMastery">
+                          <input
+                            type="text"
+                            id="insightMastery"
+                            placeholder="+0"
+                          />
+                        </div>
+                        <div class="floatDesc">
+                          <h6>Other Flat Bonus ⇩</h6>
+                        </div>
+                        <div class="skillFlat">
+                          <input
+                            type="text"
+                            id="insightFlat"
+                            placeholder="+0"
+                          />
                         </div>
                       </div>
                     </div>
 
                     <!-- Eloquence Box -->
-            
+
                     <div class="skillBox" id="eloquenceBox">
                       <div class="skillHolder">
                         <div class="skillName">
@@ -1122,16 +1373,20 @@
                           <h6>
                             Eloquence is the skill responsible for most Human
                             Interactions. Eloquence is used for Haggling and
-                            Persuasion of other intelligent individuals. Eloquence
-                            indicates not only the charisma of an individual, but also
-                            their ability to fit into well mannered society.
+                            Persuasion of other intelligent individuals.
+                            Eloquence indicates not only the charisma of an
+                            individual, but also their ability to fit into well
+                            mannered society.
                           </h6>
                         </div>
                       </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="eloquenceBonus" placeholder="0">
-                          </input>
+                          <input
+                            type="text"
+                            id="eloquenceBonus"
+                            placeholder="0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>⇧ Extra Dice Rolled</h6>
@@ -1140,21 +1395,27 @@
                           <h6>Mastery Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillMastery">
-                          <input type="text" id="eloquenceMastery" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="eloquenceMastery"
+                            placeholder="+0"
+                          />
                         </div>
-                          <div class="floatDesc">
-                            <h6>Other Flat Bonus ⇩</h6>
-                          </div>
+                        <div class="floatDesc">
+                          <h6>Other Flat Bonus ⇩</h6>
+                        </div>
                         <div class="skillFlat">
-                          <input type="text" id="eloquenceFlat" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="eloquenceFlat"
+                            placeholder="+0"
+                          />
                         </div>
                       </div>
                     </div>
 
                     <!-- Accuracy Box -->
-            
+
                     <div class="skillBox" id="accuracyBox">
                       <div class="skillHolder">
                         <div class="skillName">
@@ -1162,18 +1423,21 @@
                         </div>
                         <div class="skillDesc">
                           <h6>
-                            Accuracy is one's Skillfullness and ability to do things
-                            Perfectly. Accuracy can be used as a Reaction to give
-                            oneself Advantage on any other skill roll (CL4). Only
-                            Skills that have equal to or more points than Accuracy can
-                            be buffed in this way.
+                            Accuracy is one's Skillfullness and ability to do
+                            things Perfectly. Accuracy can be used as a Reaction
+                            to give oneself Advantage on any other skill roll
+                            (CL4). Only Skills that have equal to or more points
+                            than Accuracy can be buffed in this way.
                           </h6>
                         </div>
                       </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="accuracyBonus" placeholder="0">
-                          </input>
+                          <input
+                            type="text"
+                            id="accuracyBonus"
+                            placeholder="0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>⇧ Extra Dice Rolled</h6>
@@ -1182,21 +1446,27 @@
                           <h6>Mastery Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillMastery">
-                          <input type="text" id="accuracyMastery" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="accuracyMastery"
+                            placeholder="+0"
+                          />
                         </div>
-                          <div class="floatDesc">
-                            <h6>Other Flat Bonus ⇩</h6>
-                          </div>
+                        <div class="floatDesc">
+                          <h6>Other Flat Bonus ⇩</h6>
+                        </div>
                         <div class="skillFlat">
-                          <input type="text" id="accuracyFlat" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="accuracyFlat"
+                            placeholder="+0"
+                          />
                         </div>
                       </div>
                     </div>
 
                     <!-- Handling Box -->
-            
+
                     <div class="skillBox" id="handlingBox">
                       <div class="skillHolder">
                         <div class="skillName">
@@ -1205,17 +1475,20 @@
                         <div class="skillDesc">
                           <h6>
                             Handling is used for Steering a vehicle or a mount,
-                            Manning an artillery contraption or Balancing items or
-                            oneself. These actions include walking a tightrope,
-                            lowering an item on a line and touching poisonous
-                            materials.
+                            Manning an artillery contraption or Balancing items
+                            or oneself. These actions include walking a
+                            tightrope, lowering an item on a line and touching
+                            poisonous materials.
                           </h6>
                         </div>
                       </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="handlingBonus" placeholder="0">
-                          </input>
+                          <input
+                            type="text"
+                            id="handlingBonus"
+                            placeholder="0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>⇧ Extra Dice Rolled</h6>
@@ -1224,21 +1497,27 @@
                           <h6>Mastery Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillMastery">
-                          <input type="text" id="handlingMastery" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="handlingMastery"
+                            placeholder="+0"
+                          />
                         </div>
-                          <div class="floatDesc">
-                            <h6>Other Flat Bonus ⇩</h6>
-                          </div>
+                        <div class="floatDesc">
+                          <h6>Other Flat Bonus ⇩</h6>
+                        </div>
                         <div class="skillFlat">
-                          <input type="text" id="handlingFlat" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="handlingFlat"
+                            placeholder="+0"
+                          />
                         </div>
                       </div>
                     </div>
 
                     <!-- Survival Box -->
-            
+
                     <div class="skillBox" id="survivalBox">
                       <div class="skillHolder">
                         <div class="skillName">
@@ -1247,17 +1526,21 @@
                         <div class="skillDesc">
                           <h6>
                             Survival is the primary skill for Animal and Floral
-                            interactions. Survival knowledge also translates into
-                            Medicine and is used to mend Wounds. Every 3 points in
-                            one's Survival increase the amount of Victory Levels
-                            needed to inflict a Status Effect on them by 1.
+                            interactions. Survival knowledge also translates
+                            into Medicine and is used to mend Wounds. Every 3
+                            points in one's Survival increase the amount of
+                            Victory Levels needed to inflict a Status Effect on
+                            them by 1.
                           </h6>
                         </div>
                       </div>
                       <div class="skillPoints">
                         <div class="skillBonus">
-                          <input type="text" id="survivalBonus" placeholder="0">
-                          </input>
+                          <input
+                            type="text"
+                            id="survivalBonus"
+                            placeholder="0"
+                          />
                         </div>
                         <div class="floatDesc">
                           <h6>⇧ Extra Dice Rolled</h6>
@@ -1266,46 +1549,48 @@
                           <h6>Mastery Flat Bonus ⇩</h6>
                         </div>
                         <div class="skillMastery">
-                          <input type="text" id="survivalMastery" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="survivalMastery"
+                            placeholder="+0"
+                          />
                         </div>
-                          <div class="floatDesc">
-                            <h6>Other Flat Bonus ⇩</h6>
-                          </div>
+                        <div class="floatDesc">
+                          <h6>Other Flat Bonus ⇩</h6>
+                        </div>
                         <div class="skillFlat">
-                          <input type="text" id="survivalFlat" placeholder="+0">
-                          </input>
+                          <input
+                            type="text"
+                            id="survivalFlat"
+                            placeholder="+0"
+                          />
                         </div>
                       </div>
                     </div>
-
                   </div>
 
                   <!-- Attribute Points -->
-          
-                  <div class="attrPoints">
 
+                  <div class="attrPoints">
                     <!-- Attribute Bonus -->
-            
+
                     <div class="attrBonus">
-                      <input type="text" id="intelligenceBonus" placeholder="0">
-                      </input>
+                      <input
+                        type="text"
+                        id="intelligenceBonus"
+                        placeholder="0"
+                      />
                     </div>
 
                     <!-- Attribute Dice -->
-            
+
                     <div class="attrDice">
                       <h3>d6</h3>
                     </div>
-
                   </div>
-
                 </div>
-
               </div>
-
             </div>
-
           </div>
           <div></div>
           <div class="corner3"></div>
@@ -1315,83 +1600,80 @@
 
         <!-- Combat Box Holder -->
 
-        <div class="container">
+        <div class="container diamond">
           <div class="corner1"></div>
           <div></div>
           <div class="corner2"></div>
           <div></div>
           <div class="holder">
-
             <!-- Combat Box Holder -->
-    
+
             <div class="glass"></div>
-            <div class="combatHolder">      
+            <div class="combatHolder">
               <div class="rollerBox">
                 <div class="chatMessageDisplay">
-                  <input type="text" class="chatMessage" data-message></input>
-                  <button class="chatSubmit" onclick="sendMessage()">Enter</button>
+                  <input type="text" class="chatMessage" data-message />
+                  <button class="chatSubmit" onclick="sendMessage()">
+                    Enter
+                  </button>
                 </div>
 
                 <!-- Roller Window -->
-        
+
                 <div class="rollerDisplay">
                   <h1></h1>
                 </div>
 
                 <!-- Armor Bonus Window -->
-        
+
                 <div class="armorBonusDisplay">
                   <h2>+0</h2>
                 </div>
 
                 <!-- Shield Bonus Window -->
-        
+
                 <div class="shieldBonusDisplay">
                   <h2>+0</h2>
                 </div>
 
                 <!-- Mastery Bonus Window -->
-        
+
                 <div class="masteryBounusDisplay">
                   <h2>+0</h2>
                 </div>
 
                 <!-- Weapon Bonus Window -->
-        
+
                 <div class="weaponBonusDisplay">
                   <h2>+0</h2>
                 </div>
 
                 <!-- Racial Bonus Window -->
-        
+
                 <div class="racialBonusDisplay">
                   <h2>+0</h2>
                 </div>
 
                 <!-- Weapon Magic Window -->
-        
+
                 <div class="weaponMagicDisplay">
                   <h2>+0</h2>
                 </div>
 
                 <!-- Chat Message Window -->
-        
+
                 <div class="extraInfoDisplay" onclick="resetMessage()">
                   <h3 onclick="resetMessage()"></h3>
                 </div>
-
               </div>
             </div>
-
           </div>
           <div></div>
           <div class="corner3"></div>
           <div></div>
           <div class="corner4"></div>
         </div>
-
       </div>
-
     </div>
   </body>
 </html>
