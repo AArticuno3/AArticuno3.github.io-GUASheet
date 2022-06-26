@@ -48,10 +48,10 @@
         <div class="menuBox">
           <div class="diamond menu"></div>
           <div class="diamond menu"></div>
+          <div class="diamond menu"></div>
           <div class="diamond menu" rollerDisplay>
             <h1></h1>
           </div>
-          <div class="diamond menu"></div>
         </div>
 
         <!-- Portrait Box Holder -->
@@ -704,7 +704,7 @@
                       type="text"
                       id="coreBonus"
                       placeholder="4"
-                      onblur="logStats()"
+                      onblur="logStats(), logHealth()"
                       data-Core
                     />
                   </div>
@@ -983,7 +983,7 @@
                         type="text"
                         id="strengthBonus"
                         placeholder="0"
-                        onblur="logStats()"
+                        onblur="logStats(), logHealth()"
                         data-Str
                       />
                     </div>

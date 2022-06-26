@@ -11,6 +11,9 @@ const rollCL = 3
 
 let charName = ""
 
+let currentHealth = 16
+let maximumHealth = 16
+
 // Creating a parallax Background--scroll-depth
 
 wrapper.onscroll = () => {
@@ -23,7 +26,7 @@ wrapper.onscroll = () => {
 
 }
 
-// Creating real time Name uptading
+// Creating Name uptading
 
 function logName() {
   charName = document.getElementById("characterName").value
@@ -40,13 +43,46 @@ function logName() {
   fetch(webhookLogURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
 }
 
-// Creating real time HP updating
+// Creating HP updating
 
 function logHealth() {
-  let currentHealth = [...document.querySelectorAll("[data-HP]")][0].value
-  let maximumHealth = [...document.querySelectorAll("[data-HP-MAX]")][0].value
+  let currentCore = [...document.querySelectorAll("[data-Core]")][0].value
 
-  let hpRatio = (100*(currentHealth/maximumHealth))
+  if (currentCore == "") {
+    currentCore = 4
+  }
+
+  let currentStr = [...document.querySelectorAll("[data-Str]")][0].value
+
+  if (currentStr == "") {
+    currentStr = 0
+  }
+
+  let maxHealthDisplay = [...document.querySelectorAll("[data-HP-MAX]")][0]
+
+  if (maxHealthDisplay.value == "") {
+    maximumHealth = parseInt(currentCore) * ( parseInt(currentCore) + parseInt(currentStr) )
+  } else {
+    maximumHealth = maxHealthDisplay.value
+  }
+
+  maxHealthDisplay.placeholder = maximumHealth
+  
+  let currentHealthDisplay = [...document.querySelectorAll("[data-HP]")][0]
+  if (currentHealthDisplay.value == "") {
+    currentHealthDisplay.placeholder = maximumHealth
+    currentHealth = maximumHealth
+  } else if (parseInt(currentHealthDisplay.value) > maximumHealth) {
+    currentHealthDisplay.value = maximumHealth
+    currentHealth = maximumHealth    
+  } else if (parseInt(currentHealthDisplay.value) < 0) {
+    currentHealthDisplay.value = 0
+    currentHealth = 0    
+  } else {
+    currentHealth = currentHealthDisplay.value
+  }
+
+  let hpRatio = parseInt(10000*(currentHealth/maximumHealth)) / 100
   if (hpRatio < 100) {
     root.style.setProperty('--hp-percent', parseInt(hpRatio) + "%" );
   } else {
@@ -147,6 +183,8 @@ document.addEventListener("click", e => {
 
     if (coreDice == "") {
       coreDice = 0
+    } else if ( (parseInt(maximumHealth) - parseInt(currentHealth)) > (parseInt(coreDice) * ( (parseInt(maximumHealth) /  parseInt(coreDice)) -  parseInt(coreDice) )) ) {
+      coreDice = Math.floor(parseInt(maximumHealth) - parseInt(currentHealth)) - (parseInt(coreDice) * ( (parseInt(maximumHealth) /  parseInt(coreDice)) -  parseInt(coreDice) )) 
     }
 
     let magicDice = document.getElementById("magicCoreBonus").value
@@ -204,6 +242,8 @@ document.addEventListener("click", e => {
 
     if (coreDice == "") {
       coreDice = 0
+    } else if ( (parseInt(maximumHealth) - parseInt(currentHealth)) > (parseInt(coreDice) * ( (parseInt(maximumHealth) /  parseInt(coreDice)) -  parseInt(coreDice) )) ) {
+      coreDice = Math.floor(parseInt(maximumHealth) - parseInt(currentHealth)) - (parseInt(coreDice) * ( (parseInt(maximumHealth) /  parseInt(coreDice)) -  parseInt(coreDice) )) 
     }
 
     let attrDice = [...clickTarget.parentElement.getElementsByClassName("attrBonus")][0].children[0].value
@@ -252,6 +292,8 @@ document.addEventListener("click", e => {
 
     if (coreDice == "") {
       coreDice = 0
+    } else if ( (parseInt(maximumHealth) - parseInt(currentHealth)) > (parseInt(coreDice) * ( (parseInt(maximumHealth) /  parseInt(coreDice)) -  parseInt(coreDice) )) ) {
+      coreDice = Math.floor(parseInt(maximumHealth) - parseInt(currentHealth)) - (parseInt(coreDice) * ( (parseInt(maximumHealth) /  parseInt(coreDice)) -  parseInt(coreDice) )) 
     }
 
     let attrDice = clickTarget.parentElement.parentElement.parentElement.parentElement.parentElement.getElementsByClassName("attrBonus")[0].children[0].value
@@ -334,7 +376,7 @@ function sendMessage() {
 function rollDice(dice,rollCL,bonus) {
   let diceRollTotal = 0
   let debugMessage = "Last Roll by " + charName + ": ["
-  console.log(dice)
+  console.log("rolling " + dice + " dice...")
 
   for (let i = 0; i < dice; i++) {
     let currentRoll = parseInt(Math.random()*(6) + 1)

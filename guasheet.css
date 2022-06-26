@@ -323,6 +323,7 @@
   
   @media (min-width: 1000px) {
     .menu:nth-child(1) {
+      width: 25%;
       transform: translate(-18em,0) rotate(-45deg);      
     }
   }
@@ -338,30 +339,24 @@
   
   @media (min-width: 1000px) {
     .menu:nth-child(2) {
+      width: 25%;
       transform: translate(18em,0) rotate(-45deg);      
     }
   }
 
   .menu:nth-child(3) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
     width: 35%;
     /* background: red !important; */
     justify-self: start;
     align-self: end;
-    transform: translate(-2em,calc(100vh - 24em)) rotate(-45deg);
-  }
-
-  .menu:nth-child(3) h1 {
-    font-size: 5em;
-    transform: rotate(45deg);
+    transform: translate(-2em,calc(100vh - 21em)) rotate(-45deg);
+    opacity: 0%;
   }
   
   @media (min-width: 1000px) {
     .menu:nth-child(3) {
-      transform: translate(-18em,calc(100vh - 24em)) rotate(-45deg);      
+      width: 25%;
+      transform: translate(-18em,calc(100vh - 22em)) rotate(-45deg);      
     }
   }
 
@@ -370,14 +365,26 @@
     /* background: purple !important; */
     justify-self: end;
     align-self: end;
-    transform: translate(2em,calc(100vh - 24em)) rotate(-45deg);
-    opacity: 0%
+    transform: translate(2em,calc(100vh - 21em)) rotate(-45deg);
   }
   
   @media (min-width: 1000px) {
     .menu:nth-child(4) {
-      transform: translate(18em,calc(100vh - 24em)) rotate(-45deg);      
+      width: 25%;
+      transform: translate(18em,calc(100vh - 22em)) rotate(-45deg);      
     }
+  }
+
+  .menu[rollerDisplay] {    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .menu[rollerDisplay] h1 {
+    font-size: 4em;
+    transform: rotate(45deg);
   }
 
   /* ==Character Name== */
@@ -683,23 +690,23 @@
     height: 20%;
     margin-top: -10%;
     margin-bottom: -16.5%;
-    z-index: 3;
     transition: 1s;
   }
 
   .magicHolder:hover {
-    z-index: 5;
   }
   
   .nonagram {
     height: 100%;
     width: 40%;
     transition: 1s;
+    z-index: 3;
   }
   
   .nonagram.open {
     width: 100%;
     margin-top: -40%;
+    z-index: 5;
   }
   
   .magicCorner {
@@ -730,7 +737,7 @@
     clip-path: polygon(0% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%) !important;
   }
   
-  .magicCorner:hover {
+  .nonagram.open .magicCorner:hover {
     cursor: pointer;
     z-index: 5 !important;
     mix-blend-mode: normal;
@@ -828,7 +835,7 @@
   
   .magic1:hover {
     cursor: pointer;
-    background: hsl( var(--s-hs-water) var(--l-50)) !important;
+    background: radial-gradient(circle, hsl( var(--s-hs-water) var(--l-30)) 0%, hsl( var(--s-hs-water) var(--l-70)) 100%) !important;
   }
   
   .magic1 .magicType {
@@ -849,7 +856,7 @@
   
   .magic2:hover {
     cursor: pointer;
-    background: hsl( var(--s-hs-air) var(--l-50)) !important;
+    background: radial-gradient(circle, hsl( var(--s-hs-air) var(--l-30)) 0%, hsl( var(--s-hs-air) var(--l-70)) 100%) !important;
   }
   
   .magic2 .magicType {
@@ -870,7 +877,7 @@
   
   .magic3:hover {
     cursor: pointer;
-    background: hsl( var(--s-hs-fire) var(--l-50)) !important;
+    background: radial-gradient(circle, hsl( var(--s-hs-fire) var(--l-30)) 0%, hsl( var(--s-hs-fire) var(--l-70)) 100%) !important;
   }
   
   .magic3 .magicType {
@@ -891,7 +898,7 @@
   
   .magic4:hover {
     cursor: pointer;
-    background: hsl( var(--s-hs-stone) var(--l-50)) !important;
+    background: radial-gradient(circle, hsl( var(--s-hs-stone) var(--l-30)) 0%, hsl( var(--s-hs-stone) var(--l-70)) 100%) !important;
   }
   
   .magic4 .magicType {
@@ -912,7 +919,7 @@
   
   .magic5:hover {
     cursor: pointer;
-    background: hsl( var(--s-hs-plantlife) var(--l-50)) !important;
+    background: radial-gradient(circle, hsl( var(--s-hs-plantlife) var(--l-30)) 0%, hsl( var(--s-hs-plantlife) var(--l-70)) 100%) !important;
   }
   
   .magic5 .magicType {
@@ -933,7 +940,7 @@
   
   .magic6:hover {
     cursor: pointer;
-    background: hsl( var(--s-hs-tremor) var(--l-50)) !important;
+    background: radial-gradient(circle, hsl( var(--s-hs-tremor) var(--l-30)) 0%, hsl( var(--s-hs-tremor) var(--l-70)) 100%) !important;
   }
   
   .magic6 .magicType {
@@ -954,7 +961,7 @@
   
   .magic7:hover {
     cursor: pointer;
-    background: hsl( var(--s-hs-lightning) var(--l-50)) !important;
+    background: radial-gradient(circle, hsl( var(--s-hs-lightning) var(--l-30)) 0%, hsl( var(--s-hs-lightning) var(--l-70)) 100%) !important;
   }
   
   .magic7 .magicType {
@@ -975,7 +982,7 @@
   
   .magic8:hover {
     cursor: pointer;
-    background: hsl( var(--s-hs-gravity) var(--l-50)) !important;
+    background: radial-gradient(circle, hsl( var(--s-hs-gravity) var(--l-30)) 0%, hsl( var(--s-hs-gravity) var(--l-70)) 100%) !important;
   }
   
   .magic8 .magicType {
@@ -996,7 +1003,7 @@
   
   .magic9:hover {
     cursor: pointer;
-    background: hsl( var(--s-hs-mind) var(--l-50)) !important;
+    background: radial-gradient(circle, hsl( var(--s-hs-mind) var(--l-30)) 0%, hsl( var(--s-hs-mind) var(--l-70)) 100%) !important;
   }
   
   .magic9 .magicType {
