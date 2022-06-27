@@ -168,6 +168,8 @@ document.addEventListener("click", e => {
 
   // Magic To Roll press => Roll in Sheet and send Roll to Discord
 
+  resetMessage()
+
   if (clickTarget.parentElement.classList.contains("magicPoints") || clickTarget.parentElement.classList.contains("magicDesc")) {
 
     
@@ -180,11 +182,11 @@ document.addEventListener("click", e => {
     let generatedMessage = ""
 
     let coreDice = document.getElementById("coreBonus").value
-
+    
     if (coreDice == "") {
       coreDice = 0
-    } else if ( (parseInt(maximumHealth) - parseInt(currentHealth)) > (parseInt(coreDice) * ( (parseInt(maximumHealth) /  parseInt(coreDice)) -  parseInt(coreDice) )) ) {
-      coreDice = Math.floor(parseInt(maximumHealth) - parseInt(currentHealth)) - (parseInt(coreDice) * ( (parseInt(maximumHealth) /  parseInt(coreDice)) -  parseInt(coreDice) )) 
+    } else if ( parseInt(currentHealth) < (parseInt(coreDice) * parseInt(coreDice)) ) {
+      coreDice = parseInt(coreDice) - Math.floor(((parseInt(coreDice) * parseInt(coreDice)) - parseInt(currentHealth)) / (parseInt(coreDice)))
     }
 
     let magicDice = document.getElementById("magicCoreBonus").value
@@ -218,7 +220,7 @@ document.addEventListener("click", e => {
     floatRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "||/" + magicDifficulty.slice(5) + "||]" }
-    if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Alex" || charName == "Ari") {
+    if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Gabriel" || charName == "Ari") {
       webhookMessage.username = charName
       fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
     }
@@ -226,6 +228,8 @@ document.addEventListener("click", e => {
   }
 
   // Attribute Name press => Roll in Sheet and send Roll to Discord
+
+  resetMessage()
 
   if (clickTarget.classList.contains("attrName") || clickTarget.parentElement.classList.contains("attrName")) {
 
@@ -239,26 +243,32 @@ document.addEventListener("click", e => {
     let generatedMessage = ""
 
     let coreDice = document.getElementById("coreBonus").value
-
+    
     if (coreDice == "") {
       coreDice = 0
-    } else if ( (parseInt(maximumHealth) - parseInt(currentHealth)) > (parseInt(coreDice) * ( (parseInt(maximumHealth) /  parseInt(coreDice)) -  parseInt(coreDice) )) ) {
-      coreDice = Math.floor(parseInt(maximumHealth) - parseInt(currentHealth)) - (parseInt(coreDice) * ( (parseInt(maximumHealth) /  parseInt(coreDice)) -  parseInt(coreDice) )) 
+    } else if ( parseInt(currentHealth) < (parseInt(coreDice) * parseInt(coreDice)) ) {
+      coreDice = Math.floor((parseInt(currentHealth)) / (parseInt(coreDice)))
     }
 
-    let attrDice = [...clickTarget.parentElement.getElementsByClassName("attrBonus")][0].children[0].value
+    let attrDice = 0
+
+    if (clickTarget.classList.contains("attrName")) {
+      generatedMessage = clickTarget.children[1].innerHTML
+      attrDice = [...clickTarget.parentElement.getElementsByClassName("attrBonus")][0].children[0].value
+    } else {
+      generatedMessage = clickTarget.innerHTML
+      attrDice = [...clickTarget.parentElement.parentElement.getElementsByClassName("attrBonus")][0].children[0].value
+    }
 
     if (attrDice == "") {
       attrDice = 0
+    } else if (generatedMessage == "STR") {
+      console.log(attrDice)
+      attrDice = parseInt(attrDice) - Math.floor( (parseInt(maximumHealth) - parseInt(currentHealth)) / (parseInt(coreDice)) )
+      if (attrDice < 0) { attrDice = 0 }
     }
 
-    if (clickTarget.classList.contains("attrName")) {
-      generatedMessage = clickTarget.children[0].innerHTML + " Roll: "
-    } else {
-      generatedMessage = clickTarget.innerHTML + " Roll: "
-    }
-
-    displayMessage.children[0].innerHTML = generatedMessage
+    displayMessage.children[0].innerHTML = generatedMessage + " Roll: "
 
     const totalDice = parseInt(coreDice) + parseInt(attrDice)
 
@@ -267,7 +277,7 @@ document.addEventListener("click", e => {
     floatRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
-    if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Alex" || charName == "Ari") {
+    if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Gabriel" || charName == "Ari") {
       webhookMessage.username = charName
       fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
     }
@@ -275,32 +285,37 @@ document.addEventListener("click", e => {
   }
 
   // Skill Name press => Roll in Sheet and send Roll to Discord
+
+  resetMessage()
   
   if (clickTarget.classList.contains("skillName") || clickTarget.parentElement.classList.contains("skillName")) {
-
     
     const floatRoll = [...document.querySelectorAll("[rollerDisplay]")][0]
     const displayRoll = [...document.getElementsByClassName("rollerDisplay")][0]
 
     const displayMessage = [...document.getElementsByClassName("extraInfoDisplay")][0]
     displayMessage.classList.add("show")
-
+    const displayMastery = [...document.getElementsByClassName("masteryBounusDisplay")][0]
+    const displayArmor = [...document.getElementsByClassName("armorBonusDisplay")][0]
 
     let generatedMessage = ""
 
     let coreDice = document.getElementById("coreBonus").value
-
+    
     if (coreDice == "") {
       coreDice = 0
-    } else if ( (parseInt(maximumHealth) - parseInt(currentHealth)) > (parseInt(coreDice) * ( (parseInt(maximumHealth) /  parseInt(coreDice)) -  parseInt(coreDice) )) ) {
-      coreDice = Math.floor(parseInt(maximumHealth) - parseInt(currentHealth)) - (parseInt(coreDice) * ( (parseInt(maximumHealth) /  parseInt(coreDice)) -  parseInt(coreDice) )) 
+    } else if ( parseInt(currentHealth) < (parseInt(coreDice) * parseInt(coreDice)) ) {
+      coreDice = parseInt(coreDice) - Math.floor(((parseInt(coreDice) * parseInt(coreDice)) - parseInt(currentHealth)) / (parseInt(coreDice)))
     }
 
     let attrDice = clickTarget.parentElement.parentElement.parentElement.parentElement.parentElement.getElementsByClassName("attrBonus")[0].children[0].value
 
     if (attrDice == "") {
       attrDice = 0
-    } 
+    } else if (clickTarget.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.getElementsByClassName("attrName")[0].children[1].value == "STR") {
+      attrDice = parseInt(attrDice) - Math.floor( (parseInt(maximumHealth) - parseInt(currentHealth)) / (parseInt(coreDice)) )
+      if (attrDice < 0) { attrDice = 0 }
+    }
 
     let skillDice = clickTarget.parentElement.parentElement.parentElement.getElementsByClassName("skillBonus")[0].children[0].value
 
@@ -312,22 +327,15 @@ document.addEventListener("click", e => {
 
     if (skillMastery == "") {
       skillMastery = 0
-    } 
+    }
 
     let skillFlat = clickTarget.parentElement.parentElement.parentElement.getElementsByClassName("skillFlat")[0].children[0].value.slice(1)
 
     if (skillFlat == "") {
       skillFlat = 0
-    } 
+    }
 
     let skillBonus = parseInt(skillFlat) + parseInt(skillMastery)
-
-    const displayBonus = [...document.getElementsByClassName("masteryBounusDisplay")][0]
-    if (skillBonus > 0) {
-      displayBonus.classList.add("show")
-      let localMessage = "+ " + skillBonus
-      displayBonus.children[0].innerHTML = localMessage
-    }
 
     if (clickTarget.classList.contains("skillName")) {
       generatedMessage = clickTarget.children[0].innerHTML + " Roll: "
@@ -341,19 +349,28 @@ document.addEventListener("click", e => {
 
     const diceRoll = rollDice(totalDice, rollCL, skillBonus)
     displayRoll.children[0].innerHTML = diceRoll
-    if (skillBonus > 0) {
-      diceRoll = diceRoll + skillBonus
+    if (skillMastery > 0) {
+      displayMastery.classList.add("show")
+      displayMastery.children[0].innerHTML = "+" + skillMastery
     }
-    floatRoll.children[0].innerHTML = diceRoll
+    if (skillFlat > 0) {
+      displayArmor.classList.add("show")
+      displayArmor.children[0].innerHTML = "+" + skillFlat
+    }
+    if (skillBonus > 0) {
+      let totalRoll = diceRoll + skillBonus
+      floatRoll.children[0].innerHTML = totalRoll
+    } else {
+      floatRoll.children[0].innerHTML = diceRoll
+    }
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
-    if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Alex" || charName == "Ari") {
+    if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Gabriel" || charName == "Ari") {
       webhookMessage.username = charName
       fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
     }
 
   }
-
 
 })
 
@@ -363,7 +380,7 @@ function sendMessage() {
   let currentMessage = [...document.querySelectorAll("[data-message]")][0]
   console.log(currentMessage.value)
   const webhookMessage = { "content": currentMessage.value }
-  if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Alex" || charName == "Ari") {
+  if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Gabriel" || charName == "Ari") {
     webhookMessage.username = charName  
     fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
   }
