@@ -309,7 +309,7 @@
   
   @media (min-width: 1000px) {
     .menuBox {
-      top: 10%;
+      top: 0%;
     }
   }
 
@@ -364,8 +364,8 @@
     /* background: red !important; */
     justify-self: start;
     align-self: end;
-    transform: translate(-2em,calc(100vh - 18em)) rotate(-45deg);
-    opacity: 0%;
+    transform: translate(-2em,calc(100vh - 12em)) rotate(-45deg);
+    /* opacity: 0%; */
   }
   
   @media (min-width: 1000px) {
@@ -386,8 +386,8 @@
     /* background: purple !important; */
     justify-self: end;
     align-self: end;
-    transform: translate(2em,calc(100vh - 18em)) rotate(-45deg);
-    opacity: 0%;
+    transform: translate(2em,calc(100vh - 12em)) rotate(-45deg);
+    /* opacity: 0%; */
   }
   
   @media (min-width: 1000px) {
