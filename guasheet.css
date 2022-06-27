@@ -309,8 +309,7 @@
   
   @media (min-width: 1000px) {
     .menuBox {
-      top: 0%;
-    }
+      top: -5vh100    }
   }
 
   .menu:nth-child(1) {
@@ -318,7 +317,7 @@
     /* background: green !important; */
     justify-self: start;
     align-self: start;
-    transform: translate(-2em,25vh) rotate(45deg);
+    transform: translate(-2em,30vh) rotate(45deg);
     /* opacity: 0%; */
   }
   
@@ -341,7 +340,7 @@
     /* background: blue !important; */
     justify-self: end;
     align-self: start;
-    transform: translate(2em,25vh) rotate(45deg);
+    transform: translate(2em,30vh) rotate(45deg);
     /* opacity: 0%; */
   }
   
@@ -364,7 +363,7 @@
     /* background: red !important; */
     justify-self: start;
     align-self: end;
-    transform: translate(-2em,95vh) rotate(-45deg);
+    transform: translate(-2em,100vh) rotate(-45deg);
     /* opacity: 0%; */
   }
   
@@ -386,7 +385,7 @@
     /* background: purple !important; */
     justify-self: end;
     align-self: end;
-    transform: translate(2em,95vh) rotate(-45deg);
+    transform: translate(2em,100vh) rotate(-45deg);
     /* opacity: 0%; */
   }
   
