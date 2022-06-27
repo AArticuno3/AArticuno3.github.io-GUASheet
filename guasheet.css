@@ -309,7 +309,8 @@
   
   @media (min-width: 1000px) {
     .menuBox {
-      top: -5vh100    }
+      top: -5vh;
+    }
   }
 
   .menu:nth-child(1) {
