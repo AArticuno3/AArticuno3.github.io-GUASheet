@@ -446,7 +446,7 @@
   .menu[saveMenu]:hover .loginMenu {
     width: 88.25vw;
     height: 93.5vh;
-    background: linear-gradient(110deg, rgba(82, 116, 37, 0.6) 0%, rgba(115,115,115,1) 100%);
+    background: linear-gradient(110deg, rgba(247, 236, 212, 0.6) 0%, rgba(115,115,115,1) 100%);
     transition: width 0.25s ease-in, height 0.25s 0.25s ease-out;
   }
   
