@@ -374,7 +374,7 @@
     align-self: end;
     -webkit-transform: translate(-2em,95vh) rotate(-45deg);
     transform: translate(-2em,95vh) rotate(-45deg);
-    /* opacity: 0%; */
+    opacity: 0%;
   }
   
   @media (min-width: 1000px) {
@@ -399,7 +399,7 @@
     align-self: end;
     -webkit-transform: translate(2em,95vh) rotate(-45deg);
     transform: translate(2em,95vh) rotate(-45deg);
-    /* opacity: 0%; */
+    opacity: 0%;
   }
   
   @media (min-width: 1000px) {
@@ -426,9 +426,6 @@
     flex-direction: column;
     text-align: center;
     z-index: 4;
-  }
-
-  .menu[saveMenu]:hover {
   }
   
   .menu[saveMenu] .loginMenu {
