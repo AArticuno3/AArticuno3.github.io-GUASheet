@@ -19,11 +19,11 @@ let maximumHealth = 16
 wrapper.onscroll = () => {
   let scrollMax = wrapper.scrollHeight
   let scrollDistance = wrapper.scrollTop
-
+  
   let bgScrollRatio = parseInt(100 * scrollDistance / scrollMax) / 100
   
   root.style.setProperty('--scroll-depth', bgScrollRatio )
-
+  root.scrollTop = 0
 }
 
 // Creating Name uptading

@@ -248,6 +248,7 @@
     position: relative;
     -webkit-perspective: 10px;
     perspective: 10px;
+    inset: 0;
   }
 
   @media (min-width: 1200px) {
@@ -264,6 +265,7 @@
     align-items: center;
     height: 100vh;
     width: 100%;
+    inset: 0;
     scroll-snap-type: y mandatory;
     overflow-y: auto;
     overflow-x: hidden;
@@ -287,7 +289,7 @@
 
   .diamond {
     aspect-ratio: 1/1;
-    background: linear-gradient(110deg, rgba(8, 155, 106, 0.7) 0%, rgba(115,115,115,0.7) 100%);
+    background: linear-gradient(110deg, rgba(82, 116, 37, 0.3) 0%, rgba(115,115,115,0.7) 100%);
     outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     outline-offset: -6px;
     box-shadow: -8px 2px 5px 4px rgba(115,115,115,0.7);
@@ -319,7 +321,7 @@
     justify-self: start;
     align-self: start;
     -webkit-transform: translate(-2em,30vh) rotate(45deg);
-    transform: translate(-2em,30vh) rotate(45deg);
+    transform: translate(-2em,25vh) rotate(45deg);
     /* opacity: 0%; */
   }
   
@@ -345,7 +347,7 @@
     justify-self: end;
     align-self: start;
     -webkit-transform: translate(2em,30vh) rotate(45deg);
-    transform: translate(2em,30vh) rotate(45deg);
+    transform: translate(2em,25vh) rotate(45deg);
     /* opacity: 0%; */
   }
   
@@ -370,9 +372,9 @@
     /* background: red !important; */
     justify-self: start;
     align-self: end;
-    -webkit-transform: translate(-2em,100vh) rotate(-45deg);
-    transform: translate(-2em,100vh) rotate(-45deg);
-    opacity: 0%;
+    -webkit-transform: translate(-2em,95vh) rotate(-45deg);
+    transform: translate(-2em,95vh) rotate(-45deg);
+    /* opacity: 0%; */
   }
   
   @media (min-width: 1000px) {
@@ -395,9 +397,9 @@
     /* background: purple !important; */
     justify-self: end;
     align-self: end;
-    -webkit-transform: translate(2em,100vh) rotate(-45deg);
-    transform: translate(2em,100vh) rotate(-45deg);
-    opacity: 0%;
+    -webkit-transform: translate(2em,95vh) rotate(-45deg);
+    transform: translate(2em,95vh) rotate(-45deg);
+    /* opacity: 0%; */
   }
   
   @media (min-width: 1000px) {
@@ -427,9 +429,8 @@
   }
 
   .menu[saveMenu]:hover {
-    background: linear-gradient(110deg, rgba(8, 155, 106, 1) 0%, rgba(115,115,115,1) 100%);
   }
-
+  
   .menu[saveMenu] .loginMenu {
     display: flex;
     flex-direction: column;
@@ -447,7 +448,8 @@
   
   .menu[saveMenu]:hover .loginMenu {
     width: 88.25vw;
-    height: 82.25vh;
+    height: 93.5vh;
+    background: linear-gradient(110deg, rgba(82, 116, 37, 0.6) 0%, rgba(115,115,115,1) 100%);
     transition: width 0.25s ease-in, height 0.25s 0.25s ease-out;
   }
   
@@ -477,48 +479,54 @@
   }
   
   .infoButtonCircle {
-    width: 8%;
-    height: 8%;
+    width: 10%;
+    height: 10%;
+    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    outline-offset: -6px;
     border-radius: 999px;
     background: hsl( var(--p-hs) var(--l-black) );
     transition: 1s;
-    margin-bottom: 10%;
+    margin-bottom: 8%;
   }
   
   .menu[saveMenu]:hover .infoButtonCircle {
     width: 60%;
-    height: 8%;
-    margin-bottom: 6%;
+    height: 10%;
+    margin-bottom: 4%;
   }
   
   .infoButtonStick1 {
-    width: 6%;
+    width: 8%;
     height: 20%;
     transition: 1s;
+    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    outline-offset: -6px;
     border-radius: 99px 99px 0px 0px;
     background: hsl( var(--p-hs) var(--l-black) );
   }
   
   .menu[saveMenu]:hover .infoButtonStick1 {
     width: 60%;
-    height: 8%;
+    height: 10%;
     border-radius: 99px;
-    margin: 6%;
+    margin: 4%;
   }
   
   .infoButtonStick2 {
-    width: 6%;
+    width: 8%;
     height: 20%;
     transition: 1s;
+    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
+    outline-offset: -6px;
     border-radius: 0px 0px 99px 99px;
     background: hsl( var(--p-hs) var(--l-black) );
   }
   
   .menu[saveMenu]:hover .infoButtonStick2 {
     width: 60%;
-    height: 8%;
+    height: 10%;
     border-radius: 99px;
-    margin-top: 6%;
+    margin-top: 4%;
   }
 
   /* Floating Roller Display */
@@ -534,8 +542,9 @@
 
   .menu[rollerDisplay] h1 {
     font-size: 4em;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
+    text-shadow: 0px 0px 10px hsl(var(--p-hs-gold) var(--l-70));
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
   }
 
   /* ==Character Name== */
