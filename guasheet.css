@@ -478,10 +478,11 @@
   .infoButtonCircle {
     width: 10%;
     height: 10%;
-    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     outline-offset: -6px;
     border-radius: 999px;
     background: hsl( var(--p-hs) var(--l-black) );
+    box-shadow: 0px 0px 2px 2px hsl(var(--p-hs-gold) var(--l-70));
+    mix-blend-mode: multiply;
     transition: 1s;
     margin-bottom: 8%;
   }
@@ -496,10 +497,11 @@
     width: 8%;
     height: 20%;
     transition: 1s;
-    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     outline-offset: -6px;
     border-radius: 99px 99px 0px 0px;
     background: hsl( var(--p-hs) var(--l-black) );
+    box-shadow: 0px 0px 2px 2px hsl(var(--p-hs-gold) var(--l-70));
+    mix-blend-mode: multiply;
   }
   
   .menu[saveMenu]:hover .infoButtonStick1 {
@@ -513,10 +515,11 @@
     width: 8%;
     height: 20%;
     transition: 1s;
-    outline: 6px double hsl(var(--p-hs-gold) var(--l-70));
     outline-offset: -6px;
     border-radius: 0px 0px 99px 99px;
     background: hsl( var(--p-hs) var(--l-black) );
+    box-shadow: 0px 0px 2px 2px hsl(var(--p-hs-gold) var(--l-70));
+    mix-blend-mode: multiply;
   }
   
   .menu[saveMenu]:hover .infoButtonStick2 {
