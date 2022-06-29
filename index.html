@@ -94,25 +94,25 @@
                       xlink:href="#gentle-wave"
                       x="0"
                       y="0"
-                      fill="rgba(144, 33, 16,1)"
+                      fill="rgba(144, 16, 16,1)"
                     />
                     <use
                       xlink:href="#gentle-wave"
                       x="0"
                       y="3"
-                      fill="rgba(144, 33, 16,0.8)"
+                      fill="rgba(144, 16, 16,0.8)"
                     />
                     <use
                       xlink:href="#gentle-wave"
                       x="0"
                       y="5"
-                      fill="rgba(144, 33, 16,0.6)"
+                      fill="rgba(144, 16, 16,0.6)"
                     />
                     <use
                       xlink:href="#gentle-wave"
                       x="0"
                       y="7"
-                      fill="rgba(144, 33, 16,0.4)"
+                      fill="rgba(144, 16, 16,0.4)"
                     />
                   </g>
                 </svg>
@@ -124,7 +124,13 @@
             <div class="portraitHolder">
               <!-- Portrait -->
 
-              <div class="portrait"></div>
+              <div
+                class="portrait"
+                id="dropZone"
+                ondrop="dropHandler(event)"
+                ondragover="dragOverHandler(event)"
+                data-Portrait
+              ></div>
 
               <!-- Magic Selector -->
 

@@ -3,9 +3,10 @@ const itemForms = [...document.querySelectorAll("[item-form]")]
 const expandForms = [...document.querySelectorAll("[expand-form]")]
 const wrapper = [...document.getElementsByClassName("main")][0]
 const bgHolder = [...document.querySelectorAll("[data-bgHolder]")][0]
+const portraitImage = [...document.querySelectorAll("[data-Portrait]")][0]
 
-const webhookMessageURL = "https://discord.com/api/webhooks/760935288306139148/65rOm6Yns8SKFaFo7zHVTcJEV5mtmWSkAXl7UoLJ9eS8s1jaT79VFpY65HEGqMkZmqD_"
-const webhookLogURL = "https://discord.com/api/webhooks/988323569924706334/LyH9QJ0BMjtl5zeguIDJiZR9i8XcdLi0bmc5H5IEiqJZPXojxvu2AV5n-HXn8XDvnsZx"
+const webhookMessageURL = "https://discord.com/api/webhooks/991574971191136286/tpfpEboznsKgpCRh43BrxCbGsOjVsviEF10UEz-3yJud_so2Y2DtahZbQ6YIgOpFDp2w"
+const webhookLogURL = "https://discord.com/api/webhooks/991575238204739616/pyxq1bAQXe9BBDwhPYeay99vCxH784mB5rqyCyA2xvoiUPs6kmQWjgXUnYzPGehQmyVe"
 
 const rollCL = 3
 
@@ -35,6 +36,11 @@ function logName() {
     charName = "Player"
   } else {
     console.log(charName)
+  }
+  
+  if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Gwyn") {
+    root.style.setProperty('--portrait-image', "url('images/" + charName + ".png')" )
+    portraitImage.classList.add("open")
   }
 
   const debugMessage = "name changed to " + charName
@@ -220,7 +226,7 @@ document.addEventListener("click", e => {
     floatRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "||/" + magicDifficulty.slice(5) + "||]" }
-    if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Gabriel" || charName == "Ari") {
+    if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Gwyn") {
       webhookMessage.username = charName
       fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
     }
@@ -277,7 +283,7 @@ document.addEventListener("click", e => {
     floatRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
-    if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Gabriel" || charName == "Ari") {
+    if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Gwyn") {
       webhookMessage.username = charName
       fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
     }
@@ -365,7 +371,7 @@ document.addEventListener("click", e => {
     }
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
-    if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Gabriel" || charName == "Ari") {
+    if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Gwyn") {
       webhookMessage.username = charName
       fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
     }
@@ -380,7 +386,7 @@ function sendMessage() {
   let currentMessage = [...document.querySelectorAll("[data-message]")][0]
   console.log(currentMessage.value)
   const webhookMessage = { "content": currentMessage.value }
-  if (charName == "Essedon" || charName == "Elias" || charName == "Gwyn" || charName == "Gabriel" || charName == "Ari") {
+  if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Gwyn") {
     webhookMessage.username = charName  
     fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
   }
@@ -450,4 +456,39 @@ function resetMessage() {
   const displayMessage = [...document.getElementsByClassName("extraInfoDisplay")][0]
   displayMessage.children[0].innerHTML = "   "
   displayMessage.classList.remove("show")
+}
+
+// Handling Portrait dropping into the image slot
+
+function dropHandler(ev) {
+  console.log('File(s) dropped');
+
+  // Prevent default behavior (Prevent file from being opened)
+  ev.preventDefault();
+
+  if (ev.dataTransfer.items) {
+    // Use DataTransferItemList interface to access the file(s)
+    for (let i = 0; i < ev.dataTransfer.items.length; i++) {
+      // If dropped items aren't files, reject them
+      if (ev.dataTransfer.items[i].kind === 'file') {
+        const file = ev.dataTransfer.items[i].getAsFile();
+        console.log('... file[' + i + '].name = ' + file.name);
+
+        root.style.setProperty('--portrait-image', "url('images/" + file.name + "')" )
+        portraitImage.classList.add("open")
+      }
+    }
+  } else {
+    // Use DataTransfer interface to access the file(s)
+    for (let i = 0; i < ev.dataTransfer.files.length; i++) {
+      // console.log('... file[' + i + '].name = ' + ev.dataTransfer.files[i].name);
+    }
+  }
+}
+
+function dragOverHandler(ev) {
+  console.log('File(s) in drop zone');
+
+  // Prevent default behavior (Prevent file from being opened)
+  ev.preventDefault();
 }
