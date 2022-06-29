@@ -51,7 +51,16 @@
     --header-height-MN: 457.584;
     --header-height: calc(var(--vp-ratio) * var(--header-height-MN))%;
     --scroll-depth: 0;
-    --scroll-menu-margin: calc(var(--scroll-depth) / 384.79998779296875);
+    
+    --angle-water:     30deg;
+    --angle-air:       70deg;
+    --angle-fire:      110deg;
+    --angle-stone:     150deg;
+    --angle-plantlife: 190deg;
+    --angle-tremor:    230deg;
+    --angle-lightning: 270deg;
+    --angle-gravity:   310deg;
+    --angle-mind:      350deg;
   
     margin: 0;
     inset: 0 0 0 0;
@@ -181,6 +190,7 @@
     position: absolute;
     width: 100%;
     height: 100vh;
+    transition: 1s ease-out;
   }
 
   .background:nth-child(1) {
@@ -747,9 +757,9 @@
   .healthBar {
     width: 150%;
     height: 80%;
-    background: rgba(144,33,16,1);
+    background: rgba(144, 16, 16, 0.6);
     mix-blend-mode: multiply;
-    opacity: 60%;
+    opacity: 100%;
     -webkit-transform: rotate(45deg) translate(0%,calc(115% - (1.2 * var(--hp-percent))));
     transform: rotate(45deg) translate(0%,calc(115% - (1.2 * var(--hp-percent))));
     transition: 5s 0.5s ease-in-out;
@@ -780,6 +790,7 @@
     animation-delay: -5s;
     animation-duration: 20s;
   }
+
   @keyframes move-forever {
     0% {
      -webkit-transform: translate3d(-90px,0,0);
@@ -788,19 +799,6 @@
     100% { 
       -webkit-transform: translate3d(85px,0,0);
       transform: translate3d(85px,0,0);
-    }
-  }
-  /*Shrinking for mobile*/
-  @media (max-width: 768px) {
-    .waves {
-      height:40px;
-      min-height:40px;
-    }
-    .content {
-      height:30vh;
-    }
-    h1 {
-      font-size:24px;
     }
   }
   
@@ -880,6 +878,22 @@
     mix-blend-mode: multiply;
     opacity: 30%;
     z-index: 1;
+    /* animation: wiggle-forever 25s cubic-bezier(.55,.5,.45,.5) infinite; */
+  }
+  
+  @keyframes wiggle-forever {
+    0% {
+      -webkit-transform: rotate();
+      transform: rotate();
+    }
+    100% { 
+      -webkit-transform: rotate();
+      transform: rotate();
+    }
+  }
+  
+  .magicCorner:hover {
+    animation: none;
     transition: 1s;
   }
   
@@ -888,18 +902,15 @@
     -webkit-clip-path: polygon(5% 50%, 20% 35%, 30% 41.5%, 30% 58.5%, 20% 65%);
     clip-path: polygon(5% 50%, 20% 35%, 30% 41.5%, 30% 58.5%, 20% 65%);
     opacity: 100%;
+    transition: 1s;
   }
-  
-  .magicCorner:hover {
+
+  .nonagram.open .magicCorner:hover {
     cursor: pointer;
     -webkit-clip-path: polygon(0% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%) !important;
     clip-path: polygon(0% 50%, 37.2% 0%, 70% 35%, 70% 65%, 37.2% 100%) !important;
-  }
-  
-  .nonagram.open .magicCorner:hover {
-    cursor: pointer;
-    z-index: 5 !important;
     mix-blend-mode: normal;
+    z-index: 5 !important;
   }
   
   .magicType {
@@ -961,7 +972,7 @@
     background: radial-gradient(ellipse, rgba(0,0,0,0) 50%, white 100%);
     -webkit-transform: scale(0%);
     transform: scale(0%);
-    transition: 1s .25s;
+    transition: 0s;
   }
 
   .magicPoints .magicDesc:hover {
@@ -988,8 +999,8 @@
   }
   
   .magic1 {
-    -webkit-transform: rotate(30deg) translate(6%,0);
-    transform: rotate(30deg) translate(6%,0);
+    -webkit-transform: rotate(var(--angle-water)) translate(6%,0);
+    transform: rotate(var(--angle-water)) translate(6%,0);
   }
   
   .magic1:hover {
@@ -1004,13 +1015,14 @@
   .magic1:hover .magicPoints,
   .magic1:hover .manaCurrent,
   .magic1:hover .manaMax {
-    -webkit-transform: rotate(330deg) scale(100%);
-    transform: rotate(330deg) scale(100%);
+    -webkit-transform: rotate(calc(0deg - var(--angle-water))) scale(100%);
+    transform: rotate(calc(0deg - var(--angle-water))) scale(100%);
+    transition: 1s .25s;
   }
   
   .magic2 {
-    -webkit-transform: rotate(70deg) translate(6%,0);
-    transform: rotate(70deg) translate(6%,0);
+    -webkit-transform: rotate(var(--angle-air)) translate(6%,0);
+    transform: rotate(var(--angle-air)) translate(6%,0);
   }
   
   .magic2:hover {
@@ -1025,13 +1037,14 @@
   .magic2:hover .magicPoints,
   .magic2:hover .manaCurrent,
   .magic2:hover .manaMax {
-    -webkit-transform: rotate(290deg) scale(100%);
-    transform: rotate(290deg) scale(100%);
+    -webkit-transform: rotate(calc(0deg - var(--angle-air))) scale(100%);
+    transform: rotate(calc(0deg - var(--angle-air))) scale(100%);
+    transition: 1s .25s;
   }
   
   .magic3 {
-    -webkit-transform: rotate(110deg) translate(6%,0);
-    transform: rotate(110deg) translate(6%,0);
+    -webkit-transform: rotate(var(--angle-fire)) translate(6%,0);
+    transform: rotate(var(--angle-fire)) translate(6%,0);
   }
   
   .magic3:hover {
@@ -1046,13 +1059,14 @@
   .magic3:hover .magicPoints,
   .magic3:hover .manaCurrent,
   .magic3:hover .manaMax {
-    -webkit-transform: rotate(250deg) scale(100%);
-    transform: rotate(250deg) scale(100%);
+    -webkit-transform: rotate(calc(0deg - var(--angle-fire))) scale(100%);
+    transform: rotate(calc(0deg - var(--angle-fire))) scale(100%);
+    transition: 1s .25s;
   }
   
   .magic4 {
-    -webkit-transform: rotate(150deg) translate(6%,0);
-    transform: rotate(150deg) translate(6%,0);
+    -webkit-transform: rotate(var(--angle-stone)) translate(6%,0);
+    transform: rotate(var(--angle-stone)) translate(6%,0);
   }
   
   .magic4:hover {
@@ -1067,13 +1081,14 @@
   .magic4:hover .magicPoints,
   .magic4:hover .manaCurrent,
   .magic4:hover .manaMax {
-    -webkit-transform: rotate(210deg) scale(100%);
-    transform: rotate(210deg) scale(100%);
+    -webkit-transform: rotate(calc(0deg - var(--angle-stone))) scale(100%);
+    transform: rotate(calc(0deg - var(--angle-stone))) scale(100%);
+    transition: 1s .25s;
   }
   
   .magic5 {
-    -webkit-transform: rotate(190deg) translate(6%,0);
-    transform: rotate(190deg) translate(6%,0);
+    -webkit-transform: rotate(var(--angle-plantlife)) translate(6%,0);
+    transform: rotate(var(--angle-plantlife)) translate(6%,0);
   }
   
   .magic5:hover {
@@ -1088,13 +1103,14 @@
   .magic5:hover .magicPoints,
   .magic5:hover .manaCurrent,
   .magic5:hover .manaMax {
-    -webkit-transform: rotate(170deg) scale(100%);
-    transform: rotate(170deg) scale(100%);
+    -webkit-transform: rotate(calc(0deg - var(--angle-plantlife))) scale(100%);
+    transform: rotate(calc(0deg - var(--angle-plantlife))) scale(100%);
+    transition: 1s .25s;
   }
   
   .magic6 {
-    -webkit-transform: rotate(230deg) translate(6%,0);
-    transform: rotate(230deg) translate(6%,0);
+    -webkit-transform: rotate(var(--angle-tremor)) translate(6%,0);
+    transform: rotate(var(--angle-tremor)) translate(6%,0);
   }
   
   .magic6:hover {
@@ -1109,13 +1125,14 @@
   .magic6:hover .magicPoints,
   .magic6:hover .manaCurrent,
   .magic6:hover .manaMax {
-    -webkit-transform: rotate(130deg) scale(100%);
-    transform: rotate(130deg) scale(100%);
+    -webkit-transform: rotate(calc(0deg - var(--angle-tremor))) scale(100%);
+    transform: rotate(calc(0deg - var(--angle-tremor))) scale(100%);
+    transition: 1s .25s;
   }
   
   .magic7 {
-    -webkit-transform: rotate(270deg) translate(6%,0);
-    transform: rotate(270deg) translate(6%,0);
+    -webkit-transform: rotate(var(--angle-lightning)) translate(6%,0);
+    transform: rotate(var(--angle-lightning)) translate(6%,0);
   }
   
   .magic7:hover {
@@ -1130,13 +1147,14 @@
   .magic7:hover .magicPoints,
   .magic7:hover .manaCurrent,
   .magic7:hover .manaMax {
-    -webkit-transform: rotate(90deg) scale(100%);
-    transform: rotate(90deg) scale(100%);
+    -webkit-transform: rotate(calc(0deg - var(--angle-lightning))) scale(100%);
+    transform: rotate(calc(0deg - var(--angle-lightning))) scale(100%);
+    transition: 1s .25s;
   }
   
   .magic8 {
-    -webkit-transform: rotate(310deg) translate(6%,0);
-    transform: rotate(310deg) translate(6%,0);
+    -webkit-transform: rotate(var(--angle-gravity)) translate(6%,0);
+    transform: rotate(var(--angle-gravity)) translate(6%,0);
   }
   
   .magic8:hover {
@@ -1151,13 +1169,14 @@
   .magic8:hover .magicPoints,
   .magic8:hover .manaCurrent,
   .magic8:hover .manaMax {
-    -webkit-transform: rotate(50deg) scale(100%);
-    transform: rotate(50deg) scale(100%);
+    -webkit-transform: rotate(calc(0deg - var(--angle-gravity))) scale(100%);
+    transform: rotate(calc(0deg - var(--angle-gravity))) scale(100%);
+    transition: 1s .25s;
   }
   
   .magic9 {
-    -webkit-transform: rotate(350deg) translate(6%,0);
-    transform: rotate(350deg) translate(6%,0);
+    -webkit-transform: rotate(var(--angle-mind)) translate(6%,0);
+    transform: rotate(var(--angle-mind)) translate(6%,0);
   }
   
   .magic9:hover {
@@ -1172,8 +1191,9 @@
   .magic9:hover .magicPoints,
   .magic9:hover .manaCurrent,
   .magic9:hover .manaMax {
-    -webkit-transform: rotate(10deg) scale(100%);
-    transform: rotate(10deg) scale(100%);
+    -webkit-transform: rotate(calc(0deg - var(--angle-mind))) scale(100%);
+    transform: rotate(calc(0deg - var(--angle-mind))) scale(100%);
+    transition: 1s .25s;
   }
   
   .magicCorePoints {
