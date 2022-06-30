@@ -38,7 +38,7 @@ function logName() {
     console.log(charName)
   }
   
-  if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Gwyn") {
+  if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Aloise") {
     root.style.setProperty('--portrait-image', "url('images/" + charName + ".png')" )
     portraitImage.classList.add("open")
   }
@@ -226,7 +226,7 @@ document.addEventListener("click", e => {
     floatRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "||/" + magicDifficulty.slice(5) + "||]" }
-    if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Gwyn") {
+    if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Aloise") {
       webhookMessage.username = charName
       webhookMessage.avatar_url = "images/" + charName + ".png"
       fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
@@ -284,7 +284,7 @@ document.addEventListener("click", e => {
     floatRoll.children[0].innerHTML = diceRoll
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
-    if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Gwyn") {
+    if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Aloise") {
       webhookMessage.username = charName
       webhookMessage.avatar_url = "images/" + charName + ".png"
       fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
@@ -373,7 +373,7 @@ document.addEventListener("click", e => {
     }
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
-    if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Gwyn") {
+    if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Aloise") {
       webhookMessage.username = charName
       webhookMessage.avatar_url = "images/" + charName + ".png"
       fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
@@ -389,7 +389,7 @@ function sendMessage() {
   let currentMessage = [...document.querySelectorAll("[data-message]")][0]
   console.log(currentMessage.value)
   const webhookMessage = { "content": currentMessage.value }
-  if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Gwyn") {
+  if (charName == "Essedon" || charName == "Jim" || charName == "Gabriel" || charName == "Aloise") {
     webhookMessage.username = charName
     webhookMessage.avatar_url = avatarImageGetter(charName)
     fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
@@ -509,7 +509,7 @@ function avatarImageGetter(name) {
   if (name == "Gabriel") {
     return "https://imgur.com/u7G3dPN.png"    
   }
-  if (name == "Gwyn") {
+  if (name == "Aloise") {
     return ""    
   }
   if (name == "") {
