@@ -287,7 +287,7 @@ document.addEventListener("click", e => {
     displayRoll.children[0].innerHTML = diceRoll
     floatRoll.children[0].innerHTML = diceRoll
 
-    const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
+    const webhookMessage = { "content": generatedMessage + " Roll: [" + diceRoll + "]" }
     if (charName == "Gamemaster" || charName == "Jim" || charName == "Kevrok" || charName == "Aloise") {
       webhookMessage.username = charName
       webhookMessage.username = charName
@@ -519,13 +519,16 @@ function avatarImageGetter(name) {
   //   return ""
   // }
   if (name == "Jim") {
-    return "https://imgur.com/6FWdZKB.png"
+    return "https://imgur.com/6FWdZKB.png"    
+  }
+  if (name == "Kevrok") {
+    return "https://imgur.com/u7G3dPN.png"    
   } else {
     return "null"
   }
-  if (name == "Aloise") {
-    return "https://imgur.com/WiAfEEw.png"    
-  }
+  // if (name == "Aloise") {
+  //   return ""    
+  // }
   // if (name == "") {
   //   return ""
   // }
