@@ -290,7 +290,6 @@ document.addEventListener("click", e => {
     const webhookMessage = { "content": generatedMessage + " Roll: [" + diceRoll + "]" }
     if (charName == "Gamemaster" || charName == "Jim" || charName == "Kevrok" || charName == "Aloise") {
       webhookMessage.username = charName
-      webhookMessage.username = charName
       webhookMessage.avatar_url = avatarImageGetter(charName)
       fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
     } else if (charName == "Essedon") {
@@ -382,7 +381,6 @@ document.addEventListener("click", e => {
 
     const webhookMessage = { "content": generatedMessage + "[" + diceRoll + "]" }
     if (charName == "Gamemaster" || charName == "Jim" || charName == "Kevrok" || charName == "Aloise") {
-      webhookMessage.username = charName
       webhookMessage.username = charName
       webhookMessage.avatar_url = avatarImageGetter(charName)
       fetch(webhookMessageURL + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(webhookMessage)}) .then(a=>a.json()).then(console.log)
